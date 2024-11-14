@@ -2,7 +2,7 @@
 
 Welcome to the source code of my designer portfolio! This repository houses my journey as a UI/UX and brand designer, where every project reflects my dedication to minimalistic, user-centric design.
 
-🌐 **Live Portfolio**: [Check out my work here](your-portfolio-link)
+🌐 **Live Portfolio**: [Check out my work here](https://designvijval.netlify.app/)
 
 ---
 
@@ -22,7 +22,7 @@ I'm Vijval, a passionate UI/UX and brand designer with a knack for creating visu
 
 ## 📫 Connect with Me
 
-Feel free to reach out if you’d like to collaborate or discuss design! Connect with me on [LinkedIn](your-linkedin-profile) or [email me](mailto:your-email).
+Feel free to reach out if you’d like to collaborate or discuss design! Connect with me on [LinkedIn](https://www.linkedin.com/in/vijval-anand/) or [email me](mailto:anand.vijval@gmail.com).
 
 ---
 
