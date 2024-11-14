@@ -194,6 +194,16 @@ section {
   margin-bottom: 1rem;
 }
 
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+#typewriter {
+  display: inline;
+  border-right: 2px solid black;
+  animation: blink 0.75s step-end infinite;
+}
+
 .title {
   font-size: 3rem;
   text-align: center;
