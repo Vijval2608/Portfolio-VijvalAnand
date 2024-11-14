@@ -1,1 +1,1 @@
-Hi, I'm Vijval – a UI/UX and brand designer passionate about crafting beautiful, user-friendly digital experiences. I specialize in minimalistic, impactful designs for startups, nonprofits, and various brands. With expertise in both design and technology, I create intuitive solutions that elevate user engagement. Outside work, I’m an art enthusiast and enjoy exploring creative challenges. Let’s build something incredible together!
+
