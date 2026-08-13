@@ -8,21 +8,6 @@
    internal family/PostScript names that Figma displays, so explicitly map
    the common names used by Mexcellent and Talina DEMO. No font binaries are
    bundled here. */
-@font-face{
-  font-family:'MexcellentLocal';
-  src:local('Mexcellent Regular'),local('Mexcellent'),local('Mexcellent-Regular'),local('mexcellent-regular');
-  font-style:normal;
-  font-weight:400;
-  font-display:block;
-}
-@font-face{
-  font-family:'TalinaLocal';
-  src:local('Talina DEMO'),local('TalinaDEMO-Regular'),local('Talina DEMO Regular'),local('Talina Demo'),local('Talina');
-  font-style:normal;
-  font-weight:400;
-  font-display:block;
-}
-
 .figma-work-section{
   --fw-bg:#f2e9db;
   --fw-ink:#1e1e1e;

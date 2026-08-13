@@ -469,3 +469,13 @@ How I Work v2: fixed vertical perforation clipping, restored exact Figma header/
 - Restored normal visible root overflow outside viewer/menu states.
 - How I Work CSS, JS, and markup remain unchanged and match the stable V49 implementation.
 - This restores the horizontal lock and makes the runway release directly into the existing Skills spacing instead of a blank gap.
+
+
+## V54 - Cross-device custom font loading
+- Added global fonts.css loaded before component styles.
+- MexcellentLocal now loads from assets/fonts/Mexcellent Rg.otf when not installed locally.
+- TalinaLocal now loads from assets/fonts/Talina DEMO.otf when not installed locally.
+- EditUndoLocal now loads from assets/fonts/edunline.ttf when not installed locally.
+- All three use font-display:swap for reliable mobile rendering.
+- Removed the old section-specific local-only @font-face definitions.
+- No layout, animation, responsive, Work, or How I Work behavior changed from V53.

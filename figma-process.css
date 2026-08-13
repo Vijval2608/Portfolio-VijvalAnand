@@ -2,14 +2,6 @@
    HOW I WORK — refined scroll implementation
    ============================================================ */
 
-@font-face{
-  font-family:'EditUndoLocal';
-  src:local('Edit Undo Line BRK'),local('Edit_Undo_Line_BRK'),local('Edit Undo Line BRK Regular'),local('Edit Undo Line');
-  font-style:normal;
-  font-weight:400;
-  font-display:swap;
-}
-
 .figma-process-section{
   --fp-bg:#f2e9db;
   --fp-ink:#1e1e1e;
