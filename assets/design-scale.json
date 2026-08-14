@@ -1,6 +1,0 @@
-{
-  "designScale": 0.9,
-  "intent": "Make browser 100% visually match the previous build viewed at Chrome 90% zoom.",
-  "method": "Baked 0.9 multiplier into CSS px geometry, CSS media-query px breakpoints, HTML inline px values, JS px strings, GSAP x/y pixel offsets, and JS viewport breakpoint thresholds. vw/vh/% values and animation timing are unchanged.",
-  "sourceBackup": "_scale-source/"
-}
