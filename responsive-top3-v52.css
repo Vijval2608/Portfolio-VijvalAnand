@@ -178,7 +178,7 @@ svg{
     width:124px!important;
     flex:0 0 124px!important;
     height:38px!important;
-    padding:0 9px 0 13px!important;
+    padding:0 9px!important;
     font-size:9px!important;
   }
 
@@ -230,7 +230,7 @@ svg{
     color:var(--fh-orange)!important;
     font-size:9px!important;
     line-height:1.4!important;
-    text-align:center!important;
+    text-align:right!important;
     opacity:0;
     translate:0 3px;
   }

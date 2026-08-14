@@ -59,7 +59,7 @@
   box-shadow:0 2.7px 8.64px 0.9px rgba(0,0,0,.08), inset 0 0.9px 0 rgba(255,255,255,.22);
   -webkit-backdrop-filter:blur(14.4px) saturate(1.04);
   backdrop-filter:blur(14.4px) saturate(1.04);
-  font-family:Inter,Arial,sans-serif;
+  font-family:Poppins,Arial,sans-serif;
   box-sizing:border-box;
 }
 .figma-nav::before,
@@ -221,7 +221,7 @@
   flex:0 0 50.1858736%;
   gap:1.4814815%;
   justify-content:flex-start;
-  padding:0 8.8888889% 0 13.3333333%;
+  padding:0 8.8888889% 0 8.8888889%;
   color:var(--fh-ink);
   font-size:.6613757cqw;
   font-weight:300;
@@ -863,7 +863,7 @@
   justify-content:center;
   height:27px;
   padding:0;
-  font:400 9.9px/1.2 Inter,Arial,sans-serif;
+  font:400 9.9px/1.2 Poppins,Arial,sans-serif;
   color:var(--fh-ink);
   white-space:nowrap;
   text-decoration:none;
@@ -1099,7 +1099,7 @@
    internal layout or spring system. transform-scale is separate from the
    site's viewport-driven CSS scale property. */
 .figma-music-card.figma-liquid-glass{
-  transform:scale(1.075);
+  transform:none;
   transform-origin:center center;
 }
 
@@ -1112,7 +1112,7 @@
 
 @media (max-width:738px){
   .figma-music-card.figma-liquid-glass{
-    transform:scale(1.04);
+    transform:none;
     transform-origin:right bottom;
   }
 
@@ -1339,7 +1339,7 @@
   position:relative;
   display:inline-block;
   width:max-content;
-  padding:0 0 3px;
+  padding:0;
   color:inherit;
   line-height:1.2;
 }
@@ -1348,7 +1348,7 @@
 .figma-nav .figma-nav-hover-line{
   position:absolute;
   left:0;
-  bottom:0;
+  bottom:-3px;
   width:100%;
   height:1.2px;
   display:block;
@@ -1513,7 +1513,8 @@ html.hero-intro-pending .figma-nav{
 .figma-music-hover-note{
   position:absolute;
   z-index:10;
-  left:63.4920635%;
+  left:auto;
+  right:16.2657077%;
   top:79.25%;
   width:19.510582%;
   margin:0;
@@ -1523,6 +1524,7 @@ html.hero-intro-pending .figma-nav{
   font-weight:300;
   line-height:1.4;
   letter-spacing:-.08px;
+  text-align:right;
   opacity:0;
   translate:0 4px;
   pointer-events:none;
@@ -1542,4 +1544,28 @@ html.hero-intro-pending .figma-nav{
   .figma-music-hover-note{
     transition:none!important;
   }
+}
+
+
+/* ==========================================================================
+   V56 MUSIC CARD NATIVE-PIXEL RENDERING
+   ========================================================================== */
+@media (min-width:775px){
+  .figma-music-card.figma-liquid-glass{left:62.7604167%!important;top:62.6960285%!important;width:20.9738757%!important;height:15.5448065%!important;padding:1.4219576cqw!important;gap:1.2797619cqw!important;transform:none!important;}
+  .figma-music-card .figma-album-art{flex-basis:4.8346561cqw!important;width:4.8346561cqw!important;height:7.2519841cqw!important;}
+  .figma-music-card .figma-track-info{flex-basis:12.0155424cqw!important;width:12.0155424cqw!important;gap:0.8531746cqw!important;}
+  .figma-music-card .figma-playing-label{font-size:9.675px!important;margin-bottom:2.150px!important;}
+  .figma-music-card .figma-track-copy strong{font-size:14.190px!important;padding-top:0.322px!important;padding-bottom:0.322px!important;}
+  .figma-music-card .figma-track-artist{font-size:9.675px!important;}
+  .figma-music-card .figma-player-row{min-height:1.6880012cqw!important;gap:0.7109789cqw!important;}
+  .figma-waveform{flex-basis:6.8253968cqw!important;width:6.8253968cqw!important;height:1.2797619cqw!important;gap:0.1421957cqw!important;}
+  .figma-waveform .wave-bar{flex-basis:0.1421957cqw!important;width:0.1421957cqw!important;max-height:1.2797619cqw!important;}
+  .figma-music-card .figma-sound-toggle.figma-liquid-glass-toggle{width:52.675px!important;height:26.875px!important;flex-basis:52.675px!important;border-radius:13.975px!important;}
+  .figma-music-card .figma-sound-icon{top:3.225px!important;left:29.025px!important;width:20.425px!important;height:20.425px!important;border-radius:10.750px!important;}
+  .figma-music-card .figma-sound-icon img{width:11.287px!important;height:11.287px!important;}
+  .figma-music-card .figma-sound-label{left:3.225px!important;width:22.575px!important;font-size:9.675px!important;}
+  .figma-music-card .figma-sound-toggle[aria-pressed="true"] .figma-sound-icon{left:3.225px!important;}
+  .figma-music-card .figma-sound-toggle[aria-pressed="true"] .figma-sound-label{left:25.800px!important;}
+  .figma-mute-slash{width:10.750px!important;}
+  .figma-music-card.figma-liquid-glass:hover,.figma-music-card.figma-liquid-glass:focus-within{transform:scale(1.027907)!important;}
 }

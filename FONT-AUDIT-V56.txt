@@ -1,0 +1,22 @@
+V56 LIVE FONT AUDIT
+
+Self-hosted custom fonts kept in your GitHub repo:
+- MexcellentLocal -> assets/fonts/Mexcellent Rg.otf
+- TalinaLocal -> assets/fonts/Talina DEMO.otf
+- EditUndoLocal -> assets/fonts/edunline.ttf
+
+Web-loaded exact families:
+- Bricolage Grotesque
+- Hachi Maru Pop
+- IBM Plex Mono
+- Poppins
+
+Hero display face:
+- Impact
+
+V56 cleanup:
+- Poppins is used throughout the UI sans locations.
+- Archivo Black removed from Hero fallback and Google request.
+- DM Mono and Manrope removed from Google request.
+
+Impact is not substituted. To guarantee it on devices without Impact installed, self-host the licensed Impact font file later.

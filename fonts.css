@@ -1,10 +1,18 @@
 /* ==========================================================================
-   V54 SELF-HOSTED CUSTOM FONTS
+   V55 CUSTOM FONT LAYER
 
-   Place these files in assets/fonts/:
+   These 3 design-specific fonts are self-hosted from assets/fonts/:
    - Mexcellent Rg.otf
    - Talina DEMO.otf
    - edunline.ttf
+
+   The required open web families are loaded in index.html:
+   Bricolage Grotesque, Hachi Maru Pop, IBM Plex Mono, Poppins.
+
+   Poppins is now the sole UI sans family in those locations. Archivo Black, DM Mono and Manrope
+   are not loaded in V56.
+
+   Generic fallbacks (sans-serif / serif / monospace) are browser-provided.
    ========================================================================== */
 
 @font-face{

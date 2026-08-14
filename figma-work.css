@@ -1219,10 +1219,10 @@ body.viewer-open .figma-nav{
 }
 
 .figma-work-figma{
-  width:100.8px;
-  min-width:100.8px;
+  width:auto;
+  min-width:0;
   height:37.8px;
-  flex:0 0 100.8px;
+  flex:0 0 auto;
   padding:0 10.8px 0 16.2px;
   border:0;
   border-radius:63px;
@@ -1329,10 +1329,10 @@ body.viewer-open .figma-nav{
   }
 
   .figma-work-figma{
-    width:91.8px;
-    min-width:91.8px;
+    width:auto;
+    min-width:0;
     height:34.2px;
-    flex-basis:91.8px;
+    flex-basis:auto;
     padding:0 9px 0 12.6px;
     gap:9px;
     font-size:9px;
@@ -1356,10 +1356,10 @@ body.viewer-open .figma-nav{
   }
 
   .figma-work-figma{
-    width:82.8px;
-    min-width:82.8px;
+    width:auto;
+    min-width:0;
     height:34.2px;
-    flex-basis:82.8px;
+    flex-basis:auto;
     padding:0 7.2px 0 10.8px;
     gap:7.2px;
     font-size:8.1px;

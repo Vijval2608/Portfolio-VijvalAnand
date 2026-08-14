@@ -479,3 +479,29 @@ How I Work v2: fixed vertical perforation clipping, restored exact Figma header/
 - All three use font-display:swap for reliable mobile rendering.
 - Removed the old section-specific local-only @font-face definitions.
 - No layout, animation, responsive, Work, or How I Work behavior changed from V53.
+
+
+## V55 - Complete live-font coverage
+- Audited every font-family used by the live CSS.
+- Consolidated all Google-hosted families into one request.
+- Added missing DM Mono and Manrope web loading.
+- Earlier V55 webfont coverage was superseded by the V56 exact-font cleanup.
+- The three custom families continue to self-host from assets/fonts/.
+- Hero still prefers Impact but now has guaranteed downloaded Archivo Black immediately behind it.
+- Removed unused fonts.cdnfonts.com preconnect.
+- No layout, animation, horizontal-scroll, Work, Skills, or responsive behavior changed.
+
+
+## V56 - Requested refinement pass
+- Poppins now replaces the former UI sans family throughout live styles and webfont loading.
+- Figma Work CTA now hugs contents only; other styling unchanged.
+- Music hover note is right-aligned to the music card right edge at the same vertical position.
+- Music card permanent fractional transform scaling removed; same apparent desktop size recreated with native layout dimensions for sharper 100% rendering.
+- Download Resume left padding now matches 8.8889% right padding; mobile stacked override made symmetric.
+- How I Work CSS/JS unchanged.
+
+
+## V57 - Navbar vertical alignment
+- Navbar labels now have zero bottom padding, so Work, Skills, About, Experience and Resume are vertically centered at rest.
+- The orange underline is positioned 3px below the text instead of consuming label height.
+- Hover underline animation and all other navbar/site behavior are unchanged.
