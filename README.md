@@ -505,3 +505,10 @@ How I Work v2: fixed vertical perforation clipping, restored exact Figma header/
 - Navbar labels now have zero bottom padding, so Work, Skills, About, Experience and Resume are vertically centered at rest.
 - The orange underline is positioned 3px below the text instead of consuming label height.
 - Hover underline animation and all other navbar/site behavior are unchanged.
+
+
+## V58 - Exact Impact mobile fix
+- Added `ImpactLocal` @font-face pointing to `assets/fonts/Impact 400.ttf`.
+- Hero now uses `ImpactLocal` first, so phones download the actual Impact file instead of relying on system installation.
+- Added an above-the-fold font preload for Impact.
+- No other design, animation, responsive, navbar, Work or section behavior changed from V57.

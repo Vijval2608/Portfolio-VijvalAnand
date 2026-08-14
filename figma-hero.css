@@ -130,7 +130,7 @@
 .figma-name{
   position:absolute;
   z-index:2;
-  font-family:Impact,Haettenschweiler,'Arial Narrow Bold','Arial Narrow',sans-serif;
+  font-family:'ImpactLocal',Impact,Haettenschweiler,'Arial Narrow Bold','Arial Narrow',sans-serif;
   font-size:16.5343915cqw;
   line-height:normal;
   letter-spacing:-.4960317cqw;
