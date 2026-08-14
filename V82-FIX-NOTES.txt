@@ -1,0 +1,24 @@
+V82 — FONT + VIEWER REGRESSION FIX
+==================================
+
+Baseline: v81 safe production optimized.
+
+Fixed:
+- Restored self-hosted URL sources for Mexcellent, Talina DEMO, Edit Undo Line,
+  and Impact. Desktop local-font resolution is retained as the first option.
+- Added a dedicated viewer close controller to the current figma-work runtime.
+- Close button, backdrop/blank space and Escape now all close the viewer.
+- Closing releases video/audio/iframe media and restores body scrolling.
+- Added touch-action: manipulation to the close/backdrop controls.
+
+Preserved:
+- v79 startup animation behavior.
+- v79 waveform behavior and preload strategy from v81.
+- v79 phone Experience timeline spring-anchor fix.
+- v81 safe asset optimizations.
+
+IMPORTANT:
+The actual custom font binaries are not contained in this package. Put the four
+font files named in assets/fonts/FONT-FILES-REQUIRED.txt into that directory
+before deploying. This is required for phones and machines that do not already
+have the fonts installed.

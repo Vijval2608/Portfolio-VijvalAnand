@@ -1424,3 +1424,10 @@ body.viewer-open .figma-nav{
   -webkit-backdrop-filter:blur(27px) saturate(1.34) contrast(1.02)!important;
   backdrop-filter:blur(27px) saturate(1.34) contrast(1.02)!important;
 }
+
+/* V82: make modal exit controls deterministic on touch browsers. */
+.viewer-close,
+.viewer-backdrop{
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}

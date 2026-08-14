@@ -695,3 +695,68 @@
   renderStack();
   resolveDisplayFonts();
 })();
+
+/* ==========================================================================\n   V82 — PROJECT VIEWER CLOSE CONTROLLER\n   The optimized build no longer loads the legacy refine.js. Keep all viewer\n   closing behavior here beside the current Work runtime instead.\n   ========================================================================== */
+(() => {
+  const viewer = document.querySelector('#viewer');
+  const viewerContent = document.querySelector('#viewer-content');
+  const viewerClose = document.querySelector('#viewer-close');
+  const viewerBackdrop = viewer?.querySelector('.viewer-backdrop');
+
+  if (!viewer) return;
+
+  let clearTimer = 0;
+
+  function closeProjectViewer() {
+    if (!viewer.classList.contains('open')) return;
+
+    clearTimeout(clearTimer);
+
+    // Stop expensive media immediately before the closing transition.
+    viewerContent?.querySelectorAll('video,audio').forEach(media => {
+      try { media.pause(); } catch (_) {}
+      try { media.removeAttribute('src'); media.load(); } catch (_) {}
+    });
+
+    // Stop an embedded PDF/page from continuing work after the modal closes.
+    viewerContent?.querySelectorAll('iframe').forEach(frame => {
+      try { frame.src = 'about:blank'; } catch (_) {}
+    });
+
+    viewer.classList.remove('open');
+    viewer.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('viewer-open');
+
+    clearTimer = window.setTimeout(() => {
+      if (viewerContent && !viewer.classList.contains('open')) {
+        viewerContent.innerHTML = '';
+      }
+    }, 280);
+  }
+
+  // Dedicated close button.
+  viewerClose?.addEventListener('click', event => {
+    event.preventDefault();
+    event.stopPropagation();
+    closeProjectViewer();
+  });
+
+  // Any blank/backdrop region around the viewer shell.
+  viewerBackdrop?.addEventListener('click', event => {
+    event.preventDefault();
+    closeProjectViewer();
+  });
+
+  // Defensive fallback if a browser reports the outer viewer itself as the tap target.
+  viewer.addEventListener('click', event => {
+    if (event.target === viewer) closeProjectViewer();
+  });
+
+  // Desktop accessibility / emergency exit.
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && viewer.classList.contains('open')) {
+      event.preventDefault();
+      closeProjectViewer();
+    }
+  });
+})();
