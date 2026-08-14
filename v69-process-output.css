@@ -1,0 +1,32 @@
+/* ==========================================================================
+   V69 — PROCESS OUTPUT COLUMN WIDTH
+   Phone only. Keeps the exact V68 equal-card geometry.
+   ========================================================================== */
+
+@media (max-width:600px){
+  /* Match the Output block to the same 165 / 285 Figma copy-column width
+     used by the description. This lets longer outputs wrap naturally. */
+  .figma-film-output{
+    width:57.8947368%!important; /* 165 / 285 */
+    max-width:min(42.3076923vw,165px)!important;
+    flex:0 0 auto!important;
+
+    white-space:normal!important;
+    overflow-wrap:normal!important;
+    word-break:normal!important;
+  }
+
+  .figma-film-output strong,
+  .figma-film-output b{
+    width:100%!important;
+    max-width:100%!important;
+    white-space:normal!important;
+  }
+
+  /* Explicitly preserve V68's shared largest-card height for ALL 4 cards. */
+  .figma-film-card-process{
+    height:var(--process-phone-card-height)!important;
+    min-height:var(--process-phone-card-height)!important;
+    flex-basis:var(--process-phone-card-height)!important;
+  }
+}

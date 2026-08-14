@@ -1,0 +1,177 @@
+/* ==========================================================================
+   V72 — PHONE EXPERIENCE RAIL FIX + ABOUT COLUMN BALANCE
+   ========================================================================== */
+
+@media (max-width:600px){
+  :root{
+    /* 390px reference.
+       A wider dedicated rail lane keeps timeline + node halos completely
+       separate from the experience cards. */
+    --phone-exp-rail-lane:min(11.2820513vw,44px);
+    --phone-exp-rail-x:min(2.5641026vw,10px);
+    --phone-exp-node-box:14px;
+
+    --phone-about-meta-gap:min(3.0769231vw,12px);
+  }
+
+  /* ----------------------------------------------------------------------
+     EXPERIENCE
+     ---------------------------------------------------------------------- */
+  .experience-section .career-timeline{
+    position:relative!important;
+    width:100%!important;
+
+    /* Cards begin only after the dedicated timeline lane. */
+    padding-left:var(--phone-exp-rail-lane)!important;
+    box-sizing:border-box!important;
+
+    overflow:visible!important;
+  }
+
+  /* Base line lives fully inside the rail lane. */
+  .experience-section .career-line{
+    position:absolute!important;
+    z-index:10!important;
+
+    left:var(--phone-exp-rail-x)!important;
+    top:min(2.0512821vw,8px)!important;
+    bottom:min(2.0512821vw,8px)!important;
+
+    width:2px!important;
+    height:auto!important;
+
+    transform:none!important;
+    overflow:visible!important;
+
+    background:rgba(72,52,38,.30)!important;
+    border-radius:999px!important;
+    opacity:1!important;
+  }
+
+  /* Explicitly keep the animated desktop progress logic visible on phone.
+     script.js still animates scaleY from 0 -> 1. */
+  .experience-section .career-line span{
+    position:absolute!important;
+    z-index:2!important;
+    inset:0!important;
+
+    display:block!important;
+    width:2px!important;
+    height:100%!important;
+
+    margin:0!important;
+    border-radius:999px!important;
+
+    background:linear-gradient(
+      to bottom,
+      var(--exp-orange) 0%,
+      var(--exp-mustard) 49%,
+      var(--exp-olive) 100%
+    )!important;
+
+    transform:scaleY(0);
+    transform-origin:top center!important;
+    opacity:1!important;
+    will-change:transform!important;
+  }
+
+  .experience-section .career-line::before,
+  .experience-section .career-line::after{
+    left:50%!important;
+    width:7px!important;
+    height:7px!important;
+
+    border:1px solid rgba(72,52,38,.34)!important;
+    background:var(--exp-bg)!important;
+
+    transform:translateX(-50%)!important;
+    z-index:4!important;
+  }
+
+  .experience-section .career-item,
+  .experience-section .career-item:nth-of-type(even){
+    position:relative!important;
+    width:100%!important;
+    box-sizing:border-box!important;
+  }
+
+  /* Center the 14px border-box node on the shared rail coordinate.
+     Item x begins after the 44px lane:
+       node left = railX - lane - halfNode
+       10 - 44 - 7 = -41px @390 */
+  .experience-section .career-node{
+    position:absolute!important;
+    z-index:12!important;
+
+    left:calc(
+      var(--phone-exp-rail-x)
+      - var(--phone-exp-rail-lane)
+      - (var(--phone-exp-node-box) / 2)
+    )!important;
+    top:-1px!important;
+
+    width:10px!important;
+    height:10px!important;
+    margin:0!important;
+
+    border:2px solid var(--exp-bg)!important;
+    background:#d9cbb9!important;
+
+    box-shadow:
+      0 0 0 1px rgba(72,52,38,.28),
+      0 0 0 4px var(--exp-bg)!important;
+  }
+
+  .experience-section .career-item.is-active .career-node{
+    background:var(--exp-orange)!important;
+    border-color:var(--exp-bg)!important;
+
+    box-shadow:
+      0 0 0 1px var(--exp-orange),
+      0 0 0 4px var(--exp-bg),
+      0 0 0 7px rgba(252,81,52,.11)!important;
+  }
+
+  /* Cards remain exactly the existing mobile design, just safely separated
+     from the rail by the dedicated lane. */
+  .experience-section .career-card,
+  .experience-section .career-item:nth-of-type(even) .career-card{
+    position:relative!important;
+    z-index:2!important;
+    width:100%!important;
+    box-sizing:border-box!important;
+  }
+
+  .experience-section .career-date{
+    position:relative!important;
+    z-index:3!important;
+  }
+
+  /* ----------------------------------------------------------------------
+     ABOUT
+     Background intentionally takes less horizontal space so Default mode
+     can keep its main value on a single line.
+     ---------------------------------------------------------------------- */
+  .about-meta-rail{
+    grid-template-columns:minmax(0,.66fr) minmax(0,1.34fr)!important;
+    gap:var(--phone-about-meta-gap)!important;
+    width:100%!important;
+  }
+
+  .about-meta-rail > div{
+    min-width:0!important;
+  }
+
+  .about-meta-rail > div:nth-child(2) strong{
+    white-space:nowrap!important;
+    overflow-wrap:normal!important;
+    word-break:normal!important;
+    font-size:clamp(9.5px,2.8205128vw,11px)!important;
+  }
+
+  .about-meta-rail > div:first-child strong,
+  .about-meta-rail > div:first-child small,
+  .about-meta-rail > div:nth-child(2) small{
+    white-space:normal!important;
+  }
+}

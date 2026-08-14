@@ -1,0 +1,39 @@
+VIJVAL PORTFOLIO — V81 SAFE PRODUCTION OPTIMIZATION
+==================================================
+
+BASELINE
+- Built directly from the working V79 build.
+- V79 startup/hero animation implementation is preserved exactly.
+- V79 waveform animation implementation is preserved exactly (height-based bars; no scaleY rewrite).
+- V79 phone Experience timeline spring-anchor fix is preserved exactly.
+
+RESTORED AFTER V80
+- Original synchronous script execution order restored.
+- Original figma-hero.js restored byte-for-byte.
+- Original startup hero entrance sequence restored byte-for-byte.
+- Original sweet-dreams-waveform.js restored byte-for-byte.
+- Waveform payload is preloaded in <head> and still executes before figma-hero.js.
+- Original <audio preload="auto" src="assets/audio/sweet-dreams.mp3"> behavior restored.
+- Original waveform bar height animation restored; no --wave-scale / scaleY optimization.
+- Original waveform-pixel-snap-v64.js restored byte-for-byte.
+
+SAFE OPTIMIZATIONS RETAINED
+- Sweet Dreams hero artwork: ~1.89 MB PNG -> ~43 KB WebP (360x540).
+- About portrait: ~338 KB 1425x2048 JPG -> ~67 KB 800x1150 WebP.
+- Dior concept video: ~4.33 MB -> ~2.84 MB, same 1920x1088 / 24fps with audio retained.
+- Removed the obsolete legacy projects.js/refine.js runtime which targeted old #work-list/#work-preview selectors and eagerly preloaded unused Serene/Rupantaran/ZenMe assets.
+- Removed those unused legacy images and unused full Nippon PNG.
+- Removed development snapshots/source folders from deploy package.
+- Removed broken Impact font preload request.
+- Removed offscreen FitTribe image preload so Hero requests get network priority.
+- Added conservative static-host cache headers.
+
+INTENTIONALLY NOT OPTIMIZED IN V81
+- No CSS bundling/minification.
+- No JS bundling/minification.
+- No defer/async changes to the original runtime scripts.
+- No requestAnimationFrame rewrites.
+- No GSAP lifecycle changes.
+- No Process/About animation pausing.
+- No waveform transform optimization.
+These were deliberately left alone because visual/interaction parity with V79 is more important than micro-optimizations.

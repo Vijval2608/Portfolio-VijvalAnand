@@ -1,0 +1,175 @@
+/* ==========================================================================
+   V70 — PHONE PROCESS WIDTH + SKILLS READABILITY
+   Uses the established 390px reference / viewport-ratio convention.
+   Phone only. Desktop and tablet stay unchanged.
+   ========================================================================== */
+
+@media (max-width:600px){
+
+  /* ----------------------------------------------------------------------
+     HOW I WORK
+     Fill the complete free width between the already-established equal phone
+     gutters. Height/content/number geometry stays V69, and all four cards
+     continue to use the same shared largest-card height.
+     ---------------------------------------------------------------------- */
+  .figma-film-card-process{
+    width:100%!important;
+    max-width:none!important;
+    align-self:stretch!important;
+
+    height:var(--process-phone-card-height)!important;
+    min-height:var(--process-phone-card-height)!important;
+    flex-basis:var(--process-phone-card-height)!important;
+  }
+
+  /* ----------------------------------------------------------------------
+     SKILLS — phone responsive tokens
+
+     The original note art was designed as fixed Figma clusters and already
+     keeps tape + paper nested in the same wrapper. We preserve that model,
+     but enlarge the wrapper scale and the INTERNAL typography separately so
+     the copy is genuinely readable after scaling.
+
+     390px is the reference:
+       cluster scale = .90
+       sticky heading source = 24px -> ~21.6px visible
+       sticky list source = 13.2px -> ~11.9px visible
+     ---------------------------------------------------------------------- */
+  :root{
+    --phone-skill-cluster-scale:.90;
+
+    --phone-skill-note-heading:min(6.1538462vw,24px);
+    --phone-skill-note-body:min(3.3846154vw,13.2px);
+    --phone-skill-note-line:min(4.4358974vw,17.3px);
+    --phone-skill-note-gap:min(.6153846vw,2.4px);
+
+    --phone-skills-product-top:min(76.9230769vw,300px);
+    --phone-skills-research-top:min(156.4102564vw,610px);
+    --phone-skills-tools-top:min(228.2051282vw,890px);
+    --phone-skills-visual-top:min(300vw,1170px);
+
+    /* About 108px visual breathing room after the final enlarged sticky note
+       at the 390px reference. */
+    --phone-skills-window-top:min(394.8717949vw,1540px);
+    --phone-skills-stage-height:min(487.1794872vw,1900px);
+  }
+
+  .figma-skills-section{
+    height:auto!important;
+    min-height:0!important;
+    overflow:hidden!important;
+  }
+
+  .figma-skills-stage{
+    width:100%!important;
+    min-height:var(--phone-skills-stage-height)!important;
+    height:auto!important;
+
+    /* Keep V60's equal page gutters; only vertical rhythm is adjusted. */
+    padding-top:min(21.025641vw,82px)!important;
+    padding-bottom:min(20.5128205vw,80px)!important;
+    box-sizing:border-box!important;
+  }
+
+  .figma-skills-kicker{
+    margin-bottom:min(6.1538462vw,24px)!important;
+  }
+
+  /* Main heading size continues to come from V66's shared phone
+     --phone-section-heading-size token. */
+  .figma-skills-title{
+    margin-bottom:min(13.3333333vw,52px)!important;
+    line-height:1.08!important;
+    white-space:normal!important;
+  }
+
+  /* -------------------- cluster scale + alternating layout ------------- */
+  .figma-sticky-wrap{
+    transform:scale(var(--phone-skill-cluster-scale))!important;
+    transform-origin:top left!important;
+  }
+
+  .figma-sticky-product{
+    left:0!important;
+    right:auto!important;
+    top:var(--phone-skills-product-top)!important;
+    transform-origin:top left!important;
+  }
+
+  .figma-sticky-research{
+    left:auto!important;
+    right:0!important;
+    top:var(--phone-skills-research-top)!important;
+    transform-origin:top right!important;
+  }
+
+  .figma-sticky-tools{
+    left:0!important;
+    right:auto!important;
+    top:var(--phone-skills-tools-top)!important;
+    transform-origin:top left!important;
+  }
+
+  .figma-sticky-visual{
+    left:auto!important;
+    right:0!important;
+    top:var(--phone-skills-visual-top)!important;
+    transform-origin:top right!important;
+  }
+
+  /* ------------------------ readable note type -------------------------- */
+  .figma-sticky-note h3{
+    font-size:var(--phone-skill-note-heading)!important;
+    letter-spacing:-.03em!important;
+  }
+
+  .figma-sticky-note ul{
+    gap:var(--phone-skill-note-gap)!important;
+
+    font-size:var(--phone-skill-note-body)!important;
+    line-height:var(--phone-skill-note-line)!important;
+    letter-spacing:-.03em!important;
+  }
+
+  /* Give longer skill names enough horizontal room instead of letting the
+     larger type clip inside the paper. */
+  .figma-sticky-note-product ul{
+    width:180px!important;
+  }
+
+  .figma-sticky-note-research ul{
+    width:180px!important;
+  }
+
+  .figma-sticky-note-visual ul{
+    width:190px!important;
+  }
+
+  /* Tools has two columns and its own typography declaration in the original
+     CSS, so it needs an explicit matching override. */
+  .figma-tools-columns{
+    gap:6px!important;
+
+    font-size:var(--phone-skill-note-body)!important;
+    line-height:var(--phone-skill-note-line)!important;
+    letter-spacing:-.03em!important;
+  }
+
+  .figma-tools-columns ul{
+    gap:var(--phone-skill-note-gap)!important;
+  }
+
+  /* ------------------------ illustration gap ---------------------------- */
+  .figma-skills-window{
+    left:0!important;
+    right:auto!important;
+    top:var(--phone-skills-window-top)!important;
+
+    width:100%!important;
+    max-width:100%!important;
+    height:auto!important;
+    aspect-ratio:623 / 565!important;
+
+    transform:none!important;
+  }
+}

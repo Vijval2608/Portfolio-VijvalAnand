@@ -1,0 +1,510 @@
+/* ============================================================
+   SKILLS — exact implementation of redesigned Figma node 478:6523
+   Source frame: 1512 × 1478
+   Values below are baked to the portfolio's existing 90% design scale.
+   ============================================================ */
+
+.figma-skills-section{
+  --fs-bg:#f2e9db;
+  --fs-ink:#1e1e1e;
+  --fs-accent:#fc5134;
+  position:relative;
+  width:100%;
+  height:1330.2px;
+  min-height:1330.2px;
+  overflow:hidden;
+  background:var(--fs-bg);
+  color:var(--fs-ink);
+}
+
+.figma-skills-stage{
+  position:relative;
+  width:1360.8px;
+  height:1330.2px;
+  margin:0 auto;
+}
+
+.figma-skills-kicker{
+  position:absolute;
+  z-index:10;
+  left:90px;
+  top:149.4px;
+  margin:0;
+  color:var(--fs-accent);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.6px;
+  font-weight:400;
+  line-height:12.6px;
+  white-space:nowrap;
+  text-rendering:geometricPrecision;
+}
+
+.figma-skills-title{
+  position:absolute;
+  z-index:10;
+  left:90px;
+  top:182.7px;
+  width:405.9px;
+  height:69.3px;
+  margin:0;
+  color:var(--fs-ink);
+  font-family:'MexcellentLocal','Mexcellent','Mexcellent Regular',sans-serif;
+  font-size:57.6px;
+  font-weight:400;
+  line-height:69.3px;
+  letter-spacing:-1.728px;
+  white-space:nowrap;
+  font-synthesis:none;
+  font-kerning:none;
+  text-rendering:geometricPrecision;
+}
+
+/* ---------- notes ---------- */
+.figma-sticky-wrap{
+  position:absolute;
+  z-index:3;
+  isolation:isolate;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+}
+
+.figma-sticky-note{
+  position:relative;
+  flex:none;
+  overflow:hidden;
+  color:var(--fs-ink);
+  box-shadow:10.8px 10.8px 27.81px rgba(0,0,0,.10);
+  transform-origin:center;
+  backface-visibility:hidden;
+}
+
+.figma-sticky-note h3{
+  position:absolute;
+  margin:0;
+  color:var(--fs-ink);
+  font-family:'Hachi Maru Pop',cursive;
+  font-size:21.6px;
+  font-weight:400;
+  line-height:normal;
+  letter-spacing:-.648px;
+  white-space:nowrap;
+  text-rendering:geometricPrecision;
+}
+
+.figma-sticky-note ul{
+  position:absolute;
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:3.6px;
+  color:var(--fs-ink);
+  font-family:'Poppins',sans-serif;
+  font-size:10.8px;
+  font-weight:300;
+  line-height:15.49px;
+  letter-spacing:-.324px;
+  text-rendering:geometricPrecision;
+}
+
+.figma-sticky-note li{
+  margin:0;
+  padding:0;
+  white-space:nowrap;
+}
+.figma-sticky-note li::before{content:"- ";}
+
+/* PRODUCT & UX — Figma 479:6959 */
+.figma-sticky-product{
+  left:113.4px;
+  top:346.5px;
+  width:300.673px;
+  height:318.218px;
+}
+.figma-sticky-note-product{
+  width:243.228px;
+  height:267.316px;
+  transform:rotate(-14deg);
+  background:linear-gradient(196.54226759271342deg,
+    rgb(233,223,208) 56.465%,
+    rgb(131,125,117) 202.59%);
+}
+.figma-sticky-note-product h3{
+  left:35.019px;
+  top:33.993px;
+  width:174.694px;
+  transform:rotate(2deg);
+}
+.figma-sticky-note-product ul{
+  left:38.394px;
+  top:84.672px;
+  width:114.3px;
+  transform:rotate(1deg);
+}
+
+/* TOOLS — Figma 479:6995 */
+.figma-sticky-tools{
+  left:118.872px;
+  top:692.28px;
+  width:252.13px;
+  height:267.641px;
+}
+.figma-sticky-note-tools{
+  width:243.228px;
+  height:259.31px;
+  transform:rotate(-2deg);
+  background:linear-gradient(196.07275405536518deg,
+    rgb(233,223,208) 56.465%,
+    rgb(131,125,117) 202.59%);
+}
+.figma-sticky-note-tools h3{
+  left:62.46px;
+  top:24.084px;
+  width:75.754px;
+  transform:rotate(2deg);
+}
+.figma-tools-columns{
+  position:absolute;
+  left:25.164px;
+  top:79.875px;
+  display:flex;
+  align-items:flex-start;
+  gap:10.8px;
+  color:var(--fs-ink);
+  font-family:'Poppins',sans-serif;
+  font-size:10.8px;
+  font-weight:300;
+  line-height:15.49px;
+  letter-spacing:-.324px;
+}
+.figma-tools-columns ul{
+  position:relative;
+  inset:auto;
+  width:114.3px;
+  flex:0 0 114.3px;
+  transform:none;
+}
+.figma-tools-columns ul:last-child{
+  width:auto;
+  flex-basis:auto;
+}
+
+/* RESEARCH — Figma 479:6975 */
+.figma-sticky-research{
+  left:336.672px;
+  top:474.48px;
+  width:263.158px;
+  height:272.7px;
+}
+.figma-sticky-note-research{
+  width:234.941px;
+  height:245.901px;
+  transform:rotate(7deg);
+  background:linear-gradient(224.98670693280314deg,
+    rgb(236,210,172) 45.247%,
+    rgb(134,119,98) 199.12%);
+  box-shadow:
+    10.8px 10.8px 27.81px rgba(0,0,0,.10),
+    inset -6.3px 11.7px 25.38px rgba(0,0,0,.07);
+}
+.figma-sticky-note-research h3{
+  left:46.53px;
+  top:38.718px;
+}
+.figma-sticky-note-research ul{
+  left:45.072px;
+  top:92.394px;
+  width:114.3px;
+  transform:rotate(1deg);
+}
+
+/* VISUAL + BRAND — Figma 479:6985 */
+.figma-sticky-visual{
+  left:336.672px;
+  top:802.08px;
+  width:269.838px;
+  height:291.277px;
+}
+.figma-sticky-note-visual{
+  width:243.228px;
+  height:267.316px;
+  transform:rotate(-6deg);
+  background:linear-gradient(226.38540161313887deg,
+    rgb(236,210,172) 45.247%,
+    rgb(134,119,98) 199.12%);
+}
+.figma-sticky-note-visual h3{
+  left:28.656px;
+  top:33.525px;
+  width:192.683px;
+  transform:rotate(2deg);
+}
+.figma-sticky-note-visual ul{
+  left:38.394px;
+  top:84.672px;
+  width:122.4px;
+  transform:rotate(1deg);
+}
+
+/* ---------- exact Figma tape assets ---------- */
+.figma-tape{
+  position:absolute;
+  z-index:8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+}
+.figma-tape img{
+  display:block;
+  width:74.7px;
+  height:70.2px;
+  max-width:none;
+}
+
+/* tools, Figma 483:7722 */
+.figma-tape-tools-left{
+  left:-40.572px;
+  top:-27.18px;
+  width:97.614px;
+  height:99.368px;
+}
+.figma-tape-tools-left img{
+  transform:rotate(-61deg) scaleY(-1);
+}
+
+/* tools, Figma 483:7800 */
+.figma-tape-tools-right{
+  left:180.828px;
+  top:-37.98px;
+  width:97.614px;
+  height:99.368px;
+}
+.figma-tape-tools-right img{
+  transform:rotate(-119deg);
+}
+
+/* research center piece, Figma 483:7604 */
+.figma-tape-research-a{
+  left:35.928px;
+  top:-31.68px;
+  width:80.689px;
+  height:76.61px;
+}
+.figma-tape-research-a img{transform:rotate(-5.14deg);}
+
+/* research center mirrored piece, Figma 483:7643 */
+.figma-tape-research-b{
+  left:39.528px;
+  top:-31.68px;
+  width:80.689px;
+  height:76.61px;
+}
+.figma-tape-research-b img{transform:rotate(5.14deg) scaleY(-1);}
+
+/* research right diagonal, Figma 483:7525 */
+.figma-tape-research-c{
+  left:194.328px;
+  top:-14.58px;
+  width:102.497px;
+  height:102.396px;
+}
+.figma-tape-research-c img{transform:rotate(44.08deg);}
+
+/* product top, Figma 483:7565 */
+.figma-tape-product{
+  left:67.5px;
+  top:-6.3px;
+  width:80.689px;
+  height:76.61px;
+}
+.figma-tape-product img{transform:rotate(-5.14deg);}
+
+/* visual top, Figma 483:7682 */
+.figma-tape-visual{
+  left:72.828px;
+  top:-27.18px;
+  width:80.689px;
+  height:76.61px;
+}
+.figma-tape-visual img{transform:rotate(5.14deg) scaleY(-1);}
+
+/* ---------- window shadow system ---------- */
+.figma-window-side-shadow{
+  position:absolute;
+  z-index:1;
+  pointer-events:none;
+}
+.figma-window-side-shadow-right{
+  inset:31.06% 12.63% 45.2% 83.76%;
+}
+.figma-window-side-shadow-left{
+  inset:31.26% 36.81% 44.99% 59.59%;
+}
+.figma-window-side-shadow > div{
+  position:absolute;
+  inset:-2.19% -14.13%;
+}
+.figma-window-side-shadow img{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:none;
+}
+.figma-window-side-shadow-left > div{
+  transform:scaleX(-1);
+}
+
+.figma-window-ledge-shadow{
+  position:absolute;
+  z-index:1;
+  inset:52.17% 17.39% 46.35% 63.03%;
+  background:rgba(174,155,127,.30);
+  filter:blur(3.465px);
+  pointer-events:none;
+}
+
+/* ---------- exact Figma vectorized window ---------- */
+.figma-skills-window{
+  position:absolute;
+  z-index:4;
+  left:725.4px;
+  top:309.6px;
+  width:560.7px;
+  height:508.5px;
+  overflow:visible;
+}
+.figma-skills-window img{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:none;
+  object-fit:fill;
+}
+
+/* The site's fixed global .grain is retained because this frame uses
+   the same Figma native NOISE treatment as the rest of the page. */
+
+@media (max-width:1230px){
+  .figma-skills-section{
+    height:auto;
+    min-height:0;
+    overflow:hidden;
+  }
+  .figma-skills-stage{
+    width:100%;
+    height:auto;
+    min-height:1180px;
+    padding:110px 42px 100px;
+    box-sizing:border-box;
+  }
+  .figma-skills-kicker,
+  .figma-skills-title{
+    position:relative;
+    left:auto;
+    top:auto;
+  }
+  .figma-skills-kicker{margin-bottom:28px;}
+  .figma-skills-title{
+    width:auto;
+    height:auto;
+    margin-bottom:90px;
+    font-size:52px;
+    line-height:1.1;
+  }
+
+  /* The note wrapper is the responsive unit. Tapes are children of it, so
+     one transform moves/scales note + tapes together with zero drift. */
+  .figma-sticky-wrap{
+    transform:scale(.86);
+    transform-origin:top left;
+  }
+  .figma-sticky-product{left:55px;top:330px;}
+  .figma-sticky-research{left:300px;top:450px;}
+  .figma-sticky-tools{left:62px;top:680px;}
+  .figma-sticky-visual{left:300px;top:790px;}
+
+  .figma-window-side-shadow,
+  .figma-window-ledge-shadow{display:none;}
+  .figma-skills-window{
+    left:auto;
+    right:28px;
+    top:360px;
+    width:clamp(380px,41vw,500px);
+    height:auto;
+    aspect-ratio:623 / 565;
+  }
+}
+
+@media (max-width:1000px){
+  .figma-skills-stage{
+    min-height:1510px;
+    padding-inline:28px;
+  }
+  .figma-skills-title{font-size:48px;}
+  .figma-sticky-wrap{
+    transform:scale(.82);
+  }
+  .figma-sticky-product{left:30px;top:320px;}
+  .figma-sticky-research{left:265px;top:460px;}
+  .figma-sticky-tools{left:38px;top:680px;}
+  .figma-sticky-visual{left:265px;top:800px;}
+  .figma-skills-window{
+    top:1050px;
+    left:50%;
+    right:auto;
+    width:min(62vw,540px);
+    transform:translateX(-50%);
+  }
+}
+
+@media (max-width:680px){
+  .figma-skills-stage{
+    min-height:1690px;
+    padding:82px 18px 80px;
+  }
+  .figma-skills-kicker{margin-bottom:24px;}
+  .figma-skills-title{
+    margin-bottom:52px;
+    font-size:40px;
+    line-height:1.08;
+    white-space:normal;
+  }
+  .figma-sticky-wrap{
+    transform:scale(.72);
+  }
+  .figma-sticky-product{left:0;top:280px;}
+  .figma-sticky-research{left:145px;top:520px;}
+  .figma-sticky-tools{left:0;top:755px;}
+  .figma-sticky-visual{left:142px;top:1015px;}
+  .figma-skills-window{
+    top:1270px;
+    width:min(94vw,510px);
+  }
+}
+
+@media (max-width:430px){
+  .figma-skills-stage{
+    min-height:1770px;
+    padding-inline:12px;
+  }
+  .figma-skills-title{font-size:35px;}
+  .figma-sticky-wrap{
+    transform:scale(.64);
+  }
+  .figma-sticky-product{left:-8px;top:270px;}
+  .figma-sticky-research{left:112px;top:500px;}
+  .figma-sticky-tools{left:-8px;top:720px;}
+  .figma-sticky-visual{left:110px;top:960px;}
+  .figma-skills-window{
+    top:1210px;
+    width:96vw;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .figma-skills-section *{animation:none!important;transition:none!important;}
+}

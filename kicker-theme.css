@@ -1,0 +1,49 @@
+/* ============================================================
+   GLOBAL SECTION KICKER
+   Canonical typography for every numbered portfolio section.
+   ============================================================ */
+
+.section-kicker{
+  color:#fc5134 !important;
+  font-family:'IBM Plex Mono',monospace !important;
+  font-size:13px !important;
+  font-style:normal !important;
+  font-weight:400 !important;
+  line-height:13px !important;
+  letter-spacing:0 !important;
+  text-transform:uppercase !important;
+  font-synthesis:none;
+  text-rendering:geometricPrecision;
+}
+
+/* Legacy Figma kicker boxes were drawn at 12.6px. Let the unified 13px
+   type breathe without changing their Figma positioning. */
+.figma-work-kicker.section-kicker,
+.figma-process-kicker.section-kicker,
+.figma-skills-kicker.section-kicker{
+  height:13px !important;
+}
+
+/* Section-specific layout spacing remains local; only typography is shared. */
+.experience-section .section-kicker{
+  display:block;
+  margin:0 0 20px;
+}
+
+.about-head-main .section-kicker{
+  display:block;
+  margin:0 0 20px;
+}
+
+/* This kicker lives inside the existing contact flex row. */
+.contact-top .section-kicker{
+  display:inline;
+  margin:0;
+  flex:0 0 auto;
+}
+
+@media (max-width:760px){
+  .experience-section .section-kicker{
+    margin-bottom:16px;
+  }
+}

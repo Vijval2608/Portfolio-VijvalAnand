@@ -1,0 +1,468 @@
+/* ============================================================
+   HOW I WORK — refined scroll implementation
+   ============================================================ */
+
+.figma-process-section{
+  --fp-bg:#f2e9db;
+  --fp-ink:#1e1e1e;
+  --fp-card:#414141;
+  --fp-accent:#fc5134;
+  --fp-cream:#f2e9db;
+  --fp-film-width:5510px;
+  --fp-desktop-breakpoint:774px;
+  position:relative;
+  width:100%;
+  background:var(--fp-bg);
+  color:var(--fp-ink);
+  overflow-x:clip;
+  isolation:isolate;
+}
+
+.figma-process-pre-gap{height:180px;background:var(--fp-bg);}
+.figma-process-post-gap{height:0;background:var(--fp-bg);}
+
+.figma-process-intro{
+  position:relative;
+  height:145svh;
+  min-height:1000px;
+  background:var(--fp-bg);
+}
+.figma-process-intro-sticky{
+  position:sticky;
+  top:0;
+  width:100%;
+  height:100svh;
+  min-height:702px;
+  overflow:hidden;
+  background:var(--fp-bg);
+}
+
+.figma-process-kicker{
+  position:absolute;
+  top:135px;
+  left:calc(50% - 590.4px);
+  width:67.5px;
+  height:12.6px;
+  margin:0;
+  color:var(--fp-accent);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.6px;
+  font-weight:400;
+  line-height:12.6px;
+  white-space:nowrap;
+  text-rendering:geometricPrecision;
+}
+
+.figma-process-title{
+  position:absolute;
+  top:169px;
+  left:calc(50% - 590.4px);
+  width:555.3px;
+  height:138.6px;
+  margin:0;
+  color:var(--fp-ink);
+  font-family:'MexcellentLocal','Mexcellent','Mexcellent Regular',sans-serif;
+  font-size:57.6px;
+  font-weight:400;
+  line-height:69.3px;
+  letter-spacing:-1.728px;
+  font-synthesis:none;
+  font-kerning:none;
+  text-rendering:geometricPrecision;
+}
+.figma-process-title span{display:block;height:69.3px;white-space:nowrap;}
+
+.figma-process-note{
+  position:absolute;
+  top:385px;
+  left:calc(50% + 157.5px);
+  width:417.6px;
+  min-height:45px;
+  box-sizing:border-box;
+  display:flex;
+  align-items:center;
+  padding:3.6px 0;
+}
+.figma-process-note p{
+  width:417.6px;
+  margin:0;
+  color:var(--fp-ink);
+  text-align:right;
+  font-family:'Poppins',sans-serif;
+  font-size:12.6px;
+  font-weight:300;
+  line-height:18.9px;
+  text-rendering:geometricPrecision;
+}
+
+.figma-process-pin-wrap{
+  position:relative;
+  width:100%;
+  min-height:100svh;
+  /* Preserve the approved intro/tape overlap, but put it on the runway rather
+     than the sticky element. This prevents a geometry snap at lock time. */
+  margin-top:-100svh;
+  background:var(--fp-bg);
+}
+.figma-process-stage{
+  position:sticky;
+  top:0;
+  width:100%;
+  height:100svh;
+  min-height:0;
+  margin:0;
+  overflow:hidden;
+  background:var(--fp-bg);
+}
+.figma-film-ywrap{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  overflow:visible;
+}
+
+/* Redesigned tape — Figma node 470:5362 / inner node 470:5363.
+   Figma dimensions are carried into the site's locked 90% design scale. */
+.figma-film{
+  position:relative;
+  left:calc(50% - 1097.1px);
+  width:3893.4px;
+  height:404px;
+  flex:0 0 3893.4px;
+  box-sizing:border-box;
+  padding:16px 12.6px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  align-items:flex-start;
+  background-color:#1e1e1e;
+  background-image:url('assets/textures/figma-noise.png');
+  background-repeat:repeat;
+  background-size:57.6px 57.6px;
+  background-blend-mode:soft-light;
+  isolation:isolate;
+  will-change:transform;
+  backface-visibility:hidden;
+  transform:translateZ(0);
+}
+
+/* Same grain carried over the whole dark strip and its cards. */
+.figma-film::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:50;
+  pointer-events:none;
+  background-image:url('assets/textures/figma-noise.png');
+  background-repeat:repeat;
+  background-size:57.6px 57.6px;
+  opacity:.22;
+  mix-blend-mode:screen;
+}
+
+/* Exact Figma perforation geometry:
+   30×40, 14px gap, 6px radius → 27×36 / 12.6 / 5.4 after 90%. */
+.figma-film-perfs{
+  position:relative;
+  z-index:1;
+  width:3868.2px;
+  height:24px;
+  flex:0 0 24px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  overflow:hidden;
+}
+.figma-film-perfs i{
+  display:block;
+  width:18px;
+  height:24px;
+  flex:0 0 18px;
+  border-radius:3px;
+  background:#f2e9db;
+}
+
+.figma-film-scenes{
+  position:relative;
+  z-index:1;
+  width:3868.2px;
+  height:288px;
+  flex:0 0 288px;
+  display:flex;
+  align-items:flex-start;
+  gap:25.2px;
+  overflow:visible;
+}
+
+/* 570×320 Figma cards → 513×288 at the site scale. */
+.figma-film-card{
+  position:relative;
+  width:513px;
+  height:288px;
+  flex:0 0 513px;
+  box-sizing:border-box;
+  overflow:hidden;
+  border-radius:11.7px;
+  background:#414141;
+  box-shadow:3.6px 3.6px 11.88px rgba(0,0,0,.10);
+}
+.figma-film-card-process{
+  display:flex;
+  align-items:center;
+  padding:28.8px;
+}
+.figma-film-card-blank{
+  display:block;
+}
+.figma-film-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:8;
+  pointer-events:none;
+  background-image:url('assets/textures/figma-noise.png');
+  background-repeat:repeat;
+  background-size:57.6px 57.6px;
+  opacity:.15;
+  mix-blend-mode:soft-light;
+}
+.figma-film-card-end{
+  display:grid;
+  place-items:center;
+  padding:28.8px;
+}
+.figma-film-card-end h3{
+  position:relative;
+  z-index:3;
+  margin:0;
+  color:#f2e9db;
+  font-family:'EditUndoLocal','Edit Undo Line BRK','IBM Plex Mono',monospace;
+  font-size:32.4px;
+  font-weight:400;
+  line-height:normal;
+  letter-spacing:0;
+  text-transform:none;
+  text-align:center;
+  font-synthesis:none;
+  text-rendering:geometricPrecision;
+}
+
+/* First redesigned card's exact Figma inner grid:
+   content starts at 32,32 with 12px internal padding. */
+.figma-film-copy{
+  position:relative;
+  z-index:3;
+  width:257.4px;
+  height:230.4px;
+  flex:0 0 257.4px;
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:18px;
+  padding:10.8px;
+  color:#f2e9db;
+}
+
+.figma-film-step{
+  flex:0 0 auto;
+  margin:0;
+  color:#fc5134;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.6px;
+  font-weight:400;
+  line-height:normal;
+  white-space:nowrap;
+  text-rendering:geometricPrecision;
+}
+
+.figma-film-copy h3{
+  width:235.8px;
+  flex:0 0 auto;
+  margin:0;
+  color:#f2e9db;
+  font-family:'EditUndoLocal','Edit Undo Line BRK','IBM Plex Mono',monospace;
+  font-size:32.4px;
+  font-weight:400;
+  line-height:normal;
+  letter-spacing:0;
+  text-transform:none;
+  white-space:normal;
+  font-synthesis:none;
+  text-rendering:geometricPrecision;
+}
+
+.figma-film-copy>p:not(.figma-film-output){
+  width:235.8px;
+  flex:0 0 auto;
+  margin:0;
+  color:#f2e9db;
+  font-family:'Poppins',sans-serif;
+  font-size:10.8px;
+  font-weight:300;
+  line-height:normal;
+  text-rendering:geometricPrecision;
+}
+
+.figma-film-output{
+  width:235.8px;
+  flex:0 0 auto;
+  margin:0;
+  display:block;
+  color:#fc5134;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.6px;
+  font-weight:400;
+  line-height:normal;
+  text-rendering:geometricPrecision;
+}
+.figma-film-output strong,
+.figma-film-output b{
+  display:block;
+  margin:0;
+  font:inherit;
+  font-weight:400;
+}
+.figma-film-output b{
+  color:#f2e9db;
+}
+
+/* Oversized Mexcellent numerals are the visual system of the new cards.
+   They deliberately overflow and are clipped by each card, exactly like Figma. */
+.figma-film-number{
+  position:absolute;
+  z-index:2;
+  left:285.3px;
+  top:77.4px;
+  box-sizing:content-box;
+  min-width:223.2px;
+  padding-left:41.4px;
+  color:#fc5134;
+  font-family:'MexcellentLocal','Mexcellent','Mexcellent Regular',sans-serif;
+  font-size:216px;
+  font-weight:400;
+  line-height:259.2px;
+  white-space:nowrap;
+  font-synthesis:none;
+  text-rendering:geometricPrecision;
+  pointer-events:none;
+}
+.figma-film-number-01{
+  left:313.2px;
+  min-width:169.2px;
+}
+
+@media (min-width:774.01px){
+  .figma-process-kicker,.figma-process-title,.figma-process-note{
+    will-change:transform;
+    backface-visibility:hidden;
+  }
+}
+
+@media (max-width:774px){
+  .figma-process-pre-gap{height:64.8px;}
+  .figma-process-post-gap{height:0;}
+  .figma-process-intro{height:auto;min-height:0;}
+  .figma-process-intro-sticky{
+    position:relative;
+    height:auto;
+    min-height:0;
+    overflow:visible;
+    padding:72px 16.2px 45px;
+    box-sizing:border-box;
+  }
+  .figma-process-kicker,.figma-process-title,.figma-process-note{
+    position:relative;
+    top:auto;
+    left:auto;
+    transform:none!important;
+  }
+  .figma-process-kicker{width:auto;height:auto;margin:0 0 21.6px;}
+  .figma-process-title{width:100%;height:auto;font-size:45px;line-height:52.2px;margin:0;}
+  .figma-process-title span{height:auto;white-space:normal;}
+  .figma-process-note{width:100%;height:auto;margin:34.2px 0 0;padding:0 14.4px 0 0;min-height:45px;}
+  .figma-process-note p{width:auto;max-width:417.6px;text-align:left;}
+
+  .figma-process-pin-wrap{
+    height:auto!important;
+    min-height:0;
+    margin-top:0;
+  }
+  .figma-process-stage{
+    position:relative;
+    top:auto;
+    height:auto;
+    min-height:0;
+    margin-top:0;
+    overflow:visible;
+    padding:0 16.2px 72px;
+    box-sizing:border-box;
+    contain:none;
+    transform:none;
+  }
+  .figma-film-ywrap{position:relative;inset:auto;display:block;}
+  .figma-film{
+    position:relative;
+    left:auto;
+    width:100%;
+    height:auto;
+    padding:0;
+    gap:0;
+    transform:none!important;
+    background:transparent;
+    will-change:auto;
+  }
+  .figma-film::after,.figma-film-perfs,.figma-film-card-blank{display:none;}
+  .figma-film-scenes{
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    gap:16.2px;
+  }
+  .figma-film-card{
+    width:100%;
+    height:288px;
+    min-height:288px;
+    flex:0 0 auto;
+  }
+  .figma-film-card-process{padding:28.8px;}
+  .figma-film-card-end{display:grid;place-items:center;padding:28.8px;}
+  .figma-film-card-end h3{font-size:32.4px;}
+  .figma-film-copy{width:257.4px;flex-basis:257.4px;}
+  .figma-film-number{left:auto;right:-38px;}
+  .figma-film-number-01{left:auto;right:-10px;}
+}
+
+@media (max-width:558px){
+  .figma-process-intro-sticky,.figma-process-stage{padding-inline:12.6px;}
+  .figma-process-title{font-size:36px;line-height:42.3px;letter-spacing:-1.08px;}
+  .figma-film-card{
+    height:300px;
+    min-height:300px;
+  }
+  .figma-film-card-process{padding:24px;}
+  .figma-film-card-end{display:grid;place-items:center;padding:24px;}
+  .figma-film-card-end h3{font-size:28.8px;}
+  .figma-film-copy{
+    width:62%;
+    height:auto;
+    flex-basis:62%;
+    padding:8px;
+    gap:14px;
+  }
+  .figma-film-copy h3{width:100%;font-size:28.8px;line-height:normal;}
+  .figma-film-copy>p:not(.figma-film-output),.figma-film-output{width:100%;}
+  .figma-film-number{
+    right:-55px;
+    top:94px;
+    font-size:172px;
+    line-height:206px;
+  }
+  .figma-film-number-01{right:-34px;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .figma-film{will-change:auto!important;transform:none!important;}
+}
