@@ -1,0 +1,186 @@
+/* ==========================================================================
+   V60 PHONE REFINEMENT
+   - Uses the 40/390 Figma gutter ratio on phones.
+   - Desktop and tablet are intentionally untouched.
+   ========================================================================== */
+
+.figma-mobile-menu-icon{
+  display:none;
+}
+
+@media (max-width:600px){
+  :root{
+    --phone-gutter:10.2564103vw; /* 40px on the 390px Figma frame */
+  }
+
+  /* ----------------------------------------------------------------------
+     NAV
+     Robust inset geometry fixes the mobile crop. A real child glyph replaces
+     the pseudo-element hamburger so it remains visible above all glass layers.
+     ---------------------------------------------------------------------- */
+  .figma-nav{
+    left:var(--phone-gutter)!important;
+    right:var(--phone-gutter)!important;
+    width:auto!important;
+    max-width:none!important;
+    min-width:0!important;
+    margin:0!important;
+    overflow:visible!important;
+    clip-path:none!important;
+    contain:none!important;
+    box-sizing:border-box!important;
+  }
+
+  .figma-nav::after{
+    content:none!important;
+    display:none!important;
+  }
+
+  .figma-mobile-menu-icon{
+    position:absolute;
+    z-index:5;
+    right:6.1538462vw; /* 24px @ 390 */
+    top:50%;
+    width:3.3333333vw; /* 13px */
+    height:2.5641026vw; /* 10px */
+    transform:translateY(-50%);
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:space-between;
+    pointer-events:none;
+  }
+
+  .figma-mobile-menu-icon > span{
+    display:block;
+    width:100%;
+    height:.2564103vw; /* 1px @ 390 */
+    min-height:1px;
+    flex:0 0 auto;
+    border-radius:999px;
+    background:var(--fh-ink);
+  }
+
+  /* ----------------------------------------------------------------------
+     HERO GUTTER
+     Font sizes are NOT changed. The names now use the equal Figma gutters as
+     their actual available box instead of an approximate left/width pair.
+     ---------------------------------------------------------------------- */
+  .figma-name{
+    left:var(--phone-gutter)!important;
+    right:var(--phone-gutter)!important;
+    width:auto!important;
+    max-width:none!important;
+  }
+
+  .figma-star-top{
+    left:var(--phone-gutter)!important;
+  }
+
+  /* ----------------------------------------------------------------------
+     MUSIC WAVEFORM
+     V59 preserved the 96px Figma container but inherited ~1px legacy bars.
+     24 bars + 23 equal gaps need ~2.04px each to fill 96px.
+     ---------------------------------------------------------------------- */
+  .figma-waveform{
+    width:24.6153846vw!important;       /* 96px @ 390 */
+    flex:0 0 24.6153846vw!important;
+    gap:.5234043vw!important;           /* ~2.041px */
+    overflow:hidden!important;
+  }
+
+  .figma-waveform .wave-bar{
+    width:.5234043vw!important;
+    min-width:.5234043vw!important;
+    flex:0 0 .5234043vw!important;
+  }
+
+  .figma-waveform:not(.is-playing) .wave-bar{
+    width:.5234043vw!important;
+    min-width:.5234043vw!important;
+    flex-basis:.5234043vw!important;
+    height:.5234043vw!important;
+    min-height:.5234043vw!important;
+    max-height:.5234043vw!important;
+  }
+
+  /* ----------------------------------------------------------------------
+     SELECTED WORKS
+     Phone hierarchy:
+       1. kicker + heading
+       2. stacked project cards
+       3. project selector list
+     Existing cards, interactions and stack scaling remain untouched.
+     ---------------------------------------------------------------------- */
+  .figma-work-section{
+    padding-left:var(--phone-gutter)!important;
+    padding-right:var(--phone-gutter)!important;
+  }
+
+  .figma-work-layout{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    row-gap:32px!important;
+  }
+
+  .figma-work-left{
+    display:contents!important;
+  }
+
+  .figma-work-heading{
+    grid-column:1!important;
+    grid-row:1!important;
+  }
+
+  .figma-work-preview-wrap{
+    grid-column:1!important;
+    grid-row:2!important;
+    width:100%!important;
+    max-width:666.9px!important;
+    justify-self:start!important;
+  }
+
+  .figma-work-list{
+    grid-column:1!important;
+    grid-row:3!important;
+    width:100%!important;
+    max-width:none!important;
+  }
+
+  /* ----------------------------------------------------------------------
+     CONSISTENT PHONE CONTENT GUTTER
+     Apply to section content containers only. No html/body padding or overflow
+     is introduced, so the page's scroll/sticky containing-block behavior is
+     not altered.
+     ---------------------------------------------------------------------- */
+  .figma-process-intro-sticky,
+  .figma-process-stage{
+    padding-left:var(--phone-gutter)!important;
+    padding-right:var(--phone-gutter)!important;
+  }
+
+  .figma-skills-stage{
+    padding-left:var(--phone-gutter)!important;
+    padding-right:var(--phone-gutter)!important;
+  }
+
+  .experience-section,
+  .about-section-v2,
+  .contact-section{
+    padding-left:var(--phone-gutter)!important;
+    padding-right:var(--phone-gutter)!important;
+  }
+
+  .about-portrait-wrap{
+    max-width:100%!important;
+  }
+
+  .about-anime-popover{
+    left:var(--phone-gutter)!important;
+    right:var(--phone-gutter)!important;
+  }
+
+  .site-footer-inner.shell{
+    width:79.4871794%!important; /* 310/390, same two 40px gutters */
+  }
+}

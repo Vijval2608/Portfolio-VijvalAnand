@@ -11,7 +11,6 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hachi+Maru+Pop&family=IBM+Plex+Mono:wght@400;500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="fonts.css" rel="stylesheet">
-<link rel="preload" href="assets/fonts/Impact 400.ttf" as="font" type="font/ttf" crossorigin>
 <link href="style.css" rel="stylesheet">
 <link href="retro-fusion.css" rel="stylesheet">
 <link href="refine.css" rel="stylesheet">
@@ -26,8 +25,8 @@
 })();
 </script>
 <link href="figma-hero.css" rel="stylesheet">
-<link as="image" fetchpriority="high" href="assets/figma-work/fittribe-thumbnail.webp" rel="preload" type="image/webp"/>
 <link as="image" href="assets/textures/figma-noise.png" rel="preload" type="image/png"/>
+<link as="script" href="assets/audio/sweet-dreams-waveform.js" rel="preload"/>
 <link href="figma-work.css" rel="stylesheet">
 <link href="figma-process.css" rel="stylesheet">
 <link href="figma-skills.css" rel="stylesheet">
@@ -37,6 +36,23 @@
 <link href="responsive-top3-v52.css" rel="stylesheet">
 <link href="about-theme.css" rel="stylesheet">
 <link href="contact-theme.css" rel="stylesheet">
+<link href="mobile-hero-v59.css" rel="stylesheet">
+<link href="phone-refine-v60.css" rel="stylesheet">
+<link href="v61-clean-fixes.css" rel="stylesheet">
+<link href="mobile-nav-wave-v62.css" rel="stylesheet">
+<link href="v64-menu-wave.css" rel="stylesheet">
+<link href="v65-menu-work.css" rel="stylesheet">
+<link href="v66-phone-work-fluid.css" rel="stylesheet">
+<link href="v67-process-phone.css" rel="stylesheet">
+<link href="v68-figma-process-phone.css" rel="stylesheet">
+<link href="v69-process-output.css" rel="stylesheet">
+<link href="v70-process-skills-phone.css" rel="stylesheet">
+<link href="v71-experience-about-phone.css" rel="stylesheet">
+<link href="v72-experience-about-phone.css" rel="stylesheet">
+<link href="v74-original-experience-phone.css" rel="stylesheet">
+<link href="v75-timeline-node-align.css" rel="stylesheet">
+<link href="v77-experience-timeline-grid.css" rel="stylesheet">
+<link href="v79-experience-phone-node-anchor.css" rel="stylesheet">
 </link></link></link></link></link></link></link></head>
 <body>
 <div aria-hidden="true" class="grain"></div>
@@ -44,19 +60,22 @@
 <div aria-hidden="true" class="scroll-progress"><span></span></div>
 <nav aria-label="Primary navigation" class="figma-nav" data-figma-node="429:2375">
 <a class="figma-nav-logo" href="#top">PORTFOLIO</a>
-<div class="figma-nav-links">
+<div class="figma-nav-links" id="figma-mobile-menu-links">
 <a class="figma-nav-text-link" href="#work"><span class="figma-nav-link-label">Work<span aria-hidden="true" class="figma-nav-hover-line"></span></span></a>
 <a class="figma-nav-text-link" href="#skills"><span class="figma-nav-link-label">Skills<span aria-hidden="true" class="figma-nav-hover-line"></span></span></a>
 <a class="figma-nav-text-link" href="#about"><span class="figma-nav-link-label">About<span aria-hidden="true" class="figma-nav-hover-line"></span></span></a>
 <a class="figma-nav-text-link" href="#experience"><span class="figma-nav-link-label">Experience<span aria-hidden="true" class="figma-nav-hover-line"></span></span></a>
 </div>
-<div class="figma-nav-actions">
+<div class="figma-nav-actions" id="figma-mobile-menu-actions">
 <a class="figma-nav-resume figma-nav-text-link" data-resume-trigger="" href="assets/Vijval_Resume.pdf"><span class="figma-nav-link-label">Resume<span aria-hidden="true" class="figma-nav-hover-line"></span></span></a>
 <a class="figma-connect-glass" href="#contact">
 <span>Let’s connect</span>
 <img alt="" aria-hidden="true" src="https://www.figma.com/api/mcp/asset/bf5cb0ce-2b93-4015-be68-c9fdbb4f3000.svg"/>
 </a>
 </div>
+<button aria-controls="figma-mobile-menu-links figma-mobile-menu-actions" aria-expanded="false" aria-label="Open navigation menu" class="figma-mobile-menu-icon" type="button">
+<span></span><span></span><span></span>
+</button>
 </nav>
 <main id="top">
 <section aria-label="Vijval Anand | Product Designer" class="figma-hero-section">
@@ -89,10 +108,10 @@
 </div>
 <article aria-label="Sweet dreams music player by j-hope featuring Miguel" class="figma-music-card figma-liquid-glass" data-figma-node="429:2310">
 <span aria-hidden="true" class="figma-glass-specular"></span>
-<img alt="Sweet dreams artwork featuring j-hope" class="figma-album-art" src="assets/figma-hero/sweet-dreams.png"/>
+<img alt="Sweet dreams artwork featuring j-hope" class="figma-album-art" src="assets/figma-hero/sweet-dreams-v81.webp"/>
 <div class="figma-track-info">
 <div class="figma-track-copy">
-<span class="figma-playing-label">NOW PLAYING ON LOOP</span>
+<span class="figma-playing-label">NOW PLAYING</span>
 <strong>Sweet dreams</strong>
 <span class="figma-track-artist">j-hope (feat. Miguel)</span>
 </div>
@@ -411,8 +430,8 @@
 <span class="about-device-live"><i></i> HUMAN BUILD</span>
 </div>
 <div class="about-photo-screen">
-<img alt="Vijval Anand" class="about-photo-main" src="assets/about/vijval-full.jpg"/>
-<img aria-hidden="true" alt="" class="about-photo-glitch" src="assets/about/vijval-full.jpg"/>
+<img alt="Vijval Anand" class="about-photo-main" src="assets/about/vijval-full-v81.webp"/>
+<img aria-hidden="true" alt="" class="about-photo-glitch" src="assets/about/vijval-full-v81.webp"/>
 <div aria-hidden="true" class="about-photo-static"></div>
 <div aria-hidden="true" class="about-photo-scan"></div>
 </div>
@@ -522,14 +541,14 @@ like it’s a product launch.
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="projects.js"></script>
 <script src="script.js"></script>
-<script src="refine.js"></script>
 <script src="figma-work.js"></script>
 <script src="figma-process.js"></script>
 <script src="section-spring.js"></script>
 <script src="about-interaction.js"></script>
 <script src="assets/audio/sweet-dreams-waveform.js"></script>
 <script src="figma-hero.js"></script>
+<script src="mobile-nav-v62.js"></script>
+<script src="waveform-pixel-snap-v64.js"></script>
 </body>
 </html>

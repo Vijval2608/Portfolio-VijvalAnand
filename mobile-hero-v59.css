@@ -1,0 +1,446 @@
+/* ==========================================================================
+   V59 PHONE HERO
+   Figma source: node 498:22, 390 × 844
+   Scope: phones only. Desktop and tablet retain V58 exactly.
+   ========================================================================== */
+
+@media (max-width:600px){
+
+  /* --- Hero canvas ------------------------------------------------------- */
+  .figma-hero-section{
+    overflow:hidden!important;
+  }
+
+  .figma-hero-stage{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    max-width:none!important;
+    height:216.4102564vw!important; /* 844 / 390 */
+    min-height:0!important;
+    aspect-ratio:auto!important;
+    margin:0!important;
+    padding:0!important;
+    box-sizing:border-box!important;
+    container-type:normal!important;
+    overflow:hidden!important;
+  }
+
+  /* --- Mobile navbar: Figma 499:43 -------------------------------------- */
+  .figma-nav{
+    position:fixed!important;
+    z-index:2147483647!important;
+    left:10.2564103vw!important;   /* 40 */
+    right:auto!important;
+    top:8.7179487vw!important;     /* 34 */
+    translate:none!important;
+    width:79.4871795vw!important;  /* 310 */
+    height:11.6410256vw!important; /* ~45.4 */
+    min-height:0!important;
+    padding:0 6.1538462vw!important; /* 24 */
+    border-radius:12.0512821vw!important; /* 47 */
+    box-sizing:border-box!important;
+  }
+
+  .figma-nav-logo{
+    font-family:Poppins,Arial,sans-serif!important;
+    font-size:3.0769231vw!important;     /* 12 */
+    font-weight:400!important;
+    line-height:1.12!important;
+    letter-spacing:.5846154vw!important; /* 2.28 */
+  }
+
+  .figma-nav-links,
+  .figma-nav-actions{
+    display:none!important;
+  }
+
+  /* The Figma phone frame uses a compact hamburger instead of desktop nav
+     actions. Keep it purely visual so the current site behavior is not
+     expanded or changed beyond this Hero implementation. */
+  .figma-nav::after{
+    content:""!important;
+    position:absolute!important;
+    z-index:3!important;
+    right:6.1538462vw!important; /* 24 */
+    top:50%!important;
+    width:3.3333333vw!important; /* 13 */
+    height:2.5641026vw!important; /* 10 */
+    transform:translateY(-50%)!important;
+    background:
+      linear-gradient(var(--fh-ink),var(--fh-ink)) 0 0 / 100% .2564103vw no-repeat,
+      linear-gradient(var(--fh-ink),var(--fh-ink)) 0 50% / 100% .2564103vw no-repeat,
+      linear-gradient(var(--fh-ink),var(--fh-ink)) 0 100% / 100% .2564103vw no-repeat!important;
+    opacity:.9!important;
+    pointer-events:none!important;
+  }
+
+  /* --- Reset V52 flow layout only inside phone Hero --------------------- */
+  .figma-role-label,
+  .figma-name,
+  .figma-years,
+  .figma-intro,
+  .figma-actions,
+  .figma-computer-shadow,
+  .figma-lower-shadow,
+  .figma-computer,
+  .figma-music-card,
+  .figma-music-hover-note,
+  .figma-star{
+    position:absolute!important;
+    margin:0!important;
+    align-self:auto!important;
+    order:initial!important;
+  }
+
+  /* --- Decorative stars ------------------------------------------------- */
+  .figma-star{
+    display:block!important;
+    width:3.5384615vw!important;   /* 13.8 */
+    height:4.4053846vw!important;  /* 17.18 */
+    max-width:none!important;
+  }
+
+  .figma-star-top{
+    left:10.2564103vw!important;  /* 40 */
+    right:auto!important;
+    top:30.7692308vw!important;   /* 120 */
+    bottom:auto!important;
+  }
+
+  .figma-star-bottom{
+    left:82.0512821vw!important;  /* 320 */
+    right:auto!important;
+    top:120vw!important;          /* 468 */
+    bottom:auto!important;
+  }
+
+  /* --- Role + experience: Figma 499:163 -------------------------------- */
+  .figma-role-label{
+    left:50%!important;
+    right:auto!important;
+    top:39.4871795vw!important; /* 154 */
+    width:auto!important;
+    height:auto!important;
+    transform:translateX(-50%)!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:2.0769231vw!important; /* ~8.1 */
+    font-family:Poppins,Arial,sans-serif!important;
+    font-size:3.6923077vw!important; /* 14.4 */
+    font-weight:600!important;
+    line-height:normal!important;
+    white-space:nowrap!important;
+  }
+
+  .figma-role-label img{
+    display:block!important;
+    width:3.5384615vw!important; /* 13.8 */
+    height:4.4053846vw!important;
+    max-width:none!important;
+  }
+
+  .figma-years{
+    left:50%!important;
+    right:auto!important;
+    top:45.8974359vw!important; /* 179 */
+    width:36.4102564vw!important; /* 142 */
+    height:auto!important;
+    transform:translateX(-50%)!important;
+    margin:0!important;
+    color:var(--fh-olive)!important;
+    font-family:Poppins,Arial,sans-serif!important;
+    font-size:3.0769231vw!important; /* 12 */
+    font-weight:700!important;
+    line-height:normal!important;
+    text-align:center!important;
+  }
+
+  /* --- Name: exact independent Figma sizes ------------------------------ */
+  .figma-name{
+    left:10.5128205vw!important; /* 41 */
+    right:auto!important;
+    width:79.2307692vw!important; /* 309 */
+    max-width:none!important;
+    height:auto!important;
+    margin:0!important;
+    transform:none!important;
+    transform-origin:left top!important;
+    font-family:'ImpactLocal',Impact,sans-serif!important;
+    white-space:nowrap!important;
+  }
+
+  .figma-name-first{
+    top:56.5641026vw!important;      /* ~220.6 */
+    font-size:32.8205128vw!important; /* 128 */
+    line-height:.95505!important;
+    letter-spacing:-.9846154vw!important; /* -3.84 */
+  }
+
+  .figma-name-last{
+    top:85.7948718vw!important;       /* ~334.6 */
+    font-size:31.2820513vw!important; /* 122 */
+    line-height:.9416!important;
+    letter-spacing:-.9384615vw!important; /* -3.66 */
+  }
+
+  /* --- Intro: centered copy + horizontal orange rule -------------------- */
+  .figma-intro{
+    left:20.3846154vw!important;  /* 79.5 */
+    right:auto!important;
+    top:122.4615385vw!important;  /* ~477.6 */
+    width:59.2307692vw!important; /* 231 */
+    height:auto!important;
+    min-height:0!important;
+    display:flex!important;
+    flex-direction:column-reverse!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:4.6153846vw!important; /* 18 */
+  }
+
+  .figma-intro p{
+    width:59.2307692vw!important;
+    flex:none!important;
+    margin:0!important;
+    color:var(--fh-ink)!important;
+    font-family:Poppins,Arial,sans-serif!important;
+    font-size:3.0769231vw!important; /* 12 */
+    font-weight:300!important;
+    line-height:normal!important;
+    text-align:center!important;
+  }
+
+  .figma-intro-line{
+    width:12.8205128vw!important; /* 50 */
+    height:.3589744vw!important;  /* 1.4 */
+    min-height:0!important;
+    flex:0 0 .3589744vw!important;
+    align-self:center!important;
+    background:var(--fh-orange)!important;
+    transform-origin:50% 50%!important;
+  }
+
+  /* --- CTA stack: Figma 499:81 ------------------------------------------ */
+  .figma-actions{
+    left:50%!important;
+    right:auto!important;
+    top:152.0512821vw!important; /* ~593 */
+    width:auto!important;
+    height:auto!important;
+    transform:translateX(-50%)!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    gap:1.7948718vw!important; /* 7 */
+  }
+
+  .figma-primary-action{
+    width:auto!important;
+    min-width:0!important;
+    height:auto!important;
+    flex:none!important;
+    padding:3.0769231vw 3.0769231vw 3.0769231vw 4.6153846vw!important; /* 12 12 12 18 */
+    gap:3.5897436vw!important; /* 14 */
+    border-radius:17.9487179vw!important; /* 70 */
+    font-family:Poppins,Arial,sans-serif!important;
+    font-size:2.5641026vw!important; /* 10 */
+    font-weight:400!important;
+    line-height:normal!important;
+  }
+
+  .figma-action-icon{
+    width:4.6153846vw!important;  /* 18 incl. padding in Figma */
+    height:4.6153846vw!important;
+    flex:0 0 4.6153846vw!important;
+    border-radius:2.5641026vw!important;
+    padding:1.025641vw!important; /* 4 */
+    box-sizing:border-box!important;
+  }
+
+  .figma-action-icon img{
+    width:100%!important;
+    height:100%!important;
+  }
+
+  .figma-resume-action{
+    width:auto!important;
+    min-width:0!important;
+    height:auto!important;
+    flex:none!important;
+    padding:2.0512821vw 4.1025641vw!important; /* 8 16 */
+    gap:1.5384615vw!important; /* 6 */
+    border-radius:17.9487179vw!important;
+    font-family:Poppins,Arial,sans-serif!important;
+    font-size:2.5641026vw!important; /* 10 */
+    font-weight:300!important;
+    line-height:normal!important;
+  }
+
+  .figma-resume-action > span:first-child::after{
+    width:12.8205128vw!important; /* 50 */
+    height:.3589744vw!important;  /* ~1.4 */
+    left:50%!important;
+    right:auto!important;
+    bottom:-1.5384615vw!important; /* 6 */
+    transform:translateX(-50%) scaleX(1)!important;
+    transform-origin:center!important;
+  }
+
+  .figma-resume-action > img{
+    display:none!important;
+  }
+
+  /* --- Mobile phone removes workstation only ---------------------------- */
+  .figma-computer-shadow,
+  .figma-lower-shadow,
+  .figma-computer{
+    display:none!important;
+  }
+
+  /* --- Music card: Figma 499:97 ----------------------------------------- */
+  .figma-music-card,
+  .figma-music-card.figma-liquid-glass{
+    left:12.1794872vw!important;  /* 47.5 */
+    right:auto!important;
+    top:179.8461538vw!important;  /* ~701.4 */
+    bottom:auto!important;
+    width:75.6410256vw!important; /* 295 */
+    height:36.4102564vw!important; /* 142 */
+    margin:0!important;
+    padding:5.1282051vw!important; /* 20 */
+    gap:4.6153846vw!important;     /* 18 */
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    border-radius:3.3333333vw!important; /* 13 */
+    transform:none!important;
+    transform-origin:center center!important;
+  }
+
+  .figma-music-card.figma-liquid-glass:hover,
+  .figma-music-card.figma-liquid-glass:focus-within{
+    transform:none!important;
+  }
+
+  .figma-music-card .figma-album-art{
+    width:17.4358974vw!important;  /* 68 */
+    height:26.1538462vw!important; /* 102 */
+    flex:0 0 17.4358974vw!important;
+    aspect-ratio:auto!important;
+    border-radius:1.7948718vw!important; /* 7 */
+  }
+
+  .figma-music-card .figma-track-info{
+    width:43.3333333vw!important; /* 169 */
+    flex:0 0 43.3333333vw!important;
+    margin:0!important;
+    gap:3.0769231vw!important; /* 12 */
+  }
+
+  .figma-music-card .figma-track-copy{
+    gap:1.025641vw!important; /* 4 */
+    width:100%!important;
+  }
+
+  .figma-music-card .figma-playing-label{
+    margin:0!important;
+    width:100%!important;
+    font-family:Poppins,Arial,sans-serif!important;
+    font-size:1.7948718vw!important; /* 7 */
+    font-weight:400!important;
+    line-height:normal!important;
+    letter-spacing:-.0538462vw!important; /* -.21 */
+  }
+
+  .figma-music-card .figma-track-copy strong{
+    width:100%!important;
+    padding:0!important;
+    font-family:Poppins,Arial,sans-serif!important;
+    font-size:3.5897436vw!important; /* 14 */
+    font-weight:500!important;
+    line-height:normal!important;
+    letter-spacing:-.1076923vw!important; /* -.42 */
+  }
+
+  .figma-music-card .figma-track-artist{
+    width:100%!important;
+    font-family:Poppins,Arial,sans-serif!important;
+    font-size:2.5641026vw!important; /* 10 */
+    font-weight:300!important;
+    line-height:normal!important;
+    letter-spacing:-.0769231vw!important; /* -.30 */
+  }
+
+  .figma-music-card .figma-player-row{
+    width:100%!important;
+    min-height:0!important;
+    gap:0!important;
+    justify-content:space-between!important;
+  }
+
+  .figma-waveform{
+    width:24.6153846vw!important; /* 96 */
+    height:2.0512821vw!important; /* 8 */
+    flex:0 0 24.6153846vw!important;
+    gap:.2564103vw!important;
+  }
+
+  .figma-waveform .wave-bar{
+    max-height:2.0512821vw!important;
+  }
+
+  .figma-music-card .figma-sound-toggle.figma-liquid-glass-toggle{
+    width:11.7948718vw!important;  /* ~46 */
+    height:5.9164103vw!important;  /* ~23.1 */
+    flex:0 0 11.7948718vw!important;
+    padding:.7610256vw!important;  /* 2.968 */
+    border-radius:3.8048718vw!important;
+  }
+
+  .figma-music-card .figma-sound-icon{
+    top:.7610256vw!important;
+    left:6.9230769vw!important; /* ~27 */
+    width:4.565641vw!important; /* 17.8 */
+    height:4.565641vw!important;
+    border-radius:2.2820513vw!important;
+  }
+
+  .figma-music-card .figma-sound-icon img{
+    width:2.6633333vw!important; /* ~10.39 */
+    height:2.6633333vw!important;
+  }
+
+  .figma-music-card .figma-sound-label{
+    left:.7610256vw!important;
+    width:5.7071795vw!important; /* 22.26 */
+    font-family:Poppins,Arial,sans-serif!important;
+    font-size:1.9023077vw!important; /* 7.42 */
+    font-weight:300!important;
+    line-height:normal!important;
+    letter-spacing:-.0570769vw!important;
+  }
+
+  .figma-music-card .figma-sound-toggle[aria-pressed="true"] .figma-sound-icon{
+    left:.7610256vw!important;
+  }
+
+  .figma-music-card .figma-sound-toggle[aria-pressed="true"] .figma-sound-label{
+    left:5.9466667vw!important;
+  }
+
+  .figma-music-hover-note{
+    display:none!important;
+  }
+}
+
+/* Keep phone rendering practical at extreme narrow widths while retaining
+   the exact 390px relationships. No tablet/desktop rules live here. */
+@media (max-width:330px){
+  .figma-nav{
+    border-radius:38px!important;
+  }
+}

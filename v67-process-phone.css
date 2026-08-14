@@ -1,0 +1,96 @@
+/* ==========================================================================
+   V67 — HOW I WORK PHONE READABILITY REFINEMENT
+   Phone only. Desktop/tablet sticky film implementation remains untouched.
+   ========================================================================== */
+
+@media (max-width:600px){
+  :root{
+    /* 390px is the phone reference, matching the established V66 convention. */
+    --phone-process-card-height:clamp(304px,82.0512821vw,320px);
+    --phone-process-card-pad:clamp(18px,5.1282051vw,20px);
+    --phone-process-copy-gap:clamp(10px,3.0769231vw,12px);
+    --phone-process-copy-pad:clamp(5px,1.5384615vw,6px);
+
+    /* Decorative number: 142px at 390, fluid below, capped above. */
+    --phone-process-number-size:clamp(120px,36.4102564vw,142px);
+    --phone-process-number-line:1.18;
+  }
+
+  /* Slight extra vertical capacity keeps every card's output visible,
+     especially PROTOTYPE and SHIP, without shrinking any copy type. */
+  .figma-film-card{
+    height:var(--phone-process-card-height)!important;
+    min-height:var(--phone-process-card-height)!important;
+  }
+
+  .figma-film-card-process{
+    padding:var(--phone-process-card-pad)!important;
+    align-items:center!important;
+  }
+
+  .figma-film-card-end{
+    padding:var(--phone-process-card-pad)!important;
+  }
+
+  /* Give the actual reading column substantially more width.
+     80% at the 390px reference is ~247px versus the old ~192px. */
+  .figma-film-copy{
+    width:min(80%,247px)!important;
+    max-width:min(80%,247px)!important;
+    height:auto!important;
+    flex:0 0 min(80%,247px)!important;
+
+    padding:var(--phone-process-copy-pad)!important;
+    gap:var(--phone-process-copy-gap)!important;
+  }
+
+  /* Preserve all existing typography sizes. Only width/flow changes. */
+  .figma-film-copy h3,
+  .figma-film-copy>p:not(.figma-film-output),
+  .figma-film-output{
+    width:100%!important;
+    max-width:100%!important;
+  }
+
+  .figma-film-copy h3{
+    white-space:normal!important;
+    overflow:visible!important;
+  }
+
+  .figma-film-copy>p:not(.figma-film-output),
+  .figma-film-output{
+    overflow:visible!important;
+  }
+
+  /* Numeral becomes a background accent:
+     - smaller according to the same fluid 390px scaling convention
+     - pushed farther outside the card
+     - roughly 70–80% remains visible at the reference size
+     - kept behind all readable content */
+  .figma-film-number{
+    z-index:1!important;
+    left:auto!important;
+    right:clamp(-48px,-12.3076923vw,-38px)!important;
+    top:clamp(92px,25.6410256vw,100px)!important;
+
+    min-width:0!important;
+    padding-left:0!important;
+
+    font-size:var(--phone-process-number-size)!important;
+    line-height:var(--phone-process-number-line)!important;
+  }
+
+  /* 01 is naturally narrower, so it needs slightly less clipping to retain
+     the same ~70–80% visible treatment as 02–04. */
+  .figma-film-number-01{
+    left:auto!important;
+    right:clamp(-36px,-9.2307692vw,-29px)!important;
+    min-width:0!important;
+  }
+
+  /* Ensure the copy always wins the visual hierarchy over the numeral. */
+  .figma-film-copy{
+    position:relative!important;
+    z-index:3!important;
+  }
+}

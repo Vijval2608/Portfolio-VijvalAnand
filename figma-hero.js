@@ -232,7 +232,12 @@
   if (nav) gsap.set(nav, { opacity: 0, y: -12, filter: 'blur(5px)' });
 
   if (intro) gsap.set(intro, { opacity: 1 });
-  if (introLine) gsap.set(introLine, { scaleY: 0, transformOrigin: '50% 50%' });
+  const phoneHero = window.matchMedia('(max-width: 600px)').matches;
+  if (introLine) {
+    gsap.set(introLine, phoneHero
+      ? { scaleX: 0, scaleY: 1, transformOrigin: '50% 50%' }
+      : { scaleY: 0, transformOrigin: '50% 50%' });
+  }
   if (introCopy) gsap.set(introCopy, { opacity: 0, x: -9, filter: 'blur(4px)' });
 
   if (actions) gsap.set(actions, { opacity: 1 });
@@ -356,7 +361,7 @@
   // The orange rule draws first; the paragraph follows the direction of it.
   if (introLine) {
     tl.to(introLine, {
-      scaleY: 1,
+      ...(phoneHero ? { scaleX: 1 } : { scaleY: 1 }),
       duration: .46,
       ease: 'power2.inOut'
     }, 1.14);

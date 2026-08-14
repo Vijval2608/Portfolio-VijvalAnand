@@ -1,0 +1,189 @@
+/* ==========================================================================
+   V68 — EXACT FIGMA PHONE PROCESS CARDS
+   Figma source: node 510:2518 / card group 510:2524
+   Reference viewport: 390px
+   Scope: phones only. Desktop/tablet film behavior remains V67/V66.
+   ========================================================================== */
+
+@media (max-width:600px){
+  :root{
+    /* All values below follow the established phone convention:
+       Figma px / 390 = vw, capped at the exact 390px Figma value. */
+    --process-phone-card-width:min(79.2307692vw,309px);
+    --process-phone-card-height:min(88.7179487vw,346px);
+    --process-phone-card-gap:min(10.2564103vw,40px);
+
+    --process-phone-outer-pad:min(3.0769231vw,12px);
+    --process-phone-copy-pad:min(3.0769231vw,12px);
+    --process-phone-copy-gap:min(5.1282051vw,20px);
+
+    --process-phone-step-size:min(3.5897436vw,14px);
+    --process-phone-title-size:min(9.2307692vw,36px);
+    --process-phone-body-size:min(3.0769231vw,12px);
+    --process-phone-output-size:min(3.5897436vw,14px);
+
+    --process-phone-number-size:min(32.8205128vw,128px);
+  }
+
+  /* ----------------------------------------------------------------------
+     Four PROCESS cards use one identical geometry.
+     At 390px: 309 × 346. This is the height of the largest Figma card and is
+     intentionally applied to all four cards.
+     ---------------------------------------------------------------------- */
+  .figma-film-scenes{
+    gap:var(--process-phone-card-gap)!important;
+    align-items:flex-start!important;
+  }
+
+  .figma-film-card-process{
+    width:var(--process-phone-card-width)!important;
+    max-width:100%!important;
+    height:var(--process-phone-card-height)!important;
+    min-height:var(--process-phone-card-height)!important;
+    flex:0 0 var(--process-phone-card-height)!important;
+
+    padding:var(--process-phone-outer-pad)!important;
+    box-sizing:border-box!important;
+
+    display:flex!important;
+    align-items:stretch!important;
+    justify-content:flex-start!important;
+
+    overflow:hidden!important;
+    border-radius:min(3.3333333vw,13px)!important;
+    box-shadow:
+      min(1.025641vw,4px)
+      min(1.025641vw,4px)
+      min(3.3846154vw,13.2px)
+      rgba(0,0,0,.10)!important;
+  }
+
+  /* ----------------------------------------------------------------------
+     COPY FRAME
+     Figma cards 02–04:
+       outer card padding 12
+       copy frame 285 × 322
+       inner padding 12
+       content gap 20
+     This gives the visible text an exact 24px left inset at the 390 reference.
+     ---------------------------------------------------------------------- */
+  .figma-film-copy{
+    position:relative!important;
+    z-index:4!important;
+
+    width:100%!important;
+    max-width:none!important;
+    height:100%!important;
+    flex:1 1 auto!important;
+
+    box-sizing:border-box!important;
+    padding:var(--process-phone-copy-pad)!important;
+    gap:var(--process-phone-copy-gap)!important;
+
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    justify-content:flex-start!important;
+  }
+
+  /* Step label: 14px @ 390. */
+  .figma-film-step{
+    flex:0 0 auto!important;
+    margin:0!important;
+
+    font-size:var(--process-phone-step-size)!important;
+    line-height:1.2857143!important;
+    white-space:nowrap!important;
+  }
+
+  /* Main title: exact 36px @390, no reduction.
+     Copy width is the Figma 261px content width after the two 12px paddings. */
+  .figma-film-copy h3{
+    width:100%!important;
+    max-width:100%!important;
+    flex:0 0 auto!important;
+    margin:0!important;
+
+    font-size:var(--process-phone-title-size)!important;
+    line-height:1.0555556!important;
+    letter-spacing:0!important;
+
+    white-space:normal!important;
+    overflow:visible!important;
+  }
+
+  /* Body: exact 12px @390.
+     Figma body column is 165px inside the 285px copy frame. */
+  .figma-film-copy>p:not(.figma-film-output){
+    width:57.8947368%!important; /* 165 / 285 */
+    max-width:min(42.3076923vw,165px)!important;
+    flex:0 0 auto!important;
+    margin:0!important;
+
+    font-size:var(--process-phone-body-size)!important;
+    line-height:1.5!important;
+
+    overflow:visible!important;
+  }
+
+  /* Output: exact 14px @390, full copy content width. */
+  .figma-film-output{
+    width:100%!important;
+    max-width:100%!important;
+    flex:0 0 auto!important;
+    margin:0!important;
+
+    font-size:var(--process-phone-output-size)!important;
+    line-height:1.2857143!important;
+
+    overflow:visible!important;
+  }
+
+  .figma-film-output strong,
+  .figma-film-output b{
+    display:block!important;
+    margin:0!important;
+  }
+
+  /* ----------------------------------------------------------------------
+     DECORATIVE NUMBER
+     Figma reference:
+       x = 190
+       y = 224
+       font = 128
+       line box ≈ 154
+
+     The same positioning is applied to ALL 01–04 cards.
+     Result:
+       - the number reaches through the bottom edge and is clipped there
+       - 02–04 extend slightly through the right edge and are clipped there
+       - both digits remain readable instead of losing the entire second digit
+     ---------------------------------------------------------------------- */
+  .figma-film-number,
+  .figma-film-number-01{
+    position:absolute!important;
+    z-index:2!important;
+
+    left:61.4886731%!important;  /* 190 / 309 */
+    right:auto!important;
+    top:64.7398844%!important;   /* 224 / 346 */
+
+    min-width:0!important;
+    width:auto!important;
+    height:auto!important;
+    padding:0!important;
+    margin:0!important;
+
+    font-size:var(--process-phone-number-size)!important;
+    line-height:1.203125!important; /* 154 / 128 */
+    white-space:nowrap!important;
+
+    transform:none!important;
+    pointer-events:none!important;
+  }
+
+  /* Keep all readable content above the decorative numeral. */
+  .figma-film-copy{
+    z-index:4!important;
+  }
+}

@@ -20,8 +20,7 @@
   src:
     local('Mexcellent'),
     local('Mexcellent Regular'),
-    local('Mexcellent-Regular'),
-    url('assets/fonts/Mexcellent Rg.otf') format('opentype');
+    local('Mexcellent-Regular');
   font-style:normal;
   font-weight:400;
   font-display:swap;
@@ -32,8 +31,7 @@
   src:
     local('Talina DEMO'),
     local('TalinaDEMO-Regular'),
-    local('Talina DEMO Regular'),
-    url('assets/fonts/Talina DEMO.otf') format('opentype');
+    local('Talina DEMO Regular');
   font-style:normal;
   font-weight:400;
   font-display:swap;
@@ -44,8 +42,7 @@
   src:
     local('Edit Undo Line BRK'),
     local('EditUndoLineBRK'),
-    local('Edit Undo Line BRK Regular'),
-    url('assets/fonts/edunline.ttf') format('truetype');
+    local('Edit Undo Line BRK Regular');
   font-style:normal;
   font-weight:400;
   font-display:swap;
@@ -55,8 +52,7 @@
 @font-face{
   font-family:'ImpactLocal';
   src:
-    local('Impact'),
-    url('assets/fonts/Impact 400.ttf') format('truetype');
+    local('Impact');
   font-style:normal;
   font-weight:400;
   font-display:swap;

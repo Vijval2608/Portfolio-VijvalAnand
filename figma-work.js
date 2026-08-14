@@ -169,6 +169,11 @@
   /* Exact V43 stack slots, already baked to the portfolio's 90% scale.
      Slot 0 is the front card; slot 4 is the furthest/back card. */
   const STACK_BASE = { width:666.9, height:555.3 };
+  /* Figma phone node 506:2178 keeps the same 666.9px source width/slots,
+     but uses a taller source stage so readable mobile card typography survives
+     the proportional phone scale. 833.0854 * (309 / 666.9) = 386px. */
+  const PHONE_STACK_BASE_HEIGHT = 833.0854;
+  const phoneWorkQuery = window.matchMedia('(max-width: 600px)');
   const STACK_SLOTS = [
     { x:0,  y:57.6, z:50 },
     { x:18, y:43.2, z:40 },
@@ -565,13 +570,18 @@
   function syncStackScale(){
     if (!previewWrap) return;
 
-    /* Desktop is exactly 1:1 with the baked Figma geometry. Smaller viewports
-       scale the complete stack as one object, preserving all internal spacing. */
+    /* Desktop/tablet preserve the existing V65 555.3px source stage.
+       Phones use the taller 833.0854px Figma source stage while keeping the
+       exact same width and slot coordinates. */
     const available = Math.min(STACK_BASE.width, previewWrap.clientWidth || STACK_BASE.width);
     const scale = Math.max(.01, available / STACK_BASE.width);
+    const sourceHeight = phoneWorkQuery.matches
+      ? PHONE_STACK_BASE_HEIGHT
+      : STACK_BASE.height;
 
+    preview.style.height = `${sourceHeight}px`;
     preview.style.transform = `scale(${scale})`;
-    previewWrap.style.height = `${STACK_BASE.height * scale}px`;
+    previewWrap.style.height = `${sourceHeight * scale}px`;
   }
 
   const stackResizeObserver = window.ResizeObserver
@@ -580,6 +590,11 @@
 
   if (stackResizeObserver && previewWrap) stackResizeObserver.observe(previewWrap);
   window.addEventListener('resize',syncStackScale,{passive:true});
+  if (typeof phoneWorkQuery.addEventListener === 'function') {
+    phoneWorkQuery.addEventListener('change',syncStackScale);
+  } else if (typeof phoneWorkQuery.addListener === 'function') {
+    phoneWorkQuery.addListener(syncStackScale);
+  }
 
   function openProject(p,action){
     action = action || p.actions?.[0] || {};

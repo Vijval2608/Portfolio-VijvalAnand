@@ -1,0 +1,31 @@
+/* ==========================================================================
+   V79 — PHONE EXPERIENCE NODE / SPRING ANCHOR
+
+   Root cause:
+   .career-line is a sibling of .career-item, but each .career-item participates
+   in the global section spring (scale: .958 -> 1 -> overshoot -> 1). With the
+   default center transform-origin, that scale shifts the item's left-side grid
+   lane horizontally while the independent timeline rail stays fixed.
+
+   Phone-only fix:
+   1) Move each career item's transform origin onto the exact rail/node X-axis.
+      The item's spring can scale freely without ever moving that anchor point.
+   2) Vertically center the 10px node on the 12.35px date text line box.
+
+   Desktop/tablet intentionally untouched.
+   ========================================================================== */
+
+@media (max-width:600px){
+  .experience-section .career-item,
+  .experience-section .career-item:nth-of-type(even){
+    /* V77 centers both the rail and node in the first grid column.
+       Make that same coordinate the invariant spring anchor. */
+    transform-origin:calc(var(--phone-exp-node-column) / 2) center!important;
+  }
+
+  .experience-section .career-node{
+    /* Date line-height is 12.35px; node border-box is 10px.
+       (12.35 - 10) / 2 = 1.175px. */
+    margin-top:1.175px!important;
+  }
+}
