@@ -1,0 +1,69 @@
+/* ========================================================================== 
+   V87 — approved V86 Skills micro-tuning only.
+   1) Research order + hanging two-line Behavioral research.
+   2) Add a clean top inset on desktop so the Skills kicker cannot clip.
+   3) Reduce the blank Skills -> Experience breathing room by ~10%.
+   ========================================================================== */
+
+/* Keep the second line aligned with "Behavioral", not with the dash. */
+.figma-paper-copy-research .skill-behavioral-research{
+  display:grid!important;
+  grid-template-columns:max-content minmax(0,1fr);
+  column-gap:0;
+  white-space:normal!important;
+}
+.figma-paper-copy-research .skill-behavioral-research::before{
+  grid-column:1;
+  grid-row:1;
+}
+.figma-paper-copy-research .skill-behavioral-research > span{
+  grid-column:2;
+  grid-row:1;
+  display:block;
+  line-height:inherit;
+}
+
+/* Desktop source frame had the kicker at y=-6.3px after the locked 90% scale.
+   Move the complete stage down 24px rather than altering its internal geometry.
+   The former ~305.49px blank tail is then shortened by 30.55px (10%). */
+@media (min-width:1231px){
+  .figma-skills-section{
+    height:1027.551px!important;
+    min-height:1027.551px!important;
+  }
+  .figma-skills-stage{
+    top:24px!important;
+  }
+}
+
+/* Narrow desktop / tablet: trim only the existing empty tail after the last
+   Skills artwork. The artwork positions themselves remain V85/V86. */
+@media (min-width:1001px) and (max-width:1230px){
+  .figma-skills-stage{min-height:911px!important;}
+}
+
+@media (min-width:681px) and (max-width:1000px){
+  .figma-skills-stage{
+    min-height:min(1237px, calc(1188px + 5.623vw))!important;
+  }
+}
+
+@media (min-width:601px) and (max-width:680px){
+  .figma-skills-stage{min-height:1509px!important;}
+}
+
+/* On ordinary phones the previous tail is ~75–111px depending on width;
+   this formula removes about one tenth while preserving the compact zig-zag. */
+@media (min-width:391px) and (max-width:600px){
+  .figma-skills-stage{
+    min-height:min(1550px, calc(1503.5px + 9.069vw))!important;
+  }
+}
+@media (min-width:341px) and (max-width:390px){
+  .figma-skills-stage{
+    min-height:min(394.582vw, 1539px)!important;
+  }
+}
+@media (max-width:340px){
+  .figma-skills-stage{min-height:1380px!important;}
+}

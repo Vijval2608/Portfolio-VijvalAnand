@@ -1,0 +1,12 @@
+V89 — Skills micro-tuning
+
+- Research note now uses the exact Product & UX column separation:
+  desktop 10.8px gap / 102.69px first lane; phone 8px / 107px first lane.
+- On phone, the window illustration now starts ~80px after the rendered bottom
+  of the Research note at the 390px reference width.
+- The note-to-window gap scales down proportionally on narrower phones and caps
+  at 80px on wider mobile widths.
+- The window's three Figma shadows inherit the same top anchor and move with it.
+- Skills stage height grows by exactly the illustration shift so the existing
+  Skills -> Experience bottom breathing room is preserved.
+- No non-Skills files or interactions were changed.

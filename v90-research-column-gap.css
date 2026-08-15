@@ -1,0 +1,9 @@
+/* V90 — micro-fix: tighten Research note columns only. */
+.figma-paper-copy-research .figma-paper-columns{
+  gap:5.4px!important;
+}
+@media (max-width:600px){
+  .figma-paper-copy-research .figma-paper-columns{
+    gap:4px!important;
+  }
+}

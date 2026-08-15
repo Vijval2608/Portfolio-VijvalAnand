@@ -1,0 +1,97 @@
+/* ========================================================================== 
+   V89 — Skills micro-tuning on top of approved V88.
+   - Research column lane now matches Product & UX exactly.
+   - Phone: keep ~80px (390px reference) clear space between the final note
+     and the window illustration, scaled down fluidly on narrower phones.
+   ========================================================================== */
+
+/* Match Product & UX column geometry instead of merely using a similar gap. */
+.figma-paper-copy-research .figma-paper-columns{
+  gap:10.8px!important;
+}
+.figma-paper-copy-research .figma-paper-columns ul:first-child{
+  width:102.69px!important;
+}
+
+@media (max-width:600px){
+  /* Product & UX uses the shared 8px phone column gap and a 107px first lane. */
+  .figma-paper-copy-research .figma-paper-columns{
+    gap:8px!important;
+  }
+  .figma-paper-copy-research .figma-paper-columns ul:first-child{
+    width:107px!important;
+  }
+
+  /*
+     The last paper note is Research. Place the window from the rendered bottom
+     of that note instead of from an unrelated fixed top value.
+
+     Reference @390px:
+       Research top     = 875px
+       rendered height  = 265.743px × .96 = 255.113px
+       requested gap    = 80px
+       window top       ≈ 1210.1px
+
+     The gap is expressed as vw and capped at 80px, so it gently scales down
+     on smaller phones without becoming oversized on wider mobile screens.
+  */
+  .figma-skills-stage{
+    --skills-note-window-gap:min(20.5128205vw,80px);
+    --skills-research-phone-top:min(224.359vw,875px);
+    --skills-research-rendered-height:255.113px;
+    --skills-window-phone-old-top:min(278.205vw,1085px);
+    --skills-window-phone-top:calc(
+      var(--skills-research-phone-top) +
+      var(--skills-research-rendered-height) +
+      var(--skills-note-window-gap)
+    );
+    --skills-window-phone-shift:calc(
+      var(--skills-window-phone-top) - var(--skills-window-phone-old-top)
+    );
+  }
+
+  .figma-skills-window{
+    top:var(--skills-window-phone-top)!important;
+  }
+
+  /* V86/V88 shadow positioning already references this same top token, so all
+     three exact Figma shadows move with the illustration automatically. */
+}
+
+/* V88 scales the paper silhouette down slightly at these widths; keep the
+   window gap measured from the true transformed bottom of Research. */
+@media (max-width:380px) and (min-width:361px){
+  .figma-skills-stage{--skills-research-rendered-height:244.482px;}
+}
+@media (max-width:360px) and (min-width:341px){
+  .figma-skills-stage{--skills-research-rendered-height:231.197px;}
+}
+@media (max-width:340px){
+  .figma-skills-stage{
+    --skills-research-phone-top:785px;
+    --skills-research-rendered-height:223.224px;
+    --skills-window-phone-old-top:1000px;
+  }
+}
+
+/* Preserve V88's existing Skills -> Experience breathing room after moving the
+   illustration downward. Absolute artwork does not grow the stage by itself,
+   so add exactly the same shift to the stage's established minimum height. */
+@media (min-width:391px) and (max-width:600px){
+  .figma-skills-stage{
+    min-height:max(
+      calc(1550px - 18.6031vw + var(--skills-window-phone-shift)),
+      calc(1085px + 72.0871vw + 24px + var(--skills-window-phone-shift))
+    )!important;
+  }
+}
+@media (min-width:341px) and (max-width:390px){
+  .figma-skills-stage{
+    min-height:calc(378.8329vw + var(--skills-window-phone-shift))!important;
+  }
+}
+@media (max-width:340px){
+  .figma-skills-stage{
+    min-height:calc(1390px - 18.6031vw + var(--skills-window-phone-shift))!important;
+  }
+}

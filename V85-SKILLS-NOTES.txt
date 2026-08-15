@@ -1,0 +1,13 @@
+V85 — Skills Figma Exact
+Source frame: Figma node 522:2169 (1512 × 1149)
+
+Skills-only change over V84.
+- Desktop top-level geometry is implemented at the portfolio's existing 90% scale.
+- All four paper-note shadows use the exact Figma vector paths exported from:
+  522:2428 / 522:2385 / 522:2403 / 522:2444.
+  Their original color, opacity and Gaussian blur are embedded in the SVG assets.
+- Window side shadows use exact exported vectors from 522:2172 / 522:2173.
+- Window ledge shadow matches 522:2174 (#AE9B7F at 30%, Figma blur scaled to the site's 90% system).
+- Window/person illustration uses the latest vector asset from node 522:2175.
+- Skill-body typography remains Poppins as requested instead of Figma's Inter.
+- Phone notes use a tighter alternating left/right zig-zag stack.

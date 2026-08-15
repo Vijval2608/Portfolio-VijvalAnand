@@ -1,0 +1,9 @@
+/* V92 — add 3px to the now-correct Research column gap only. */
+.figma-paper-copy-research .figma-paper-columns{
+  gap:5px!important;
+}
+@media (max-width:600px){
+  .figma-paper-copy-research .figma-paper-columns{
+    gap:5px!important;
+  }
+}

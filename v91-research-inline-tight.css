@@ -1,0 +1,28 @@
+/* V91 — Research note: real inward gutters + visibly tighter columns.
+   Previous versions reduced flex gap, but the oversized first column lane kept
+   a large *visual* gap. This override shrinks that lane and gives the whole
+   content block balanced inline insets inside the paper. */
+.figma-paper-copy-research .figma-paper-columns{
+  left:39px!important;
+  right:34px!important;
+  width:auto!important;
+  gap:2px!important;
+}
+.figma-paper-copy-research .figma-paper-columns ul:first-child{
+  width:80px!important;
+}
+.figma-paper-copy-research .figma-paper-columns ul:last-child{
+  width:auto!important;
+}
+
+@media (max-width:600px){
+  .figma-paper-copy-research .figma-paper-columns{
+    left:35px!important;
+    right:31px!important;
+    width:auto!important;
+    gap:2px!important;
+  }
+  .figma-paper-copy-research .figma-paper-columns ul:first-child{
+    width:84px!important;
+  }
+}

@@ -1,0 +1,7 @@
+V86 Skills micro-refinements (baseline: approved V85)
+
+- Visual + Brand: "creatives" uses a hanging wrap directly under the Social media text.
+- Research: reorganized into research/validation vs synthesis/strategy columns, with increased column separation.
+- Tools n Tech: reduced the gap between the two tool columns.
+- Phone <=600px: restored all three window illustration shadows (left, right, ledge) using their exact V85/Figma assets and proportional geometry.
+- No other section logic, animation, waveform, Work viewer, Experience timeline, or startup code changed.

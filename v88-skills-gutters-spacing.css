@@ -1,0 +1,142 @@
+/* ========================================================================== 
+   V88 — Skills spacing + phone gutter containment on top of approved V87.
+   - Research columns tightened slightly.
+   - Skills content begins ~200px from the section top across breakpoints.
+   - Restores the pre-V87 Skills -> Experience breathing room.
+   - Phone artwork is constrained to the established equal phone gutters.
+   ========================================================================== */
+
+/* Research: keep the clearer grouping, but bring the two reading lanes closer. */
+.figma-paper-copy-research .figma-paper-columns{
+  gap:11px!important;
+}
+
+/* --------------------------------------------------------------------------
+   TOP BREATHING ROOM + RESTORED BOTTOM RHYTHM
+   V87 shortened the trailing space. Restore V86/V85 heights, then move the
+   complete stage (notes + exact shadows + window + headings) down so the
+   kicker starts at roughly y=200px without changing internal geometry.
+   -------------------------------------------------------------------------- */
+@media (min-width:1231px){
+  .figma-skills-section{
+    height:1240.4px!important;      /* 1034.1 original + 206.3 stage offset */
+    min-height:1240.4px!important;
+  }
+  .figma-skills-stage{
+    top:0!important;
+    margin-top:206.3px!important;   /* kicker is -6.3px => visible y ~= 200px */
+  }
+}
+
+@media (min-width:681px) and (max-width:1230px){
+  .figma-skills-stage{
+    margin-top:104px!important;     /* existing 96px top padding => ~200px */
+  }
+}
+@media (min-width:1001px) and (max-width:1230px){
+  .figma-skills-stage{min-height:930px!important;}
+}
+@media (min-width:681px) and (max-width:1000px){
+  .figma-skills-stage{min-height:1240px!important;}
+}
+
+@media (min-width:601px) and (max-width:680px){
+  .figma-skills-stage{
+    margin-top:118px!important;     /* existing 82px top padding => 200px */
+    min-height:1510px!important;
+  }
+}
+
+@media (max-width:600px){
+  .figma-skills-stage{
+    margin-top:min(30.2564103vw,118px)!important; /* 118px @ 390, fluid below */
+    padding-left:var(--phone-gutter)!important;
+    padding-right:var(--phone-gutter)!important;
+  }
+
+  /* Research: tighter than V86, still clearly separated. */
+  .figma-paper-copy-research .figma-paper-columns{
+    gap:8px!important;
+  }
+
+  /* ----------------------------------------------------------------------
+     PHONE GUTTER LOCK
+     Absolutely-positioned children do not naturally honor the stage padding.
+     Pin every Skills artwork group to the same 40/390 gutter used elsewhere.
+     ---------------------------------------------------------------------- */
+  .figma-sticky-product,
+  .figma-sticky-tools{
+    left:var(--phone-gutter)!important;
+    right:auto!important;
+  }
+  .figma-sticky-visual,
+  .figma-sticky-research{
+    left:auto!important;
+    right:var(--phone-gutter)!important;
+  }
+
+  /* The latest 522:2175 window itself stays entirely inside the gutter. */
+  .figma-skills-window{
+    left:var(--phone-gutter)!important;
+    right:auto!important;
+    width:calc(100% - var(--phone-gutter) - var(--phone-gutter))!important;
+    max-width:none!important;
+  }
+
+  /* Re-map the three exact Figma shadows to the gutter-constrained window.
+     Values are the same 522:2169 relationships, scaled from 100vw down to
+     the 79.4871794vw content lane. SVG-native color/opacity/blur is untouched. */
+  .figma-window-side-shadow-left{
+    left:21.139636vw!important;
+    right:auto!important;
+    top:calc(var(--skills-window-phone-top) + 15.859203vw)!important;
+    width:8.982210vw!important;
+    height:44.323959vw!important;
+  }
+  .figma-window-side-shadow-right{
+    left:68.091918vw!important;
+    right:auto!important;
+    top:calc(var(--skills-window-phone-top) + 16.497087vw)!important;
+    width:8.854554vw!important;
+    height:44.323959vw!important;
+  }
+  .figma-window-ledge-shadow{
+    left:30.415313vw!important;
+    right:auto!important;
+    top:calc(var(--skills-window-phone-top) + 54.589251vw)!important;
+    width:37.765949vw!important;
+    height:2.182162vw!important;
+    filter:blur(min(.491151vw,2.754px))!important;
+  }
+}
+
+/* The window is now narrower because it respects the gutters. Shorten the
+   stage by the same lost window height so the visible Skills -> Experience
+   breathing room stays like V86. At very wide phone widths, keep at least
+   24px of safety so the illustration can never be clipped. */
+@media (min-width:391px) and (max-width:600px){
+  .figma-skills-stage{
+    min-height:max(
+      calc(1550px - 18.6031vw),
+      calc(1085px + 72.0871vw + 24px)
+    )!important;
+  }
+}
+@media (min-width:341px) and (max-width:390px){
+  .figma-skills-stage{min-height:378.8329vw!important;}
+}
+
+/* Keep the widest paper/shadow silhouette inside the same gutter on narrower
+   phones instead of allowing fixed .96 scaling to spill into the margins. */
+@media (max-width:380px) and (min-width:361px){
+  :root{--paper-note-phone-scale:.92;}
+}
+@media (max-width:360px) and (min-width:341px){
+  :root{--paper-note-phone-scale:.87;}
+}
+@media (max-width:340px){
+  :root{--paper-note-phone-scale:.84;}
+  .figma-skills-stage{
+    min-height:calc(1390px - 18.6031vw)!important; /* preserve V86 visual tail after narrower window */
+  }
+}

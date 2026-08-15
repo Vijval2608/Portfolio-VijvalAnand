@@ -1,0 +1,11 @@
+V87 SKILLS MICRO-TUNING
+
+Baseline: V86.
+
+Changes only:
+- Research order now: User interviews, User testing, A/B testing, Behavioral research.
+- Behavioral research is intentionally two lines with a hanging indent.
+- Desktop Skills stage moved down 24px so the kicker no longer clips at the section boundary.
+- Skills -> Experience empty tail reduced by approximately 10% across desktop/responsive breakpoints.
+
+No note/window/shadow geometry, startup animation, waveform, Work viewer, Experience timeline, or other section behavior was changed.

@@ -1,0 +1,450 @@
+/* ========================================================================== 
+   V85 — SKILLS / FIGMA 522:2169
+   Desktop geometry is a 90% implementation of the 1512 × 1149 source frame.
+   Note shadows are the actual Figma vector paths, including their native
+   fill opacity and Gaussian blur — no CSS approximation is used.
+   ========================================================================== */
+
+.figma-skills-section{
+  height:1034.1px;
+  min-height:1034.1px;
+}
+
+.figma-skills-stage{
+  position:relative;
+  width:1360.8px;
+  height:1034.1px;
+  margin:0 auto;
+}
+
+/* Exact 522:2169 heading placement at the portfolio's locked 90% scale. */
+.figma-skills-kicker{
+  left:91.8px!important;
+  top:-6.3px!important;
+}
+.figma-skills-title{
+  left:91.8px!important;
+  top:27px!important;
+  width:405.9px!important;
+  height:69.3px!important;
+  font-size:57.6px!important;
+  letter-spacing:-1.728px!important;
+  line-height:normal!important;
+}
+
+/* --------------------------------------------------------------------------
+   Real paper notes
+   -------------------------------------------------------------------------- */
+.figma-paper-note-wrap{
+  position:absolute!important;
+  display:block!important;
+  overflow:visible!important;
+  isolation:isolate;
+  pointer-events:none;
+}
+
+.figma-paper-note-bg,
+.figma-paper-shadow-vector{
+  position:absolute;
+  display:block;
+  max-width:none!important;
+  pointer-events:none;
+  backface-visibility:hidden;
+}
+
+.figma-paper-shadow-vector{
+  z-index:1;
+  image-rendering:auto;
+}
+.figma-paper-note-bg{
+  z-index:2;
+  object-fit:contain;
+  image-rendering:auto;
+}
+
+.figma-paper-copy{
+  position:absolute;
+  z-index:3;
+  inset:0;
+  margin:0;
+  color:#1e1e1e;
+  transform:none;
+  backface-visibility:hidden;
+}
+
+.figma-paper-copy h3{
+  position:absolute;
+  margin:0;
+  color:#1e1e1e;
+  font-family:'Hachi Maru Pop',cursive;
+  font-size:21.6px;
+  font-weight:400;
+  line-height:1.35;
+  letter-spacing:-.648px;
+  text-decoration-line:underline;
+  text-decoration-thickness:.08em;
+  text-underline-offset:.18em;
+  text-decoration-skip-ink:auto;
+  white-space:nowrap;
+  text-rendering:geometricPrecision;
+  transform-origin:top left;
+}
+
+.figma-paper-columns{
+  position:absolute;
+  display:flex;
+  align-items:flex-start;
+  gap:10.8px;
+  margin:0;
+  color:#1e1e1e;
+  font-family:'Poppins',sans-serif;
+  font-size:10.8px;
+  font-weight:300;
+  line-height:1.36;
+  letter-spacing:-.324px;
+  text-rendering:geometricPrecision;
+  transform-origin:top left;
+}
+
+.figma-paper-columns ul{
+  position:relative!important;
+  inset:auto!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:3.6px!important;
+  width:auto!important;
+  margin:0!important;
+  padding:0!important;
+  list-style:none!important;
+  transform:none!important;
+  flex:none;
+}
+.figma-paper-columns li{
+  margin:0!important;
+  padding:0!important;
+  white-space:nowrap;
+}
+.figma-paper-columns li::before{content:'- ';}
+
+/* PRODUCT & UX — 522:2427 */
+.figma-sticky-product{
+  left:91.8px!important;
+  top:198.9px!important;
+  width:294.667px!important;
+  height:279.724px!important;
+}
+.figma-sticky-product .figma-paper-note-bg{
+  left:0;
+  top:0;
+  width:293.75px;
+  height:272.92px;
+}
+/* exact exported render-bounds of Rectangle 32 / 522:2428 */
+.figma-sticky-product .figma-paper-shadow-vector{
+  left:1.462px;
+  top:16.075px;
+  width:299.902px;
+  height:271.081px;
+}
+.figma-paper-copy-product h3{
+  left:38.18px;
+  top:59.42px;
+  width:213.64px;
+  transform:rotate(-6deg);
+}
+.figma-paper-copy-product .figma-paper-columns{
+  left:51.60px;
+  top:114.19px;
+  width:219.247px;
+  gap:10.8px;
+  transform:rotate(-6deg);
+}
+.figma-paper-copy-product .figma-paper-columns ul:first-child{width:102.69px!important;}
+
+/* VISUAL + BRAND — 522:2384 */
+.figma-sticky-visual{
+  left:366.210px!important;
+  top:234.622px!important;
+  width:273.598px!important;
+  height:254.113px!important;
+}
+.figma-sticky-visual .figma-paper-note-bg{
+  inset:0;
+  width:273.598px;
+  height:254.113px;
+}
+/* exact exported render-bounds of Rectangle 33 / 522:2385 */
+.figma-sticky-visual .figma-paper-shadow-vector{
+  left:19.738px;
+  top:23.234px;
+  width:248.917px;
+  height:232.274px;
+}
+.figma-paper-copy-visual h3{
+  left:40.590px;
+  top:65.078px;
+  width:191.7px;
+}
+.figma-paper-copy-visual .figma-paper-columns{
+  left:37.890px;
+  top:118.178px;
+  width:198px;
+}
+.figma-paper-copy-visual .figma-paper-columns ul:first-child{width:95.4px!important;}
+.figma-paper-copy-visual .figma-paper-columns li:last-child{white-space:normal;}
+
+/* TOOLS N TECH — 522:2402 */
+.figma-sticky-tools{
+  left:95.805px!important;
+  top:459.548px!important;
+  width:298.890px!important;
+  height:269.064px!important;
+}
+.figma-sticky-tools .figma-paper-note-bg{
+  left:1.701px;
+  top:1.845px;
+  width:285.451px;
+  height:265.379px;
+}
+/* exact exported render-bounds of Rectangle 34 / 522:2403 */
+.figma-sticky-tools .figma-paper-shadow-vector{
+  left:14.642px;
+  top:32.878px;
+  width:287.418px;
+  height:237.683px;
+}
+.figma-paper-copy-tools h3{
+  left:58.677px;
+  top:39.952px;
+  width:175.5px;
+  text-align:center;
+  transform:rotate(1.5deg);
+}
+.figma-paper-copy-tools .figma-paper-columns{
+  left:54.495px;
+  top:80.983px;
+  width:174.066px;
+  gap:10.8px;
+  transform:rotate(1.5deg);
+}
+.figma-paper-copy-tools .figma-paper-columns ul:first-child{width:102.69px!important;}
+
+/* RESEARCH — 522:2443 */
+.figma-sticky-research{
+  left:366.3px!important;
+  top:460.8px!important;
+  width:276.705px!important;
+  height:265.743px!important;
+}
+.figma-sticky-research .figma-paper-note-bg{
+  inset:0;
+  width:276.705px;
+  height:265.743px;
+}
+/* exact exported render-bounds of Rectangle 34 / 522:2444 */
+.figma-sticky-research .figma-paper-shadow-vector{
+  left:18.865px;
+  top:21.302px;
+  width:256.631px;
+  height:240.799px;
+}
+.figma-paper-copy-research h3{
+  left:38.116px;
+  top:59.4px;
+  width:200.141px;
+  transform:rotate(2deg);
+}
+.figma-paper-copy-research .figma-paper-columns{
+  left:35.101px;
+  top:112.468px;
+  width:202.281px;
+  gap:12.6px;
+  transform:rotate(2deg);
+}
+.figma-paper-copy-research .figma-paper-columns ul:first-child{width:95.4px!important;}
+
+/* --------------------------------------------------------------------------
+   Latest 522:2169 window + exact Figma shadow geometry
+   -------------------------------------------------------------------------- */
+.figma-skills-window{
+  position:absolute!important;
+  left:738px!important;
+  top:90.9px!important;
+  width:560.7px!important;
+  height:508.5px!important;
+  z-index:2;
+}
+.figma-skills-window img{
+  width:100%!important;
+  height:100%!important;
+  display:block;
+  max-width:none!important;
+}
+
+/* These two files are the actual 522:2172 / 522:2173 vectors with Figma's
+   #AE9B7F / 30% fill and stdDeviation 3.85 blur embedded in the SVG. */
+.figma-window-side-shadow{
+  position:absolute!important;
+  display:block!important;
+  max-width:none!important;
+  z-index:1!important;
+  pointer-events:none!important;
+}
+.figma-window-side-shadow-right{
+  left:1145.970px!important;
+  top:207.270px!important;
+  width:62.460px!important;
+  height:312.660px!important;
+}
+.figma-window-side-shadow-left{
+  left:814.770px!important;
+  top:202.770px!important;
+  width:63.360px!important;
+  height:312.660px!important;
+}
+.figma-window-ledge-shadow{
+  position:absolute!important;
+  left:880.2px!important;
+  top:475.971px!important;
+  width:266.4px!important;
+  height:15.393px!important;
+  z-index:1!important;
+  background:rgba(174,155,127,.30)!important;
+  filter:blur(3.465px)!important;
+  pointer-events:none!important;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive composition. Desktop is exact Figma geometry above; smaller
+   canvases preserve its grouping and intentional zig-zag rather than trying
+   to force the 1512px canvas literally into a phone viewport.
+   -------------------------------------------------------------------------- */
+@media (max-width:1230px){
+  .figma-skills-section{height:auto!important;min-height:0!important;}
+  .figma-skills-stage{
+    width:100%!important;
+    height:auto!important;
+    min-height:930px!important;
+    padding:96px 42px 82px!important;
+    box-sizing:border-box!important;
+  }
+  .figma-skills-kicker,
+  .figma-skills-title{
+    position:relative!important;
+    left:auto!important;
+    top:auto!important;
+  }
+  .figma-skills-kicker{margin-bottom:28px!important;}
+  .figma-skills-title{
+    width:auto!important;height:auto!important;
+    margin-bottom:56px!important;
+    font-size:52px!important;line-height:1.1!important;
+  }
+
+  .figma-sticky-wrap{transform:scale(.86)!important;transform-origin:top left!important;}
+  .figma-sticky-product{left:52px!important;top:260px!important;}
+  .figma-sticky-visual{left:306px!important;top:292px!important;}
+  .figma-sticky-tools{left:54px!important;top:484px!important;}
+  .figma-sticky-research{left:306px!important;top:486px!important;}
+
+  .figma-window-side-shadow,.figma-window-ledge-shadow{display:none!important;}
+  .figma-skills-window{
+    left:auto!important;right:28px!important;top:250px!important;
+    width:clamp(380px,41vw,500px)!important;height:auto!important;
+    aspect-ratio:623 / 565!important;
+  }
+}
+
+@media (max-width:1000px){
+  .figma-skills-stage{min-height:1240px!important;padding-inline:28px!important;}
+  .figma-skills-title{font-size:48px!important;}
+  .figma-sticky-wrap{transform:scale(.82)!important;}
+  .figma-sticky-product{left:30px!important;top:270px!important;}
+  .figma-sticky-visual{left:276px!important;top:300px!important;}
+  .figma-sticky-tools{left:32px!important;top:492px!important;}
+  .figma-sticky-research{left:276px!important;top:494px!important;}
+  .figma-skills-window{
+    top:720px!important;left:50%!important;right:auto!important;
+    width:min(62vw,540px)!important;transform:translateX(-50%)!important;
+  }
+}
+
+@media (max-width:680px){
+  .figma-skills-stage{min-height:1510px!important;padding:82px 18px 72px!important;}
+  .figma-skills-kicker{margin-bottom:24px!important;}
+  .figma-skills-title{
+    margin-bottom:44px!important;font-size:40px!important;line-height:1.08!important;
+    white-space:normal!important;
+  }
+  .figma-sticky-wrap{transform:scale(.74)!important;}
+  .figma-sticky-product{left:0!important;top:250px!important;}
+  .figma-sticky-visual{left:154px!important;top:445px!important;}
+  .figma-sticky-tools{left:0!important;top:640px!important;}
+  .figma-sticky-research{left:150px!important;top:835px!important;}
+  .figma-skills-window{top:1040px!important;width:min(94vw,510px)!important;}
+}
+
+/* Phone: compact zig-zag. Deliberately overlapping the vertical envelopes a
+   little keeps the four real-paper notes visually related, as requested. */
+@media (max-width:600px){
+  :root{
+    --paper-note-phone-scale:.96;
+    --paper-note-phone-body:min(3.025641vw,11.8px);
+    --paper-note-phone-heading:min(6.025641vw,23.5px);
+  }
+  .figma-skills-stage{
+    min-height:min(397.436vw,1550px)!important;
+    padding-top:min(21.026vw,82px)!important;
+    padding-bottom:min(18.462vw,72px)!important;
+  }
+  .figma-skills-title{margin-bottom:min(11.282vw,44px)!important;line-height:1.08!important;}
+  .figma-sticky-wrap{transform:scale(var(--paper-note-phone-scale))!important;}
+
+  .figma-sticky-product{
+    left:0!important;right:auto!important;top:min(64.103vw,250px)!important;
+    transform-origin:top left!important;
+  }
+  .figma-sticky-visual{
+    left:auto!important;right:0!important;top:min(117.949vw,460px)!important;
+    transform-origin:top right!important;
+  }
+  .figma-sticky-tools{
+    left:0!important;right:auto!important;top:min(170.513vw,665px)!important;
+    transform-origin:top left!important;
+  }
+  .figma-sticky-research{
+    left:auto!important;right:0!important;top:min(224.359vw,875px)!important;
+    transform-origin:top right!important;
+  }
+
+  .figma-paper-copy h3{font-size:var(--paper-note-phone-heading)!important;letter-spacing:-.03em!important;}
+  .figma-paper-columns{
+    font-size:var(--paper-note-phone-body)!important;line-height:1.39!important;
+    letter-spacing:-.03em!important;gap:8px!important;
+  }
+  .figma-paper-columns ul{gap:3px!important;}
+  .figma-paper-copy-product .figma-paper-columns ul:first-child{width:107px!important;}
+  .figma-paper-copy-visual .figma-paper-columns ul:first-child{width:101px!important;}
+  .figma-paper-copy-tools .figma-paper-columns ul:first-child{width:104px!important;}
+  .figma-paper-copy-research .figma-paper-columns ul:first-child{width:105px!important;}
+
+  .figma-skills-window{
+    left:0!important;right:auto!important;top:min(278.205vw,1085px)!important;
+    width:100%!important;max-width:100%!important;height:auto!important;
+    aspect-ratio:623 / 565!important;transform:none!important;
+  }
+}
+
+@media (max-width:340px){
+  :root{--paper-note-phone-scale:.84;}
+  .figma-skills-stage{min-height:1390px!important;}
+  .figma-sticky-product{top:245px!important;}
+  .figma-sticky-visual{top:425px!important;}
+  .figma-sticky-tools{top:600px!important;}
+  .figma-sticky-research{top:785px!important;}
+  .figma-skills-window{top:1000px!important;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .figma-paper-note-wrap *{animation:none!important;transition:none!important;}
+}

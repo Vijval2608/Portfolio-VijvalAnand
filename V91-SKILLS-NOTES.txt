@@ -1,0 +1,5 @@
+V91 — Research note visual-gap fix only
+- Adds true inline insets to the Research note content block.
+- Shrinks the first-column lane that was preserving invisible whitespace.
+- Sets a 2px actual flex gap on desktop and phone.
+- No other section/layout/interaction changed.
