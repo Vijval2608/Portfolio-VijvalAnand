@@ -1,0 +1,16 @@
+V140 — safe deployment optimization of V139
+
+No intentional visual, layout, copy, animation, or interaction changes.
+
+Changes:
+- Removed superseded V119–V139 build-note clutter and old computer experiments.
+- Removed ~5 MB of unused old computer PNG/SVG/CSS/JS assets.
+- Localized all remaining expiring Figma MCP SVG URLs used by the current page:
+  role star, hero stars, CTA arrow, Resume chevron, nav connect star.
+- Changed hero MP3 preload from auto -> none. Audio still loads normally on user click.
+- Removed only the early waveform-data preload; the same waveform script still executes
+  in the existing bottom-of-page order before figma-hero.js.
+- Added intrinsic dimensions to critical images.
+- Added native lazy loading + async decoding to the below-fold About images.
+- Existing caching rules in _headers are retained.
+- Current grain behavior is intentionally untouched for the next fixing pass.

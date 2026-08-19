@@ -4,7 +4,7 @@
   if (!list || !preview) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const ARROW = 'https://www.figma.com/api/mcp/asset/d17f0d89-137d-4827-969a-152e651d9ded.svg';
+  const ARROW = 'assets/icons/arrow-right-figma.svg';
   const FIGMA_FITTRIBE = 'assets/figma-work/fittribe-thumbnail.webp';
   const WORK_STAR = `<svg width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 0C10 0 10.5518 7.58026 12.7009 9.73804C14.8501 11.8958 20 12.4498 20 12.4498C20 12.4498 14.8501 13.0038 12.7009 15.1616C10.5518 17.3193 10 25 10 25C10 25 9.44825 17.3193 7.29909 15.1616C5.14994 13.0038 0 12.4498 0 12.4498C0 12.4498 5.14994 11.8958 7.29909 9.73804C9.44825 7.58026 10 0 10 0Z" fill="#FC5134"/></svg>`;
 
