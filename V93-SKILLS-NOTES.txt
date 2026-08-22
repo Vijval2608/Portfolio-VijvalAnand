@@ -1,7 +1,0 @@
-V93 Skills note-column normalization
-
-- All four two-column Skills notes use content-hugging columns.
-- Removed fixed first-column lane widths that made gap changes visually ineffective.
-- Desktop visible column gap: 9px.
-- Phone visible column gap: 8px.
-- Existing note positions, images, shadows, typography, window illustration, section spacing, phone gutters, and non-Skills behavior are unchanged.
