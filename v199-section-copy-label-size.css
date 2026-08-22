@@ -1,0 +1,24 @@
+/* ========================================================================== 
+   V199 — SECTION COPY → LABEL SIZE
+   Base: V198 font loading restored.
+
+   Section-level supporting copy is one semantic role across the site.
+   Keep its existing family / weight / line-height; normalize only its size
+   from --type-body to --type-label.
+   ========================================================================== */
+
+.figma-process-note p,
+.experience-section .section-heading > p,
+.about-head-note,
+.contact-bottom > p{
+  font-size:var(--type-label)!important;
+}
+
+@media (max-width:600px){
+  .figma-process-note p,
+  .experience-section .section-heading > p,
+  .about-head-note,
+  .contact-bottom > p{
+    font-size:var(--type-label)!important;
+  }
+}
