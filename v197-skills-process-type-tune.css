@@ -1,0 +1,74 @@
+/* ========================================================================== 
+   V197 — SKILLS + PROCESS TYPE TUNE
+   Base: V196 skills readability.
+
+   1) Skills handwritten list copy settles at 17px.
+   2) Process card sizes are remapped to the nearest existing V195/V196
+      semantic-system tokens relative to the effective V193 design.
+
+      V193 desktop: 12.6 / 32.4 / 10.8 / 12.6
+      V193 phone @390: ~14 / 36 / 12 / 14
+      (step / title / body / output)
+
+   No new typography size is introduced for Process.
+   ========================================================================== */
+
+/* Skills: requested optical midpoint between V195 (16.2) and V196 (18). */
+:root{
+  --type-hand-body:17px;
+}
+
+.figma-paper-columns{
+  font-size:17px!important;
+}
+
+@media (max-width:600px){
+  :root{
+    --paper-note-phone-body:17px;
+  }
+  .figma-paper-columns{
+    font-size:17px!important;
+  }
+}
+
+/* Process — desktop/tablet: these are exact matches to V193 where possible. */
+@media (min-width:601px){
+  .figma-film-step,
+  .figma-film-output{
+    font-size:var(--type-label)!important;          /* 12.6px; V193 = 12.6 */
+  }
+
+  .figma-film-copy h3,
+  .figma-film-card-end h3{
+    font-size:var(--type-feature-title)!important; /* 32.4px; V193 = 32.4 */
+  }
+
+  .figma-film-copy > p:not(.figma-film-output){
+    font-size:var(--type-ui)!important;             /* 10.8px; V193 = 10.8 */
+  }
+}
+
+/* Process — phone: nearest current system tokens to V193's responsive
+   14 / 36 / 12 / 14 reference at 390px. */
+@media (max-width:600px){
+  :root{
+    --process-phone-step-size:var(--type-body);          /* 13.5px ≈ 14 */
+    --process-phone-title-size:var(--type-feature-title);/* 32.4px ≈ 36 */
+    --process-phone-body-size:var(--type-compact-body);  /* 12.6px ≈ 12 */
+    --process-phone-output-size:var(--type-body);        /* 13.5px ≈ 14 */
+  }
+
+  .figma-film-step,
+  .figma-film-output{
+    font-size:var(--type-body)!important;
+  }
+
+  .figma-film-copy h3,
+  .figma-film-card-end h3{
+    font-size:var(--type-feature-title)!important;
+  }
+
+  .figma-film-copy > p:not(.figma-film-output){
+    font-size:var(--type-compact-body)!important;
+  }
+}

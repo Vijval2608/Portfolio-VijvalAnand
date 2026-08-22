@@ -1,0 +1,32 @@
+/* ==========================================================================
+   V192 — VIEWER CURSOR + RESUME CHEVRON POLISH
+   ========================================================================== */
+
+/*
+ * The empty area around the project viewer closes the overlay on click, but it
+ * is not a zoom control. The previous zoom-out cursor communicated the wrong
+ * interaction. Keep the normal system arrow instead.
+ */
+.viewer-backdrop{
+  cursor:default!important;
+}
+
+
+/*
+ * Download Resume chevron:
+ * Slight visual enlargement only — no width/gap/layout changes.
+ *
+ * The existing SVG is ~10px beside 10.8px text on desktop. A 1.12 scale makes
+ * it read at roughly 11.2px while preserving the CTA's locked geometry.
+ */
+@media (hover:hover) and (pointer:fine){
+  .figma-resume-action > img{
+    transform:translateX(-3.6px) scale(1.12)!important;
+    transform-origin:center center!important;
+  }
+
+  .figma-resume-action:hover > img,
+  .figma-resume-action:focus-visible > img{
+    transform:translateX(0) scale(1.12)!important;
+  }
+}

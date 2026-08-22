@@ -1,0 +1,211 @@
+/* ==========================================================================
+   V150 — Phone Skills illustration centering + desktop horizontal rhythm
+   Base: user-supplied V149.
+
+   Scope
+   -----
+   PHONE (<=600px)
+   - Center the Skills illustration to the viewport/content axis.
+
+   DESKTOP (>=1200px)
+   - Hero and Process are intentionally untouched.
+   - Works, Skills, Experience, About, Contact use one horizontal section
+     inset: exactly 175px left and right.
+   - Legacy shell-level horizontal margins/padding are neutralized first.
+   - Internal content wrappers are allowed to use the resulting width rather
+     than adding another hidden centered max-width margin.
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   PHONE — Skills illustration center alignment
+   The V149 illustration is wider than the phone content gutter. Center it
+   against the symmetric Skills content area instead of inheriting a stale
+   absolute/left alignment from the older Figma canvas rules.
+   -------------------------------------------------------------------------- */
+@media (max-width:600px){
+  .figma-skills-content{
+    align-items:center!important;
+  }
+
+  .figma-skills-window,
+  .figma-skills-window.figma-skills-window-custom{
+    position:relative!important;
+    align-self:flex-start!important;
+    left:50%!important;
+    right:auto!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    transform:translateX(-50%)!important;
+    transform-origin:center top!important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   DESKTOP — one horizontal spacing system
+   175px is applied at the section/content-shell level. Vertical spacing from
+   V146/V149 is untouched.
+   -------------------------------------------------------------------------- */
+@media (min-width:1200px){
+
+  :root{
+    --v150-section-x:175px;
+  }
+
+
+  /* ============================== WORKS ============================== */
+
+  .figma-work-section{
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:var(--v150-section-x)!important;
+    padding-right:var(--v150-section-x)!important;
+    box-sizing:border-box!important;
+  }
+
+  .figma-work-layout{
+    width:100%!important;
+    max-width:none!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:0!important;
+    padding-right:0!important;
+
+    /* Make the original fixed Figma composition consume the new available
+       width cleanly. The preview stack already scales itself in figma-work.js
+       from the width of .figma-work-preview-wrap. */
+    display:grid!important;
+    grid-template-columns:minmax(324px,420.3px) minmax(0,666.9px)!important;
+    column-gap:clamp(28px,3vw,54px)!important;
+    justify-content:space-between!important;
+    align-items:end!important;
+  }
+
+  .figma-work-left,
+  .figma-work-heading,
+  .figma-work-kicker,
+  .figma-work-title,
+  .figma-work-title-text,
+  .figma-work-title-text > span,
+  .figma-work-list,
+  .figma-work-item{
+    width:100%!important;
+  }
+
+  .figma-work-left{
+    min-width:0!important;
+  }
+
+  .figma-work-preview-wrap{
+    width:100%!important;
+    max-width:666.9px!important;
+    min-width:0!important;
+    justify-self:end!important;
+  }
+
+
+  /* ============================== SKILLS ============================= */
+
+  .figma-skills-section{
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:var(--v150-section-x)!important;
+    padding-right:var(--v150-section-x)!important;
+    box-sizing:border-box!important;
+  }
+
+  .figma-skills-stage{
+    width:100%!important;
+    max-width:none!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:0!important;
+    padding-right:0!important;
+    box-sizing:border-box!important;
+  }
+
+  .figma-skills-content{
+    width:100%!important;
+    max-width:none!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+
+  /* At common 1440px desktop widths, a fixed 515.844px illustration plus
+     the full note cluster is slightly wider than the space remaining after
+     175px gutters. Let only the illustration flex down when needed; its
+     aspect ratio and artwork remain untouched. */
+  .figma-skills-window,
+  .figma-skills-window.figma-skills-window-custom{
+    width:min(
+      515.844px,
+      max(360px, calc(100% - (659.100px * var(--v147-note-scale)) - 28px))
+    )!important;
+    max-width:515.844px!important;
+    height:auto!important;
+    aspect-ratio:623/565!important;
+    flex:0 1 auto!important;
+  }
+
+  @media (max-width:1508px){
+    .figma-skills-content{
+      flex-wrap:nowrap!important;
+    }
+  }
+
+
+  /* ============================ EXPERIENCE =========================== */
+
+  .experience-section{
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:var(--v150-section-x)!important;
+    padding-right:var(--v150-section-x)!important;
+    box-sizing:border-box!important;
+  }
+
+  .experience-section .section-heading,
+  .experience-section .career-timeline{
+    width:100%!important;
+    max-width:none!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+
+
+  /* =============================== ABOUT ============================== */
+
+  .about-section-v2{
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:var(--v150-section-x)!important;
+    padding-right:var(--v150-section-x)!important;
+    box-sizing:border-box!important;
+  }
+
+  .about-shell-v2{
+    width:100%!important;
+    max-width:none!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+
+
+  /* ============================== CONTACT ============================= */
+
+  .contact-section{
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:var(--v150-section-x)!important;
+    padding-right:var(--v150-section-x)!important;
+    box-sizing:border-box!important;
+  }
+
+  .contact-card{
+    width:100%!important;
+    max-width:none!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+}

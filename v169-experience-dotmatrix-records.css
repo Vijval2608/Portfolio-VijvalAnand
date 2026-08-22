@@ -1,0 +1,602 @@
+/* ==========================================================================
+   V169 — EXPERIENCE / "DOT-MATRIX WORK RECORDS"
+   Base: V168.
+
+   Concept
+   -------
+   Retro continuous-form / dot-matrix printout paper:
+   - sprocket holes on both edges
+   - thin ruled-paper texture
+   - mono record indexing
+   - impact shown as a compact "OUTPUT" readout
+   - skills read like printed metadata, not UI pills
+
+   Timeline geometry is intentionally untouched.
+   ========================================================================== */
+
+
+/* -------------------------- RECORD COUNTER -------------------------- */
+
+.experience-section .career-timeline{
+  counter-reset:career-record;
+}
+
+.experience-section .career-item{
+  counter-increment:career-record;
+}
+
+
+/* ------------------------ CONTINUOUS PAPER CARD ------------------------ */
+
+.experience-section .career-card{
+  isolation:isolate;
+
+  min-height:218px;
+  padding:36px 42px 23px;
+
+  border:1px solid rgba(77,58,42,.16);
+  border-radius:4px;
+
+  /* Warm dot-matrix/continuous-form paper with faint ruled lines. */
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(89,102,79,.035) 0,
+      rgba(89,102,79,.035) 1px,
+      transparent 1px,
+      transparent 24px
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255,251,242,.94),
+      rgba(240,229,212,.86)
+    );
+
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.75) inset,
+    5px 6px 0 rgba(73,50,32,.045),
+    0 17px 42px rgba(73,50,32,.045);
+
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+
+  transition:
+    translate .34s cubic-bezier(.18,.89,.32,1.16),
+    border-color .3s ease,
+    box-shadow .3s ease,
+    background .3s ease;
+}
+
+/* Sprocket strip — left. */
+.experience-section .career-card::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:0;
+  bottom:0;
+  left:8px;
+  width:15px;
+  height:auto;
+
+  background:
+    radial-gradient(
+      circle at 50% 8px,
+      var(--exp-bg) 0 3px,
+      rgba(77,58,42,.20) 3.2px 4px,
+      transparent 4.2px
+    ) 0 0 / 15px 24px repeat-y;
+
+  opacity:.86;
+  pointer-events:none;
+}
+
+/* Sprocket strip — right. */
+.experience-section .career-card::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:0;
+  bottom:0;
+  right:8px;
+  left:auto;
+  width:15px;
+  height:auto;
+  border:0;
+  border-radius:0;
+
+  background:
+    radial-gradient(
+      circle at 50% 8px,
+      var(--exp-bg) 0 3px,
+      rgba(77,58,42,.20) 3.2px 4px,
+      transparent 4.2px
+    ) 0 0 / 15px 24px repeat-y;
+
+  opacity:.86;
+  pointer-events:none;
+}
+
+.experience-section .career-card:hover{
+  translate:0 -2px;
+  border-color:rgba(252,81,52,.26);
+
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(89,102,79,.04) 0,
+      rgba(89,102,79,.04) 1px,
+      transparent 1px,
+      transparent 24px
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255,253,247,.98),
+      rgba(243,232,215,.91)
+    );
+
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.82) inset,
+    6px 7px 0 rgba(73,50,32,.055),
+    0 22px 48px rgba(73,50,32,.06);
+}
+
+/* Current record gets a small active stripe rather than a SaaS glow. */
+.experience-section .current-role{
+  border-color:rgba(252,81,52,.25);
+  box-shadow:
+    inset 0 3px 0 var(--exp-orange),
+    0 1px 0 rgba(255,255,255,.75) inset,
+    5px 6px 0 rgba(73,50,32,.045),
+    0 18px 44px rgba(73,50,32,.05);
+}
+
+
+/* ---------------------------- RECORD HEADER ---------------------------- */
+
+.experience-section .career-card-top{
+  position:relative;
+  z-index:2;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:22px;
+
+  padding-top:17px;
+  padding-bottom:17px;
+  border-bottom:1px dashed rgba(77,58,42,.16);
+}
+
+/* Auto-number each role like a printed work record. */
+.experience-section .career-card-top::before{
+  content:"WORK RECORD / 0" counter(career-record);
+
+  position:absolute;
+  left:0;
+  top:0;
+
+  color:rgba(89,102,79,.72);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:7.5px;
+  font-weight:500;
+  line-height:1;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+
+.experience-section .career-card-top > div{
+  min-width:0;
+}
+
+.experience-section .career-company{
+  margin:0 0 8px;
+
+  color:var(--exp-orange);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  font-weight:500;
+  line-height:1;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+
+.experience-section .career-card h3{
+  max-width:390px;
+  margin:0;
+
+  color:var(--exp-ink);
+  font-family:'EditUndoLocal','Edit Undo Line BRK','Poppins',sans-serif;
+  font-size:30px;
+  font-weight:400;
+  line-height:1.03;
+
+  /* preserved from the approved spacing iteration */
+  letter-spacing:.035em!important;
+}
+
+.experience-section .career-card p{
+  position:relative;
+  z-index:2;
+
+  max-width:650px;
+  margin:17px 0 20px;
+
+  color:#5f544b;
+  font-family:'Poppins',sans-serif;
+  font-size:11.4px;
+  font-weight:300;
+  line-height:1.62;
+}
+
+
+/* -------------------------- PRIMARY OUTPUT READOUT -------------------------- */
+
+/* Keep the direction arrow the user liked, but make the metric feel like a
+   printed machine readout instead of a badge/sticker. */
+.experience-section .career-impact{
+  position:relative;
+
+  flex:0 0 126px;
+  width:126px;
+  min-height:64px;
+  box-sizing:border-box;
+
+  padding:20px 11px 9px;
+
+  display:grid;
+  grid-template-columns:auto 1fr;
+  grid-template-rows:auto auto;
+  align-content:center;
+  column-gap:7px;
+  row-gap:3px;
+
+  border:1px solid rgba(77,58,42,.18);
+  border-radius:2px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(252,81,52,.025) 0 1px,
+      transparent 1px 4px
+    ),
+    rgba(255,181,50,.13);
+
+  color:#4c3b1b;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.48);
+
+  font-family:'Poppins',sans-serif;
+  white-space:nowrap;
+}
+
+.experience-section .career-impact::before{
+  content:"OUTPUT";
+
+  position:absolute;
+  top:7px;
+  left:10px;
+
+  color:rgba(112,85,31,.76);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:7px;
+  font-weight:500;
+  line-height:1;
+  letter-spacing:.13em;
+}
+
+.experience-section .career-impact::after{
+  content:"";
+
+  position:absolute;
+  top:8px;
+  right:9px;
+
+  width:22px;
+  height:4px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(112,85,31,.34) 0 2px,
+      transparent 2px 4px
+    );
+}
+
+.experience-section .career-impact-arrow{
+  grid-column:1;
+  grid-row:1 / span 2;
+  align-self:center;
+
+  width:auto;
+  height:auto;
+
+  display:block;
+
+  border-radius:0;
+  background:transparent;
+
+  color:var(--exp-orange);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:18px;
+  font-weight:500;
+  line-height:1;
+}
+
+.experience-section .career-impact-value{
+  grid-column:2;
+  grid-row:1;
+
+  color:#3c311d;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:18px;
+  font-weight:600;
+  line-height:1;
+  letter-spacing:-.04em;
+}
+
+.experience-section .career-impact-label{
+  grid-column:2;
+  grid-row:2;
+
+  color:#725a28;
+  font-family:'Poppins',sans-serif;
+  font-size:8px;
+  font-weight:500;
+  line-height:1.1;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+}
+
+
+/* --------------------------- CURRENT READOUT --------------------------- */
+
+.experience-section .career-current{
+  position:relative;
+
+  min-height:26px;
+  padding:0 9px 0 22px;
+
+  border:1px solid rgba(89,102,79,.20);
+  border-radius:2px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(89,102,79,.025) 0 1px,
+      transparent 1px 4px
+    ),
+    rgba(89,102,79,.08);
+
+  color:#485243;
+
+  font-family:'IBM Plex Mono',monospace;
+  font-size:7.5px;
+  font-weight:500;
+  line-height:1;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+
+.experience-section .career-current::before{
+  content:"";
+
+  position:absolute;
+  left:9px;
+  top:50%;
+
+  width:5px;
+  height:5px;
+  margin-top:-2.5px;
+
+  border-radius:50%;
+  background:var(--exp-olive);
+
+  box-shadow:0 0 0 2px rgba(89,102,79,.11);
+}
+
+
+/* --------------------------- PRINTED METADATA --------------------------- */
+
+.experience-section .career-tags{
+  position:relative;
+  z-index:2;
+
+  margin-top:auto;
+  padding-top:16px;
+
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:7px 15px;
+
+  border-top:1px dashed rgba(77,58,42,.14);
+}
+
+/* Ordinary skills become printed metadata, not UI tags. */
+.experience-section .career-tags > span:not(.career-metric-tag){
+  position:relative;
+
+  min-height:0;
+  padding:0;
+
+  border:0;
+  border-radius:0;
+  background:transparent;
+
+  color:#65594f;
+
+  font-family:'IBM Plex Mono',monospace;
+  font-size:7.7px;
+  font-weight:400;
+  line-height:1.25;
+  letter-spacing:.035em;
+  text-transform:uppercase;
+}
+
+.experience-section .career-tags > span:not(.career-metric-tag)::after{
+  content:"/";
+  position:relative;
+  margin-left:15px;
+  color:rgba(89,102,79,.42);
+}
+
+/* Hide separator after the last non-metric item when no metric follows cleanly
+   enough to avoid making the footer feel like a chip rail. */
+.experience-section .career-tags > span:last-child:not(.career-metric-tag)::after{
+  content:"";
+  margin:0;
+}
+
+
+/* Secondary result = compact "RESULT" readout. */
+.experience-section .career-tags .career-metric-tag{
+  min-height:24px;
+  margin-left:auto;
+  padding:0 7px;
+
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+
+  border:1px solid rgba(252,81,52,.16);
+  border-radius:2px;
+
+  background:rgba(252,81,52,.045);
+  color:#574940;
+
+  font-family:'IBM Plex Mono',monospace;
+  font-size:7.5px;
+  font-weight:500;
+  line-height:1;
+}
+
+.experience-section .career-tags .career-metric-tag::before{
+  content:"RESULT";
+  margin-right:2px;
+
+  color:rgba(252,81,52,.75);
+  font-size:6.5px;
+  letter-spacing:.08em;
+}
+
+.experience-section .career-tags .career-metric-tag b{
+  color:var(--exp-orange);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  font-weight:500;
+  line-height:1;
+}
+
+.experience-section .career-tags .career-metric-tag strong{
+  color:#3f342d;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9.5px;
+  font-weight:600;
+  line-height:1;
+  letter-spacing:-.02em;
+}
+
+.experience-section .career-tags .career-metric-tag em{
+  color:#66584f;
+  font-family:'Poppins',sans-serif;
+  font-size:7.4px;
+  font-style:normal;
+  font-weight:500;
+  line-height:1;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+}
+
+.experience-section .career-tags .career-metric-down{
+  border-color:rgba(89,102,79,.18);
+  background:rgba(89,102,79,.055);
+}
+
+.experience-section .career-tags .career-metric-down::before,
+.experience-section .career-tags .career-metric-down b{
+  color:var(--exp-olive);
+}
+
+
+/* ---------------------------- RESPONSIVE ---------------------------- */
+
+@media (max-width:980px){
+  .experience-section .career-card{
+    padding:34px 36px 22px;
+  }
+
+  .experience-section .career-impact{
+    flex-basis:116px;
+    width:116px;
+  }
+}
+
+@media (max-width:760px){
+  .experience-section .career-card{
+    padding:34px 31px 20px;
+  }
+
+  .experience-section .career-card::before{
+    left:6px;
+  }
+
+  .experience-section .career-card::after{
+    right:6px;
+  }
+
+  .experience-section .career-card h3{
+    letter-spacing:.03em!important;
+  }
+
+  .experience-section .career-impact{
+    flex-basis:112px;
+    width:112px;
+  }
+
+  .experience-section .career-impact-value{
+    font-size:17px;
+  }
+
+  .experience-section .career-tags{
+    gap:7px 11px;
+  }
+
+  .experience-section .career-tags > span:not(.career-metric-tag){
+    font-size:7.4px;
+  }
+
+  .experience-section .career-tags > span:not(.career-metric-tag)::after{
+    margin-left:11px;
+  }
+}
+
+@media (max-width:520px){
+  .experience-section .career-card{
+    padding:32px 27px 20px;
+  }
+
+  .experience-section .career-card-top{
+    flex-direction:column;
+    gap:15px;
+  }
+
+  .experience-section .career-impact{
+    align-self:flex-start;
+    width:122px;
+    flex-basis:auto;
+  }
+
+  .experience-section .career-current{
+    align-self:flex-start;
+  }
+
+  .experience-section .career-tags .career-metric-tag{
+    margin-left:0;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .experience-section .career-card{
+    transition:none!important;
+  }
+}

@@ -1,0 +1,88 @@
+/* V143 — layout refinement pass
+   - Works becomes the first nav item, Process second.
+   - Tightens Process heading → tape runway.
+   - Uses the existing Hero → Works rhythm as the shared section rhythm.
+   - Lets Skills hug its actual desktop content instead of a large fixed tail.
+   - Makes note 4 the same rendered footprint as note 3.
+*/
+
+:root{
+  --portfolio-section-rhythm:128.7px;
+}
+
+/* The navigation order is structural in HTML; this keeps the visual spacing
+   consistent after the reorder. */
+.figma-nav-links{
+  gap:2.1164021cqw;
+}
+
+/* Shared rhythm: these values mirror the existing Hero → Works content inset
+   at each responsive breakpoint. */
+@media (min-width:1260px){
+  :root{--portfolio-section-rhythm:128.7px;}
+}
+@media (min-width:811px) and (max-width:1259.1px){
+  :root{--portfolio-section-rhythm:106.2px;}
+}
+@media (min-width:505px) and (max-width:810px){
+  :root{--portfolio-section-rhythm:79.2px;}
+}
+@media (max-width:504px){
+  :root{--portfolio-section-rhythm:64.8px;}
+}
+
+/* Skills: the next section should begin at the same comfortable distance
+   from the previous section as Hero → Works. */
+@media (min-width:1231px){
+  .figma-skills-stage{
+    margin-top:var(--portfolio-section-rhythm)!important;
+  }
+
+  /* The artwork's real lower edge is now the sizing reference. Note 4 is
+     widened to match note 3, making its bottom edge the current content tail.
+     Add one section-rhythm of breathing room below that content. */
+  .figma-skills-section{
+    height:1018px!important;
+    min-height:1018px!important;
+  }
+
+  /* Small, deliberate breathing room between the heading and the note cluster. */
+  .figma-sticky-product{top:214.9px!important;}
+  .figma-sticky-visual{top:250.622px!important;}
+  .figma-sticky-tools{top:475.548px!important;}
+  .figma-sticky-research{top:476.8px!important;}
+
+  /* Note 4: same rendered footprint as note 3. */
+  .figma-sticky-research{
+    width:332.1px!important;
+    height:298.96px!important;
+  }
+  .figma-sticky-research .figma-paper-note-bg{
+    width:317.168px!important;
+    height:294.866px!important;
+  }
+  .figma-sticky-research .figma-paper-shadow-vector{
+    left:16.269px!important;
+    top:36.531px!important;
+    width:319.353px!important;
+    height:264.092px!important;
+  }
+}
+
+/* Keep the skills → experience rhythm explicit at the responsive sizes too.
+   The existing mobile/tablet stage heights remain untouched here because their
+   artwork is vertically reflowed and already uses content-aware min-heights. */
+@media (min-width:811px) and (max-width:1230px){
+  .figma-skills-stage{
+    margin-top:var(--portfolio-section-rhythm)!important;
+  }
+}
+
+/* Give the title-to-note relationship a little breathing room without changing
+   the note images or their internal copy geometry. */
+@media (min-width:1231px){
+  .figma-skills-title{
+    padding-bottom:8px;
+    box-sizing:border-box;
+  }
+}

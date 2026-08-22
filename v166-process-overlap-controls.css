@@ -1,0 +1,59 @@
+/* ==========================================================================
+   V166 — Process overlap synced with sticky lock
+   Base: V165.
+
+   V165 moved the film itself upward. That made the header/tape gap smaller,
+   but the sticky stage still locked using its old geometry, so when pinning
+   happened the tape could feel too high.
+
+   V166 keeps the tape CENTERED inside the 100svh sticky stage and reduces the
+   header/tape gap by moving the WHOLE pin runway earlier into the intro.
+
+   Result:
+   - tape appears closer to the header;
+   - sticky lock happens with the tape naturally centered;
+   - horizontal-scroll start moves with the runway automatically;
+   - Process JS/parallax/horizontal math stay untouched.
+
+   EDITABLE IN DEVTOOLS
+   --------------------
+   Select #process / .figma-process-section and change:
+
+   --process-entry-gap
+      lower = Process header arrives sooner after Works.
+
+   --process-tape-overlap
+      higher = tape enters earlier / sits closer to header before pinning.
+      The tape itself remains vertically centered when sticky.
+   ========================================================================== */
+
+@media (min-width:774.01px){
+  .figma-process-section{
+    /* Kept from V165: deployed V141 was 180px. */
+    --process-entry-gap:100px;
+
+    /* Extra overlap beyond the deployed -100svh runway overlap.
+       Try 56px / 64px / 72px / 80px. */
+    --process-tape-overlap:72px;
+  }
+
+  .figma-process-pre-gap{
+    height:var(--process-entry-gap)!important;
+  }
+
+  /* IMPORTANT:
+     Do not move the film inside the sticky viewport.
+     It stays centered by .figma-film-ywrap { align-items:center; }. */
+  .figma-film{
+    top:0!important;
+  }
+
+  /* Original deployed value was margin-top:-100svh.
+     Pulling the complete runway upward is the correct way to make the tape
+     meet the header earlier while keeping the sticky lock framing centered. */
+  .figma-process-pin-wrap{
+    margin-top:calc(-100svh - var(--process-tape-overlap))!important;
+  }
+}
+
+/* Phone keeps the deployed normal-flow Process layout untouched. */

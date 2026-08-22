@@ -1,0 +1,322 @@
+/* ========================================================================== 
+   V195 — SEMANTIC TYPOGRAPHY SYSTEM
+   Base: V194 typography standardization.
+
+   V194 reduced raw size drift. V195 groups typography by semantic role so
+   equivalent components use the same readable scale across sections.
+
+   Protected art-direction type remains untouched:
+   - VIJVAL / ANAND hero display
+   - Process oversized numerals
+   - Macintosh / Pixel Forge screen type
+   - Work phone card source typography that is visually scaled as a unit
+   ========================================================================== */
+
+:root{
+  /* Functional semantic scale. 10.8px is now the minimum for normal UI/meta
+     copy; sub-10px type is reserved for decorative/space-constrained artwork. */
+  --type-meta:10.8px;
+  --type-ui:10.8px;
+  --type-compact-body:12.6px;
+  --type-label:12.6px;
+  --type-body:13.5px;
+  --type-lead:16.2px;
+  --type-card-title:24px;
+  --type-feature-title:32.4px;
+  --type-section-title:57.6px;
+  --type-contact-title:73.8px;
+  --type-compact-meta:9.9px;
+
+  /* Keep V194 aliases aligned so every earlier V194 semantic rule resolves to
+     this same system instead of reintroducing a second scale. */
+  --type-xs:var(--type-meta);
+  --type-ui-sm:var(--type-ui);
+  --type-body-sm:var(--type-body);
+
+  /* Caveat needs extra nominal size for equal perceived readability. */
+  --type-hand-title:25.2px;
+  --type-hand-body:16.2px;
+}
+
+/* --------------------------------------------------------------------------
+   1. SECTION CHROME
+   -------------------------------------------------------------------------- */
+.section-kicker,
+.figma-work-kicker,
+.figma-process-kicker,
+.figma-skills-kicker{
+  font-size:var(--type-label)!important;
+  font-weight:400!important;
+  line-height:1!important;
+}
+
+@media (min-width:601px){
+  .figma-work-title,
+  .figma-process-title,
+  .figma-skills-title,
+  .experience-section .section-heading h2,
+  .about-head h2{
+    font-size:clamp(48.6px,4.2vw,var(--type-section-title))!important;
+  }
+
+  .contact-card h2{
+    font-size:clamp(57.6px,5.4vw,var(--type-contact-title))!important;
+  }
+}
+
+/* Section-support copy: same role in Process, Experience and About. */
+.figma-process-note p,
+.experience-section .section-heading > p,
+.about-head-note{
+  font-family:'Poppins',sans-serif!important;
+  font-size:var(--type-body)!important;
+  font-weight:300!important;
+  line-height:1.6!important;
+}
+
+/* --------------------------------------------------------------------------
+   2. NAV + HERO SUPPORT UI
+   -------------------------------------------------------------------------- */
+.figma-nav-links,
+.figma-nav-resume,
+.figma-connect-glass,
+.figma-primary-action{
+  font-size:var(--type-ui)!important;
+}
+
+.figma-role-label{
+  font-size:14.4px!important;
+  line-height:1.2!important;
+}
+.figma-years{
+  font-size:var(--type-label)!important;
+  line-height:1.2!important;
+}
+.figma-intro p{
+  font-size:var(--type-compact-body)!important;
+  font-weight:300!important;
+  line-height:1.55!important;
+}
+
+/* The music card is functional UI, so its tiny labels get a practical floor. */
+@media (max-width:600px){
+  .figma-music-card .figma-playing-label,
+  .figma-music-card .figma-sound-label{
+    font-size:9px!important;
+  }
+  .figma-music-card .figma-track-artist{
+    font-size:var(--type-ui)!important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. WORK
+   -------------------------------------------------------------------------- */
+.figma-work-index,
+.figma-work-item-title{
+  font-size:var(--type-label)!important;
+}
+.figma-work-item-subtitle,
+.figma-work-view{
+  font-size:var(--type-ui)!important;
+}
+
+/* Desktop/tablet preview is not transformed, so it joins the semantic system.
+   Phone uses a scaled source stage and is intentionally left alone. */
+@media (min-width:601px){
+  .figma-work-preview-title{
+    font-size:var(--type-card-title)!important;
+    line-height:27.9px!important;
+  }
+  .figma-work-summary{
+    font-size:var(--type-compact-body)!important;
+    font-weight:300!important;
+    line-height:16.2px!important;
+  }
+  .figma-work-tag{
+    font-size:var(--type-compact-meta)!important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. PROCESS
+   Dense fixed film cards use the compact-body tier; the section annotation
+   above them uses the normal body tier like Experience/About header copy.
+   -------------------------------------------------------------------------- */
+.figma-film-step,
+.figma-film-output{
+  font-size:var(--type-label)!important;
+  line-height:1.2!important;
+}
+.figma-film-copy h3,
+.figma-film-card-end h3{
+  font-size:var(--type-feature-title)!important;
+}
+.figma-film-copy > p:not(.figma-film-output){
+  font-size:var(--type-compact-body)!important;
+  font-weight:300!important;
+  line-height:1.45!important;
+}
+
+@media (max-width:600px){
+  :root{
+    --process-phone-step-size:var(--type-label);
+    --process-phone-title-size:var(--type-feature-title);
+    --process-phone-body-size:var(--type-compact-body);
+    --process-phone-output-size:var(--type-label);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. SKILLS
+   Handwritten content gets an optical scale of its own but is now consistent
+   at every breakpoint. Body rises from 14.4/15px in V194 to 16.2px.
+   -------------------------------------------------------------------------- */
+.figma-paper-copy h3{
+  font-size:var(--type-hand-title)!important;
+  line-height:1.16!important;
+}
+.figma-paper-columns{
+  font-size:var(--type-hand-body)!important;
+  line-height:1.22!important;
+}
+.skills-illustration-hover-note{
+  font-size:11.7px!important;
+  line-height:1.45!important;
+}
+
+@media (max-width:600px){
+  :root{
+    --paper-note-phone-heading:var(--type-hand-title);
+    --paper-note-phone-body:var(--type-hand-body);
+  }
+  .figma-paper-copy h3{
+    font-size:var(--type-hand-title)!important;
+    line-height:1.15!important;
+  }
+  .figma-paper-columns{
+    font-size:var(--type-hand-body)!important;
+    line-height:1.2!important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. EXPERIENCE
+   -------------------------------------------------------------------------- */
+.experience-section .career-date,
+.experience-section .career-company,
+.experience-section .career-current,
+.experience-section .career-tags > span:not(.career-metric-tag){
+  font-size:var(--type-meta)!important;
+}
+.experience-section .career-card h3{
+  font-size:var(--type-card-title)!important;
+  line-height:1.08!important;
+}
+.experience-section .career-card p{
+  font-size:var(--type-body)!important;
+  font-weight:300!important;
+  line-height:1.6!important;
+}
+
+/* --------------------------------------------------------------------------
+   7. ABOUT
+   -------------------------------------------------------------------------- */
+.about-lead-v2{
+  font-size:var(--type-lead)!important;
+  font-weight:300!important;
+  line-height:1.62!important;
+}
+.about-mini-label,
+.about-meta-rail span,
+.about-meta-rail small,
+.about-photo-caption{
+  font-size:var(--type-meta)!important;
+}
+.about-design-belief p,
+.about-brain-note,
+.about-personal-card p{
+  font-size:var(--type-body)!important;
+  font-weight:300!important;
+  line-height:1.6!important;
+}
+.about-meta-rail strong{
+  font-size:11.7px!important;
+}
+.about-anime-popover p{
+  font-size:var(--type-ui)!important;
+  line-height:1.5!important;
+}
+
+/* --------------------------------------------------------------------------
+   8. CONTACT + FOOTER + VIEWER UI
+   -------------------------------------------------------------------------- */
+.contact-availability,
+.contact-secondary a,
+.site-footer-inner.shell,
+.site-footer-inner.shell > div:first-child,
+.site-footer .footer-links a{
+  font-size:var(--type-meta)!important;
+}
+.contact-bottom > p{
+  font-size:var(--type-body)!important;
+  font-weight:300!important;
+  line-height:1.6!important;
+}
+.contact-email{
+  font-size:clamp(var(--type-lead),1.6vw,var(--type-card-title))!important;
+  line-height:1.15!important;
+}
+.viewer-bar span{
+  font-size:var(--type-meta)!important;
+}
+.viewer-bar strong{
+  font-size:var(--type-lead)!important;
+}
+
+/* --------------------------------------------------------------------------
+   PHONE: keep the same semantic roles instead of inventing smaller copies.
+   Only top-level display headings continue to use the established fluid phone
+   heading token.
+   -------------------------------------------------------------------------- */
+@media (max-width:600px){
+  .figma-work-title,
+  .figma-process-title,
+  .figma-skills-title,
+  .experience-section .section-heading h2,
+  .about-head h2,
+  .contact-card h2{
+    font-size:var(--phone-section-heading-size)!important;
+  }
+
+  .figma-process-note p,
+  .experience-section .section-heading > p,
+  .about-head-note,
+  .experience-section .career-card p,
+  .about-design-belief p,
+  .about-brain-note,
+  .about-personal-card p,
+  .contact-bottom > p{
+    font-size:var(--type-body)!important;
+  }
+
+  .about-lead-v2{
+    font-size:14.4px!important;
+  }
+
+  .contact-email{
+    font-size:var(--type-lead)!important;
+  }
+}
+
+/* Small but functional hero/player labels also join the readable UI floor. */
+.figma-nav-logo{
+  font-size:var(--type-ui)!important;
+}
+.figma-music-card .figma-playing-label,
+.figma-music-card .figma-sound-label{
+  font-size:var(--type-compact-meta)!important;
+}
+.figma-music-card .figma-track-artist{
+  font-size:var(--type-ui)!important;
+}

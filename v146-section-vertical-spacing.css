@@ -1,0 +1,93 @@
+/* ==========================================================================
+   V146 — Uniform section vertical rhythm
+   Scope: Works, Experience, About, Contact ONLY.
+   Hero and Process are intentionally untouched (per instruction).
+   Skills is intentionally untouched (fixed-canvas layout, separate fix).
+
+   What this does, per section:
+   - Removes whatever top/bottom padding or margin the section previously
+     had (from portfolio-core-v119.css, v77/v79, or earlier version files).
+   - Applies a single uniform padding-top / padding-bottom of 100px, at
+     every breakpoint, so vertical rhythm matches across all four sections.
+   - Forces height/min-height back to auto so each section's box is exactly
+     as tall as its content + the 100px top/bottom padding (no more fixed
+     "Figma canvas" heights that leave dead space or clip content).
+   - Left/right (horizontal) padding is NOT touched — only vertical spacing
+     was in scope for this pass.
+
+   Loaded last in <head>, after every other stylesheet and the V145 inline
+   style block, so these rules win the cascade without needing to hunt down
+   and delete every prior padding/height declaration individually.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   WORKS (#work / .figma-work-section)
+   Previously: fixed height:746.1px at desktop with an internal 128.7px
+   "top" offset on .figma-work-layout standing in for top padding, and
+   overflow:hidden clipping anything beyond that fixed box. Below 1260px it
+   was already height:auto with its own (non-uniform) padding-top/bottom.
+   -------------------------------------------------------------------------- */
+.figma-work-section{
+  height:auto!important;
+  min-height:0!important;
+  overflow:visible!important;
+  padding-top:100px!important;
+  padding-bottom:100px!important;
+}
+
+/* Neutralize the old baked-in top offset that was emulating spacing at
+   desktop widths (>=1260px). Below that width this was already 0. */
+.figma-work-layout{
+  top:0!important;
+}
+
+/* --------------------------------------------------------------------------
+   EXPERIENCE (#experience / .experience-section)
+   Already height:auto at every breakpoint — only padding needed normalizing.
+   -------------------------------------------------------------------------- */
+.experience-section{
+  height:auto!important;
+  min-height:0!important;
+  padding-top:100px!important;
+  padding-bottom:100px!important;
+}
+
+/* --------------------------------------------------------------------------
+   ABOUT (#about / .about-section-v2)
+   Already height:auto at every breakpoint — only padding needed normalizing.
+   -------------------------------------------------------------------------- */
+.about-section-v2{
+  height:auto!important;
+  min-height:0!important;
+  padding-top:100px!important;
+  padding-bottom:100px!important;
+}
+
+/* --------------------------------------------------------------------------
+   CONTACT (#contact / .contact-section)
+   Already height:auto at every breakpoint — only padding needed normalizing.
+   -------------------------------------------------------------------------- */
+.contact-section{
+  height:auto!important;
+  min-height:0!important;
+  padding-top:100px!important;
+  padding-bottom:100px!important;
+}
+
+/* --------------------------------------------------------------------------
+   PHONE OVERRIDE (≤600px): 100px is too much on small screens. Scale the
+   vertical rhythm down using a responsive unit (vw) instead of a second
+   flat px value, so it eases smoothly as the screen narrows rather than
+   jumping straight to 50px right at the breakpoint edge. Caps at 50px on
+   any phone at or above ~385px wide, and eases down a little further on
+   the smallest phones so it never feels cramped.
+   -------------------------------------------------------------------------- */
+@media (max-width:600px){
+  .figma-work-section,
+  .experience-section,
+  .about-section-v2,
+  .contact-section{
+    padding-top:clamp(36px,13vw,50px)!important;
+    padding-bottom:clamp(36px,13vw,50px)!important;
+  }
+}

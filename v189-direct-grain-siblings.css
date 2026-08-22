@@ -1,0 +1,12 @@
+/* V189 — keep normal UI surfaces below the two pointer-transparent grain sheets. */
+.figma-nav{
+  z-index:2147483644!important;
+}
+.grain{
+  z-index:2147483646!important;
+  pointer-events:none!important;
+}
+.grain-screen{
+  z-index:2147483647!important;
+  pointer-events:none!important;
+}

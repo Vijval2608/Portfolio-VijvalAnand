@@ -1,0 +1,85 @@
+/* ==========================================================================
+   V174 — Experience cleanup
+   Base: V172 reverted structurally, with Outcomes removed.
+
+   Changes:
+   1. Remove the Outcomes rail entirely.
+   2. Increase metadata/tag text size for better readability.
+   3. Remove the ruled-line hover treatment that visually cut through text.
+   4. Keep the retro dot-matrix / continuous-form card concept.
+   ========================================================================== */
+
+
+/* ----------------------------- TAGS ----------------------------- */
+
+.experience-section .career-tags{
+  gap:7px 14px;
+}
+
+.experience-section .career-tags > span:not(.career-metric-tag){
+  font-size:9px!important;
+  line-height:1.25!important;
+  letter-spacing:.025em!important;
+}
+
+/* Any leftover quantified tag styling is neutralized because Outcomes were
+   removed and these should not appear in the cards anymore. */
+.experience-section .career-tags .career-metric-tag{
+  display:none!important;
+}
+
+
+/* ----------------------------- HOVER ----------------------------- */
+
+/* Keep cards stationary; this avoids hover jitter with section-spring scaling. */
+.experience-section .career-card{
+  translate:none!important;
+  transform:none!important;
+  transition:
+    border-color .28s ease,
+    box-shadow .30s ease,
+    background .30s ease!important;
+}
+
+/* The V169 hover background strengthened the horizontal ruled-paper lines.
+   Those lines could visually pass through text. On hover, switch to a clean
+   paper fill with no repeating-line texture. */
+@media (hover:hover) and (pointer:fine){
+  .experience-section .career-card:hover{
+    translate:none!important;
+    transform:none!important;
+
+    border-color:rgba(252,81,52,.23);
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,253,247,.98),
+        rgba(243,232,215,.91)
+      )!important;
+
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.82) inset,
+      5px 6px 0 rgba(73,50,32,.05),
+      0 20px 44px rgba(73,50,32,.055);
+  }
+
+  /* Preserve the Current role's orange top stripe instead of letting hover
+     replace it, which was the source of the first-card mismatch earlier. */
+  .experience-section .current-role:hover{
+    box-shadow:
+      inset 0 3px 0 var(--exp-orange),
+      0 1px 0 rgba(255,255,255,.82) inset,
+      5px 6px 0 rgba(73,50,32,.05),
+      0 20px 44px rgba(73,50,32,.055);
+  }
+}
+
+
+/* --------------------------- RESPONSIVE --------------------------- */
+
+@media (max-width:760px){
+  .experience-section .career-tags > span:not(.career-metric-tag){
+    font-size:8.5px!important;
+  }
+}

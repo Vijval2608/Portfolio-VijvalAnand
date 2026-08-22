@@ -1,0 +1,27 @@
+/* ========================================================================== 
+   V196 — SKILLS READABILITY BUMP
+   Base: V195 semantic typography.
+
+   The handwritten skill-list copy is intentionally given a larger optical
+   size than the rest of the site's body system because Caveat reads smaller
+   at equal CSS sizes. Headings and note geometry remain unchanged.
+   ========================================================================== */
+
+:root{
+  --type-hand-body:18px;
+}
+
+.figma-paper-columns{
+  font-size:18px!important;
+  line-height:1.22!important;
+}
+
+@media (max-width:600px){
+  :root{
+    --paper-note-phone-body:18px;
+  }
+  .figma-paper-columns{
+    font-size:18px!important;
+    line-height:1.2!important;
+  }
+}

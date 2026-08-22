@@ -1,0 +1,448 @@
+/* ==========================================================================
+   V147 — Skills section restructure
+   Converts Skills from a fixed-height, absolutely-positioned "Figma canvas"
+   into a normal flow layout (heading -> content row of notes-grid +
+   illustration) that hugs its own content, exactly like Works/Experience/
+   About/Contact now do. Also removes the scroll-linked parallax effect.
+
+   NEW DOM WRAPPERS this file styles (added in index.html, no visual markup
+   changed inside them):
+     .figma-skills-heading   — kicker + title, now normal block flow
+     .figma-skills-content   — flex row: notes grid + illustration
+     .figma-skills-notes     — 2-column (1-column on small phones) grid of
+                                the 4 sticky notes
+     .figma-note-sizer-*     — one per note; reserves exactly the note's
+                                *visually scaled* footprint so the grid never
+                                leaves dead space around a shrunk note
+                                (transform:scale() does not affect layout
+                                size on its own, so this sizer is required)
+
+   Untouched: hero, process, all note artwork/copy/shadow geometry, the
+   idle character rig (v114), the hover-note tooltip (v118).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. SECTION + STAGE: flow, not canvas. Same 100px vertical rhythm as the
+      rest of the page (Works/Experience/About/Contact — see V146).
+   -------------------------------------------------------------------------- */
+.figma-skills-section{
+  height:auto!important;
+  min-height:0!important;
+  overflow:visible!important;
+  padding-top:100px!important;
+  padding-bottom:100px!important;
+}
+
+/* Same responsive phone easing as Works/Experience/About/Contact — see
+   v146-section-vertical-spacing.css for the full explanation. */
+@media (max-width:600px){
+  .figma-skills-section{
+    padding-top:clamp(36px,13vw,50px)!important;
+    padding-bottom:clamp(36px,13vw,50px)!important;
+  }
+}
+
+.figma-skills-stage{
+  position:static!important;
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  margin:0 auto!important;
+  top:auto!important;
+
+  /* V154: no hidden vertical spacing inside the stage.
+     The only space above/below Skills is the section padding itself. */
+  padding-top:0!important;
+  padding-bottom:0!important;
+  padding-left:max(54px,calc((100vw - 1360px)/2))!important;
+  padding-right:max(54px,calc((100vw - 1360px)/2))!important;
+  box-sizing:border-box!important;
+}
+
+@media (max-width:600px){
+  .figma-skills-stage{
+    padding-top:0!important;
+    padding-bottom:0!important;
+    padding-left:var(--phone-gutter)!important;
+    padding-right:var(--phone-gutter)!important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. HEADING: kicker + title back in normal document flow.
+   -------------------------------------------------------------------------- */
+.figma-skills-heading{
+  position:static!important;
+  margin:0!important;
+  padding:0!important;
+}
+
+.figma-skills-kicker{
+  margin-top:0!important;
+  padding-top:0!important;
+}
+
+.figma-skills-kicker,
+.figma-skills-title{
+  position:static!important;
+  left:auto!important;
+  top:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  width:auto!important;
+  height:auto!important;
+  max-width:100%!important;
+  transform:none!important;
+}
+
+.figma-skills-title{
+  margin-top:12px!important;
+  margin-bottom:80px!important;
+}
+
+@media (max-width:1100px){
+  .figma-skills-title{margin-bottom:72px!important;}
+}
+@media (max-width:768px){
+  .figma-skills-title{margin-bottom:64px!important;}
+}
+
+/* --------------------------------------------------------------------------
+   3. CONTENT ROW: notes cluster + illustration. Wraps to a second line by
+      itself (no hand-tuned breakpoint needed) whenever the viewport is too
+      narrow to fit both side by side.
+   -------------------------------------------------------------------------- */
+.figma-skills-content{
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:wrap!important;
+  align-items:flex-start!important;
+  justify-content:space-between!important;
+  gap:28px!important;
+}
+
+/* Comfortably fits notes-cluster + illustration side by side above this
+   width (checked against the fixed 515.844px desktop illustration size
+   plus the notes-cluster's own width, with margin to spare) — force them
+   to stay on one row and let the illustration sit flush against the
+   right edge, instead of leaving wrapping to chance. */
+@media (min-width:1360px){
+  .figma-skills-content{
+    flex-wrap:nowrap!important;
+  }
+}
+
+@media (max-width:600px){
+  .figma-skills-content{
+    flex-direction:column!important;
+    align-items:center!important;
+    /* gap between the stacked notes and the illustration below them —
+       responsive so it stays proportionate on very small phones instead
+       of a flat px value */
+    gap:clamp(28px,9vw,44px)!important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. NOTE SCALE, ≥601px: one clean variable instead of the old ~10-step
+      breakpoint ladder. Text-size compensation for mid-width screens
+      (already in portfolio-skills-v119.css) is untouched.
+
+      IMPORTANT: this must come BEFORE the notes-cluster and phone
+      override blocks below. Both this and the phone override target the
+      same `:root` selector at equal specificity — since this one is
+      unconditional (no media query), it must appear earlier in the file
+      or it would win the cascade at phone widths too and silently
+      overwrite the phone fluid-scale formula.
+   -------------------------------------------------------------------------- */
+:root{
+  --v147-note-scale:1;
+}
+@media (max-width:900px){
+  :root{--v147-note-scale:.84;}
+}
+
+/* --------------------------------------------------------------------------
+   5. NOTES CLUSTER — auto-sized grid with controlled overlap
+   --------------------------------------------------------------------------
+   The section MUST hug its content. No fixed note-cluster height is used.
+
+   Desktop/tablet:
+   - two-column grid
+   - later papers pull slightly over their neighbours with negative margins
+   - the negative margins participate in layout, so the cluster's measured
+     height/width shrink with the visual overlap instead of leaving dead space
+
+   Phone:
+   - one centered column
+   - a small negative top margin between papers gives the same tactile overlap
+   - the stack remains in normal flow, so Skills still hugs its content
+   -------------------------------------------------------------------------- */
+
+:root{
+  --v153-note-overlap:34px;
+  --v153-phone-note-overlap:44px;
+
+  /* Note 4 gets only a modest paper-size increase.
+     Text size is unchanged. */
+  --v153-note4-width:356px;
+  --v153-note4-height:320px;
+}
+
+/* The outer notes container now derives its dimensions from its children. */
+.figma-skills-notes{
+  display:block!important;
+  width:auto!important;
+  height:auto!important;
+  flex:0 0 auto!important;
+  min-width:0!important;
+  min-height:0!important;
+}
+
+/* Two-column clean grid. No fixed width/height and no absolute canvas. */
+.figma-skills-notes-inner{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:
+    calc(332.100px * var(--v147-note-scale))
+    calc(var(--v153-note4-width) * var(--v147-note-scale))!important;
+  grid-template-rows:auto auto!important;
+  width:max-content!important;
+  height:auto!important;
+  min-height:0!important;
+  transform:none!important;
+  align-items:start!important;
+  justify-items:start!important;
+}
+
+/* Every sizer reserves the paper's true post-scale footprint in flow. */
+.figma-note-sizer{
+  position:relative!important;
+  left:auto!important;
+  top:auto!important;
+  z-index:auto!important;
+  overflow:visible!important;
+}
+
+.figma-note-sizer-product{
+  grid-column:1!important;
+  grid-row:1!important;
+  width:calc(327.408px * var(--v147-note-scale))!important;
+  height:calc(310.804px * var(--v147-note-scale))!important;
+
+  /* V155: Note 1 + its own embedded shadow are frontmost. */
+  z-index:4!important;
+}
+
+.figma-note-sizer-visual{
+  grid-column:2!important;
+  grid-row:1!important;
+  width:calc(303.998px * var(--v147-note-scale))!important;
+  height:calc(282.348px * var(--v147-note-scale))!important;
+  margin-left:calc(-1 * var(--v153-note-overlap) * var(--v147-note-scale))!important;
+  z-index:1!important;
+}
+
+.figma-note-sizer-tools{
+  grid-column:1!important;
+  grid-row:2!important;
+  width:calc(332.100px * var(--v147-note-scale))!important;
+  height:calc(298.960px * var(--v147-note-scale))!important;
+  margin-top:calc(-1 * var(--v153-note-overlap) * var(--v147-note-scale))!important;
+  z-index:2!important;
+}
+
+.figma-note-sizer-research{
+  grid-column:2!important;
+  grid-row:2!important;
+  width:calc(var(--v153-note4-width) * var(--v147-note-scale))!important;
+  height:calc(var(--v153-note4-height) * var(--v147-note-scale))!important;
+
+  /* V155: 5px left + 5px up from V154.
+     Negative margins remain part of grid flow, so the cluster still hugs
+     its real visual height instead of creating a fixed canvas. */
+  margin-left:calc(-1 * var(--v153-note-overlap) * var(--v147-note-scale))!important;
+  margin-top:calc(-1 * (var(--v153-note-overlap) + 5px) * var(--v147-note-scale))!important;
+  z-index:3!important;
+}
+
+/* Scale each paper inside its own measured sizer. This avoids the old
+   transform-scaled fixed canvas and keeps the cluster's actual layout size
+   equal to what is visible. */
+.figma-note-sizer .figma-sticky-wrap{
+  position:absolute!important;
+  left:0!important;
+  right:auto!important;
+  top:0!important;
+  bottom:auto!important;
+  margin:0!important;
+  transform:scale(var(--v147-note-scale))!important;
+  transform-origin:top left!important;
+}
+
+/* --------------------------------------------------------------------------
+   NOTE 4 — larger PAPER only, not larger text
+   --------------------------------------------------------------------------
+   The 4th paper carries Tools n Tech. The paper/background/shadow get ~4.5%
+   more room, while the copy keeps the same font size and internal scale.
+   The copy is shifted by half the added width so the extra paper is visually
+   distributed across both horizontal sides instead of appearing only on one.
+   -------------------------------------------------------------------------- */
+
+.figma-note-sizer-research .figma-sticky-research{
+  /* Keep the live copy geometry unchanged. Only the visible paper grows. */
+  width:347.045px!important;
+  height:312.413px!important;
+}
+
+/* V154: larger PAPER IMAGE only.
+   A 3px right nudge gives the dense Tools n Tech copy a more even-looking
+   horizontal border without scaling the copy itself. */
+/* V156 — exact Note 4 geometry from the user's inspected desktop result.
+   These offsets live in the note's native coordinate space; the note wrapper
+   still scales with --v147-note-scale, so the same proportions are preserved
+   responsively instead of using breakpoint-specific approximations. */
+.figma-note-sizer-research .figma-sticky-research .figma-paper-note-bg{
+  left:-11px!important;
+  top:-17px!important;
+  width:356px!important;
+  height:320px!important;
+}
+
+/* Grow/nudge the real Figma shadow with the paper. */
+.figma-note-sizer-research .figma-sticky-research .figma-paper-shadow-vector{
+  left:13px!important;
+  top:12px!important;
+  width:330.2px!important;
+  height:290.0px!important;
+}
+
+/* Copy remains the V153 size/position — no scaling. */
+.figma-note-sizer-research .figma-paper-copy-tools{
+  left:43.5px!important;
+  top:47.5px!important;
+}
+
+
+/* --------------------------------------------------------------------------
+   6. NOTES ON PHONE (≤600px) — centered, close, still auto-height
+   -------------------------------------------------------------------------- */
+@media (max-width:600px){
+  :root{
+    /* Account for the slightly wider fourth paper when calculating the
+       largest safe phone scale. */
+    --v147-note-scale:clamp(
+      0.70,
+      calc((100vw - 20.5128vw) / 347.045px),
+      1
+    );
+  }
+
+  .figma-skills-notes{
+    width:100%!important;
+    max-width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    align-self:stretch!important;
+    margin:0!important;
+  }
+
+  .figma-skills-notes-inner{
+    position:static!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    width:100%!important;
+    max-width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    transform:none!important;
+    gap:0!important;
+  }
+
+  /* Full-width layout rows + absolutely centered papers = exact shared
+     center line even though the four paper images have different widths. */
+  .figma-note-sizer{
+    position:relative!important;
+    width:100%!important;
+    left:auto!important;
+    top:auto!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    overflow:visible!important;
+  }
+
+  .figma-note-sizer-product{
+    height:calc(310.804px * var(--v147-note-scale))!important;
+  }
+  .figma-note-sizer-visual{
+    height:calc(282.348px * var(--v147-note-scale))!important;
+    margin-top:calc(-1 * var(--v153-phone-note-overlap) * var(--v147-note-scale))!important;
+  }
+  .figma-note-sizer-tools{
+    height:calc(298.960px * var(--v147-note-scale))!important;
+    margin-top:calc(-1 * var(--v153-phone-note-overlap) * var(--v147-note-scale))!important;
+  }
+  .figma-note-sizer-research{
+    height:calc(var(--v153-note4-height) * var(--v147-note-scale))!important;
+    margin-left:0!important;
+    margin-top:calc(-1 * var(--v153-phone-note-overlap) * var(--v147-note-scale))!important;
+  }
+
+  /* Same stack order on phone: Note 1 is frontmost, including its shadow. */
+  .figma-note-sizer-product{z-index:4!important;}
+  .figma-note-sizer-visual{z-index:1!important;}
+  .figma-note-sizer-tools{z-index:2!important;}
+  .figma-note-sizer-research{z-index:3!important;}
+
+  .figma-note-sizer .figma-sticky-wrap{
+    position:absolute!important;
+    left:50%!important;
+    right:auto!important;
+    top:0!important;
+    bottom:auto!important;
+    margin:0!important;
+    transform:translateX(-50%) scale(var(--v147-note-scale))!important;
+    transform-origin:top center!important;
+
+    /* Neutralize Skills parallax only on phone papers so the center alignment
+       stays visually exact. */
+    translate:none!important;
+  }
+}
+
+
+/* V153 — hard guard: Skills must always hug its real content height. */
+.figma-skills-section,
+.figma-skills-stage,
+.figma-skills-content{
+  height:auto!important;
+  min-height:0!important;
+}
+
+/* --------------------------------------------------------------------------
+   7. ILLUSTRATION: normal flow item next to the notes grid. Its own
+      width/aspect-ratio rules (already in portfolio-skills-v119.css) are
+      untouched — only its position/centering-transform is neutralized.
+   -------------------------------------------------------------------------- */
+.figma-skills-window.figma-skills-window-custom,
+.figma-skills-window{
+  position:relative!important;
+  left:auto!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:auto!important;
+  transform:none!important;
+  margin:0 auto!important;
+}
+
+/* --------------------------------------------------------------------------
+   8. Parallax cleanup: the old will-change hint from the removed
+      v116-skills-parallax.js has no effect now but is neutralized for
+      cleanliness.
+   -------------------------------------------------------------------------- */
+.figma-skills-stage,
+.figma-skills-kicker,
+.figma-skills-window{
+  will-change:auto!important;
+}

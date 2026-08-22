@@ -1,0 +1,71 @@
+/* ==========================================================================
+   V184 — HERO NAME NOISE FROM FIRST CHARACTER FRAME
+
+   Root cause:
+   The old .figma-name::after full-word texture was hidden by:
+     html.hero-intro-pending .figma-name::after { opacity:0!important; }
+   and hero-intro-pending only clears when the ENTIRE Hero timeline completes.
+   That is why the visible texture appeared around 3.7–4s.
+
+   Fix:
+   - retire the delayed full-word overlay completely
+   - attach the same texture to each animated character
+   - because the overlay is inside each .figma-name-char, it inherits that
+     character's opacity/transform during the existing name animation
+   - the texture is embedded here, so there is no image-request timing at all
+   ========================================================================== */
+
+
+/* Never allow the old whole-word duplicate to switch on at intro completion. */
+.figma-name::after{
+  content:none!important;
+  display:none!important;
+}
+
+
+/* Each animated glyph carries its own texture from its very first visible frame. */
+.figma-name-char{
+  position:relative;
+}
+
+.figma-name-char::after{
+  content:attr(data-noise-char);
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+
+  font:inherit;
+  font-weight:inherit;
+  font-style:inherit;
+  line-height:inherit;
+  letter-spacing:inherit;
+  white-space:inherit;
+
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+
+  background-image:url('data:image/png;base64,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');
+  background-repeat:repeat;
+  background-size:57.6px 57.6px;
+  background-position:0 0;
+
+  -webkit-background-clip:text;
+  background-clip:text;
+  mix-blend-mode:screen;
+
+  opacity:1;
+}
+
+
+/* Explicitly prevent the old pending-state rule from hiding character grain. */
+html.hero-intro-pending .figma-name-char::after{
+  opacity:1!important;
+}
+
+
+@media (prefers-reduced-motion:reduce){
+  .figma-name-char::after{
+    opacity:1!important;
+  }
+}

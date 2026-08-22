@@ -1,0 +1,242 @@
+/* ==========================================================================
+   V158 — one structural header system
+   Base: V157
+
+   IMPORTANT
+   ---------
+   Process is intentionally excluded from this pass. It keeps its existing
+   pinned/scroll-specific structure until the dedicated Process pass.
+
+   Every other main section follows the same contract:
+
+     SECTION
+       HEADER
+         KICKER
+         HEADING
+         [DESCRIPTION, where the design has one]
+       MAIN CONTENT
+
+   Rules:
+   - the HEADER / heading-stack owns kicker -> heading spacing
+   - kicker and heading themselves have zero layout margin/padding
+   - the HEADER owns the complete header -> main-content spacing
+   - no child element fakes either gap with top padding/margin
+
+   Shared rhythm:
+   desktop >1100px : 20px kicker->heading / 80px header->content
+   tablet 761-1100 : 18px / 64px
+   phone <=760px   : 16px / 48px
+   ========================================================================== */
+
+:root{
+  --v158-kicker-heading-gap:20px;
+  --v158-header-content-gap:80px;
+}
+
+@media (max-width:1100px){
+  :root{
+    --v158-kicker-heading-gap:18px;
+    --v158-header-content-gap:64px;
+  }
+}
+
+@media (max-width:760px){
+  :root{
+    --v158-kicker-heading-gap:16px;
+    --v158-header-content-gap:48px;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   SHARED CHILD RESET
+   Kicker/title elements never create structural spacing themselves.
+   -------------------------------------------------------------------------- */
+
+.figma-work-heading > .section-kicker,
+.figma-work-heading > .figma-work-title,
+.figma-skills-heading > .section-kicker,
+.figma-skills-heading > .figma-skills-title,
+.experience-section .section-heading > div > .section-kicker,
+.experience-section .section-heading > div > h2,
+.about-head-main > .section-kicker,
+.about-head-main > h2,
+.contact-heading-structure > .contact-top,
+.contact-heading-structure > h2{
+  margin-top:0!important;
+  margin-bottom:0!important;
+  padding-top:0!important;
+  padding-bottom:0!important;
+}
+
+
+/* ============================== WORKS ============================== */
+
+/* Header itself owns BOTH structural gaps. */
+.figma-work-heading{
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  flex:0 0 auto!important;
+
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:flex-start!important;
+
+  gap:var(--v158-kicker-heading-gap)!important;
+  margin:0 0 var(--v158-header-content-gap)!important;
+  padding:0!important;
+}
+
+/* Old .figma-work-left gap would otherwise create a second hidden gap
+   underneath the header. */
+.figma-work-left{
+  gap:0!important;
+}
+
+/* Narrow Work layout has separate grid rows. The heading owns its own
+   content gap, so the grid itself must not also add one. */
+@media (max-width:810px){
+  .figma-work-layout{
+    row-gap:0!important;
+  }
+
+  /* Preserve only preview -> project-list spacing. */
+  .figma-work-preview-wrap{
+    margin-bottom:var(--phone-work-block-gap,40px)!important;
+  }
+}
+
+
+/* ============================== SKILLS ============================= */
+
+/* Same structure as Works: wrapper owns the gap; title owns none. */
+.figma-skills-heading{
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:flex-start!important;
+
+  gap:var(--v158-kicker-heading-gap)!important;
+  margin:0 0 var(--v158-header-content-gap)!important;
+  padding:0!important;
+}
+
+.figma-skills-kicker,
+.figma-skills-title{
+  position:static!important;
+  top:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  left:auto!important;
+  height:auto!important;
+  min-height:0!important;
+  transform:none!important;
+}
+
+.figma-skills-title{
+  margin:0!important;
+  padding:0!important;
+}
+
+/* V147/V157 previously put the content gap on the title itself.
+   Kill that entirely: the heading wrapper is now the only owner. */
+.figma-skills-content{
+  margin-top:0!important;
+}
+
+
+/* ============================ EXPERIENCE =========================== */
+
+/* The left heading stack owns kicker -> heading. */
+.experience-section .section-heading > div{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:flex-start!important;
+  gap:var(--v158-kicker-heading-gap)!important;
+}
+
+/* The complete header includes the short description on the right/underneath.
+   Therefore THIS wrapper owns the content gap. */
+.experience-section .section-heading{
+  margin-top:0!important;
+  margin-bottom:var(--v158-header-content-gap)!important;
+}
+
+/* Description is part of the header, not part of the header->content gap. */
+@media (max-width:760px){
+  .experience-section .section-heading > p{
+    margin-top:24px!important;
+    margin-bottom:0!important;
+  }
+}
+
+
+/* =============================== ABOUT ============================== */
+
+.about-head-main{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:flex-start!important;
+  gap:var(--v158-kicker-heading-gap)!important;
+}
+
+/* Full header = heading stack + short observer description. */
+.about-head{
+  margin-top:0!important;
+  margin-bottom:var(--v158-header-content-gap)!important;
+}
+
+@media (max-width:760px){
+  .about-head-note{
+    margin-top:24px!important;
+    margin-bottom:0!important;
+  }
+}
+
+
+/* ============================== CONTACT ============================= */
+
+/* Contact now has a real header wrapper too, so it follows the SAME rule:
+   header row -> heading uses gap; complete header -> contact content uses margin. */
+.contact-heading-structure{
+  position:relative;
+  z-index:2;
+
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:flex-start;
+
+  gap:var(--v158-kicker-heading-gap);
+  margin:0 0 var(--v158-header-content-gap);
+  padding:0;
+}
+
+.contact-heading-structure .contact-top{
+  margin:0!important;
+  padding:0!important;
+}
+
+/* h2 no longer carries the old 60/66px or phone 48/52px margins. */
+.contact-heading-structure > h2{
+  margin:0!important;
+  padding:0!important;
+}
+
+.contact-bottom{
+  margin-top:0!important;
+}
+
+
+/* --------------------------------------------------------------------------
+   PROCESS
+   Explicitly untouched in V158.
+   -------------------------------------------------------------------------- */

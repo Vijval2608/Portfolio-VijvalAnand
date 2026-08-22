@@ -1,0 +1,31 @@
+/* ========================================================================== 
+   V198 — CUSTOM FONT RUNTIME SAFETY
+
+   Canonical local/self-hosted hooks remain in the existing portfolio CSS.
+   This layer only supplies device-independent network fallbacks when those
+   licensed files are not present on the visitor's device/server.
+
+   Active custom faces:
+   - Mexcellent            — major display headings + Process numerals
+   - Edit Undo Line BRK    — Process card titles + Experience role titles
+   - Talina DEMO           — Work preview/project title
+   - Impact                — VIJVAL / ANAND
+   - Pixel Forge           — Macintosh screen
+   ========================================================================== */
+
+/* Talina is the only active custom face without a matching CDNFonts stylesheet
+   in the build. Keep the exact original TalinaLocal family so existing selectors
+   require no visual/structural changes. A licensed assets/fonts/Talina DEMO.otf
+   remains the preferred source if supplied. */
+@font-face{
+  font-family:'TalinaLocal';
+  src:
+    local('Talina DEMO'),
+    local('TalinaDEMO-Regular'),
+    local('Talina DEMO Regular'),
+    url('assets/fonts/Talina DEMO.otf') format('opentype'),
+    url('https://st.1001fonts.net/download/font/talina-demo.regular.otf') format('opentype');
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+}

@@ -1,0 +1,25 @@
+/* ==========================================================================
+   V193 — PROJECT VIEWER ABOVE GLOBAL GRAIN
+   ========================================================================== */
+
+/*
+ * Keep the grain above the normal site, but reserve the final stacking level
+ * for the project viewer. This removes grain/noise from the viewer itself
+ * without changing the viewer layout, animation, backdrop, or interactions.
+ */
+.grain{
+  z-index:2147483645!important;
+}
+
+.grain-screen{
+  z-index:2147483646!important;
+}
+
+.viewer{
+  z-index:2147483647!important;
+}
+
+/* Navbar remains below grain as before. */
+.figma-nav{
+  z-index:2147483644!important;
+}

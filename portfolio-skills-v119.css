@@ -1,0 +1,1984 @@
+/* PORTFOLIO SKILLS V119 — V118 sources concatenated in original cascade order. */
+
+/* ===== SOURCE: skills-section-final-v100.css ===== */
+/* ==========================================================================
+   SKILLS SECTION — FINAL CONSOLIDATED BUILD (V100)
+
+   This file replaces the incremental V85–V99 Skills override chain.
+   The rules are preserved in their original cascade order to retain every
+   approved visual/responsive fix, while the HTML now loads one Skills file.
+
+   FINAL USER-TUNABLE / LOCKED SETTINGS
+   Desktop illustration right offset: 1vw
+   Phone illustration scale:          1.2
+   ========================================================================== */
+
+/* ===== v85-skills-figma-exact.css ===== */
+/* ========================================================================== 
+   V85 — SKILLS / FIGMA 522:2169
+   Desktop geometry is a 90% implementation of the 1512 × 1149 source frame.
+   Note shadows are the actual Figma vector paths, including their native
+   fill opacity and Gaussian blur — no CSS approximation is used.
+   ========================================================================== */
+
+.figma-skills-section{
+  height:1034.1px;
+  min-height:1034.1px;
+}
+
+.figma-skills-stage{
+  position:relative;
+  width:1360.8px;
+  height:1034.1px;
+  margin:0 auto;
+}
+
+/* Exact 522:2169 heading placement at the portfolio's locked 90% scale. */
+.figma-skills-kicker{
+  left:91.8px!important;
+  top:-6.3px!important;
+}
+.figma-skills-title{
+  left:91.8px!important;
+  top:27px!important;
+  width:405.9px!important;
+  height:69.3px!important;
+  font-size:57.6px!important;
+  letter-spacing:-1.728px!important;
+  line-height:normal!important;
+}
+
+/* --------------------------------------------------------------------------
+   Real paper notes
+   -------------------------------------------------------------------------- */
+.figma-paper-note-wrap{
+  position:absolute!important;
+  display:block!important;
+  overflow:visible!important;
+  isolation:isolate;
+  pointer-events:none;
+}
+
+.figma-paper-note-bg,
+.figma-paper-shadow-vector{
+  position:absolute;
+  display:block;
+  max-width:none!important;
+  pointer-events:none;
+  backface-visibility:hidden;
+}
+
+.figma-paper-shadow-vector{
+  z-index:1;
+  image-rendering:auto;
+}
+.figma-paper-note-bg{
+  z-index:2;
+  object-fit:contain;
+  image-rendering:auto;
+}
+
+.figma-paper-copy{
+  position:absolute;
+  z-index:3;
+  inset:0;
+  margin:0;
+  color:#1e1e1e;
+  transform:none;
+  backface-visibility:hidden;
+}
+
+.figma-paper-copy h3{
+  position:absolute;
+  margin:0;
+  color:#1e1e1e;
+  font-family:'Hachi Maru Pop',cursive;
+  font-size:21.6px;
+  font-weight:400;
+  line-height:1.35;
+  letter-spacing:-.648px;
+  text-decoration-line:underline;
+  text-decoration-thickness:.08em;
+  text-underline-offset:.18em;
+  text-decoration-skip-ink:auto;
+  white-space:nowrap;
+  text-rendering:geometricPrecision;
+  transform-origin:top left;
+}
+
+.figma-paper-columns{
+  position:absolute;
+  display:flex;
+  align-items:flex-start;
+  gap:10.8px;
+  margin:0;
+  color:#1e1e1e;
+  font-family:'Poppins',sans-serif;
+  font-size:10.8px;
+  font-weight:300;
+  line-height:1.36;
+  letter-spacing:-.324px;
+  text-rendering:geometricPrecision;
+  transform-origin:top left;
+}
+
+.figma-paper-columns ul{
+  position:relative!important;
+  inset:auto!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:3.6px!important;
+  width:auto!important;
+  margin:0!important;
+  padding:0!important;
+  list-style:none!important;
+  transform:none!important;
+  flex:none;
+}
+.figma-paper-columns li{
+  margin:0!important;
+  padding:0!important;
+  white-space:nowrap;
+}
+.figma-paper-columns li::before{content:'- ';}
+
+/* PRODUCT & UX — 522:2427 */
+.figma-sticky-product{
+  left:91.8px!important;
+  top:198.9px!important;
+  width:294.667px!important;
+  height:279.724px!important;
+}
+.figma-sticky-product .figma-paper-note-bg{
+  left:0;
+  top:0;
+  width:293.75px;
+  height:272.92px;
+}
+/* exact exported render-bounds of Rectangle 32 / 522:2428 */
+.figma-sticky-product .figma-paper-shadow-vector{
+  left:1.462px;
+  top:16.075px;
+  width:299.902px;
+  height:271.081px;
+}
+.figma-paper-copy-product h3{
+  left:38.18px;
+  top:59.42px;
+  width:213.64px;
+  transform:rotate(-6deg);
+}
+.figma-paper-copy-product .figma-paper-columns{
+  left:51.60px;
+  top:114.19px;
+  width:219.247px;
+  gap:10.8px;
+  transform:rotate(-6deg);
+}
+.figma-paper-copy-product .figma-paper-columns ul:first-child{width:102.69px!important;}
+
+/* VISUAL + BRAND — 522:2384 */
+.figma-sticky-visual{
+  left:366.210px!important;
+  top:234.622px!important;
+  width:273.598px!important;
+  height:254.113px!important;
+}
+.figma-sticky-visual .figma-paper-note-bg{
+  inset:0;
+  width:273.598px;
+  height:254.113px;
+}
+/* exact exported render-bounds of Rectangle 33 / 522:2385 */
+.figma-sticky-visual .figma-paper-shadow-vector{
+  left:19.738px;
+  top:23.234px;
+  width:248.917px;
+  height:232.274px;
+}
+.figma-paper-copy-visual h3{
+  left:40.590px;
+  top:65.078px;
+  width:191.7px;
+}
+.figma-paper-copy-visual .figma-paper-columns{
+  left:37.890px;
+  top:118.178px;
+  width:198px;
+}
+.figma-paper-copy-visual .figma-paper-columns ul:first-child{width:95.4px!important;}
+.figma-paper-copy-visual .figma-paper-columns li:last-child{white-space:normal;}
+
+/* TOOLS N TECH — 522:2402 */
+.figma-sticky-tools{
+  left:95.805px!important;
+  top:459.548px!important;
+  width:298.890px!important;
+  height:269.064px!important;
+}
+.figma-sticky-tools .figma-paper-note-bg{
+  left:1.701px;
+  top:1.845px;
+  width:285.451px;
+  height:265.379px;
+}
+/* exact exported render-bounds of Rectangle 34 / 522:2403 */
+.figma-sticky-tools .figma-paper-shadow-vector{
+  left:14.642px;
+  top:32.878px;
+  width:287.418px;
+  height:237.683px;
+}
+.figma-paper-copy-tools h3{
+  left:58.677px;
+  top:39.952px;
+  width:175.5px;
+  text-align:center;
+  transform:rotate(1.5deg);
+}
+.figma-paper-copy-tools .figma-paper-columns{
+  left:54.495px;
+  top:80.983px;
+  width:174.066px;
+  gap:10.8px;
+  transform:rotate(1.5deg);
+}
+.figma-paper-copy-tools .figma-paper-columns ul:first-child{width:102.69px!important;}
+
+/* RESEARCH — 522:2443 */
+.figma-sticky-research{
+  left:366.3px!important;
+  top:460.8px!important;
+  width:276.705px!important;
+  height:265.743px!important;
+}
+.figma-sticky-research .figma-paper-note-bg{
+  inset:0;
+  width:276.705px;
+  height:265.743px;
+}
+/* exact exported render-bounds of Rectangle 34 / 522:2444 */
+.figma-sticky-research .figma-paper-shadow-vector{
+  left:18.865px;
+  top:21.302px;
+  width:256.631px;
+  height:240.799px;
+}
+.figma-paper-copy-research h3{
+  left:38.116px;
+  top:59.4px;
+  width:200.141px;
+  transform:rotate(2deg);
+}
+.figma-paper-copy-research .figma-paper-columns{
+  left:35.101px;
+  top:112.468px;
+  width:202.281px;
+  gap:12.6px;
+  transform:rotate(2deg);
+}
+.figma-paper-copy-research .figma-paper-columns ul:first-child{width:95.4px!important;}
+
+/* --------------------------------------------------------------------------
+   Latest 522:2169 window + exact Figma shadow geometry
+   -------------------------------------------------------------------------- */
+.figma-skills-window{
+  position:absolute!important;
+  left:738px!important;
+  top:90.9px!important;
+  width:560.7px!important;
+  height:508.5px!important;
+  z-index:2;
+}
+.figma-skills-window img{
+  width:100%!important;
+  height:100%!important;
+  display:block;
+  max-width:none!important;
+}
+
+/* These two files are the actual 522:2172 / 522:2173 vectors with Figma's
+   #AE9B7F / 30% fill and stdDeviation 3.85 blur embedded in the SVG. */
+.figma-window-side-shadow{
+  position:absolute!important;
+  display:block!important;
+  max-width:none!important;
+  z-index:1!important;
+  pointer-events:none!important;
+}
+.figma-window-side-shadow-right{
+  left:1145.970px!important;
+  top:207.270px!important;
+  width:62.460px!important;
+  height:312.660px!important;
+}
+.figma-window-side-shadow-left{
+  left:814.770px!important;
+  top:202.770px!important;
+  width:63.360px!important;
+  height:312.660px!important;
+}
+.figma-window-ledge-shadow{
+  position:absolute!important;
+  left:880.2px!important;
+  top:475.971px!important;
+  width:266.4px!important;
+  height:15.393px!important;
+  z-index:1!important;
+  background:rgba(174,155,127,.30)!important;
+  filter:blur(3.465px)!important;
+  pointer-events:none!important;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive composition. Desktop is exact Figma geometry above; smaller
+   canvases preserve its grouping and intentional zig-zag rather than trying
+   to force the 1512px canvas literally into a phone viewport.
+   -------------------------------------------------------------------------- */
+@media (max-width:1230px){
+  .figma-skills-section{height:auto!important;min-height:0!important;}
+  .figma-skills-stage{
+    width:100%!important;
+    height:auto!important;
+    min-height:930px!important;
+    padding:96px 42px 82px!important;
+    box-sizing:border-box!important;
+  }
+  .figma-skills-kicker,
+  .figma-skills-title{
+    position:relative!important;
+    left:auto!important;
+    top:auto!important;
+  }
+  .figma-skills-kicker{margin-bottom:28px!important;}
+  .figma-skills-title{
+    width:auto!important;height:auto!important;
+    margin-bottom:56px!important;
+    font-size:52px!important;line-height:1.1!important;
+  }
+
+  .figma-sticky-wrap{transform:scale(.86)!important;transform-origin:top left!important;}
+  .figma-sticky-product{left:52px!important;top:260px!important;}
+  .figma-sticky-visual{left:306px!important;top:292px!important;}
+  .figma-sticky-tools{left:54px!important;top:484px!important;}
+  .figma-sticky-research{left:306px!important;top:486px!important;}
+
+  .figma-window-side-shadow,.figma-window-ledge-shadow{display:none!important;}
+  .figma-skills-window{
+    left:auto!important;right:28px!important;top:250px!important;
+    width:clamp(380px,41vw,500px)!important;height:auto!important;
+    aspect-ratio:623 / 565!important;
+  }
+}
+
+@media (max-width:1000px){
+  .figma-skills-stage{min-height:1240px!important;padding-inline:28px!important;}
+  .figma-skills-title{font-size:48px!important;}
+  .figma-sticky-wrap{transform:scale(.82)!important;}
+  .figma-sticky-product{left:30px!important;top:270px!important;}
+  .figma-sticky-visual{left:276px!important;top:300px!important;}
+  .figma-sticky-tools{left:32px!important;top:492px!important;}
+  .figma-sticky-research{left:276px!important;top:494px!important;}
+  .figma-skills-window{
+    top:720px!important;left:50%!important;right:auto!important;
+    width:min(62vw,540px)!important;transform:translateX(-50%)!important;
+  }
+}
+
+@media (max-width:680px){
+  .figma-skills-stage{min-height:1510px!important;padding:82px 18px 72px!important;}
+  .figma-skills-kicker{margin-bottom:24px!important;}
+  .figma-skills-title{
+    margin-bottom:44px!important;font-size:40px!important;line-height:1.08!important;
+    white-space:normal!important;
+  }
+  .figma-sticky-wrap{transform:scale(.74)!important;}
+  .figma-sticky-product{left:0!important;top:250px!important;}
+  .figma-sticky-visual{left:154px!important;top:445px!important;}
+  .figma-sticky-tools{left:0!important;top:640px!important;}
+  .figma-sticky-research{left:150px!important;top:835px!important;}
+  .figma-skills-window{top:1040px!important;width:min(94vw,510px)!important;}
+}
+
+/* Phone: compact zig-zag. Deliberately overlapping the vertical envelopes a
+   little keeps the four real-paper notes visually related, as requested. */
+@media (max-width:600px){
+  :root{
+    --paper-note-phone-scale:.96;
+    --paper-note-phone-body:min(3.025641vw,11.8px);
+    --paper-note-phone-heading:min(6.025641vw,23.5px);
+  }
+  .figma-skills-stage{
+    min-height:min(397.436vw,1550px)!important;
+    padding-top:min(21.026vw,82px)!important;
+    padding-bottom:min(18.462vw,72px)!important;
+  }
+  .figma-skills-title{margin-bottom:min(11.282vw,44px)!important;line-height:1.08!important;}
+  .figma-sticky-wrap{transform:scale(var(--paper-note-phone-scale))!important;}
+
+  .figma-sticky-product{
+    left:0!important;right:auto!important;top:min(64.103vw,250px)!important;
+    transform-origin:top left!important;
+  }
+  .figma-sticky-visual{
+    left:auto!important;right:0!important;top:min(117.949vw,460px)!important;
+    transform-origin:top right!important;
+  }
+  .figma-sticky-tools{
+    left:0!important;right:auto!important;top:min(170.513vw,665px)!important;
+    transform-origin:top left!important;
+  }
+  .figma-sticky-research{
+    left:auto!important;right:0!important;top:min(224.359vw,875px)!important;
+    transform-origin:top right!important;
+  }
+
+  .figma-paper-copy h3{font-size:var(--paper-note-phone-heading)!important;letter-spacing:-.03em!important;}
+  .figma-paper-columns{
+    font-size:var(--paper-note-phone-body)!important;line-height:1.39!important;
+    letter-spacing:-.03em!important;gap:8px!important;
+  }
+  .figma-paper-columns ul{gap:3px!important;}
+  .figma-paper-copy-product .figma-paper-columns ul:first-child{width:107px!important;}
+  .figma-paper-copy-visual .figma-paper-columns ul:first-child{width:101px!important;}
+  .figma-paper-copy-tools .figma-paper-columns ul:first-child{width:104px!important;}
+  .figma-paper-copy-research .figma-paper-columns ul:first-child{width:105px!important;}
+
+  .figma-skills-window{
+    left:0!important;right:auto!important;top:min(278.205vw,1085px)!important;
+    width:100%!important;max-width:100%!important;height:auto!important;
+    aspect-ratio:623 / 565!important;transform:none!important;
+  }
+}
+
+@media (max-width:340px){
+  :root{--paper-note-phone-scale:.84;}
+  .figma-skills-stage{min-height:1390px!important;}
+  .figma-sticky-product{top:245px!important;}
+  .figma-sticky-visual{top:425px!important;}
+  .figma-sticky-tools{top:600px!important;}
+  .figma-sticky-research{top:785px!important;}
+  .figma-skills-window{top:1000px!important;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .figma-paper-note-wrap *{animation:none!important;transition:none!important;}
+}
+
+/* ===== v86-skills-tuning.css ===== */
+/* ========================================================================== 
+   V86 — small Skills refinements on top of the approved V85 implementation.
+   Scope is intentionally limited to Skills copy spacing + phone window shadows.
+   ========================================================================== */
+
+/* Visual + Brand: preserve "Social media" as a phrase while making the wrapped
+   "creatives" line hang directly under the text rather than under the bullet. */
+.figma-paper-copy-visual .skill-social-creatives{
+  display:grid!important;
+  grid-template-columns:max-content minmax(0,1fr);
+  column-gap:0;
+  white-space:normal!important;
+}
+.figma-paper-copy-visual .skill-social-creatives::before{
+  grid-column:1;
+  grid-row:1;
+}
+.figma-paper-copy-visual .skill-social-creatives > span{
+  grid-column:2;
+  grid-row:1;
+  display:block;
+  line-height:inherit;
+}
+
+/* Tools n Tech: the source note is dense, so keep its columns visually related. */
+.figma-paper-copy-tools .figma-paper-columns{
+  gap:5.4px!important;
+}
+
+/* Research: regroup validation methods together and synthesis/strategy methods
+   together, then give the two groups a clearer reading lane between them. */
+.figma-paper-copy-research .figma-paper-columns{
+  left:31.5px;
+  width:220.5px;
+  gap:17px!important;
+}
+.figma-paper-copy-research .figma-paper-columns ul:first-child{
+  width:105px!important;
+}
+.figma-paper-copy-research .figma-paper-columns ul:last-child{
+  width:98.5px!important;
+}
+
+@media (max-width:600px){
+  /* Keep the content tweaks legible after V85's phone typography override. */
+  .figma-paper-copy-tools .figma-paper-columns{gap:4px!important;}
+  .figma-paper-copy-research .figma-paper-columns{
+    left:29px;
+    width:225px;
+    gap:13px!important;
+  }
+  .figma-paper-copy-research .figma-paper-columns ul:first-child{width:108px!important;}
+  .figma-paper-copy-research .figma-paper-columns ul:last-child{width:104px!important;}
+
+  /* V85 intentionally hid these below 1230px. On phone, bring all three back
+     and scale them from their exact 522:2169 relationship to the 623×565
+     window vector. Their SVG blur/color/opacity remains embedded and untouched. */
+  .figma-skills-stage{
+    --skills-window-phone-top:min(278.205vw,1085px);
+  }
+  .figma-window-side-shadow,
+  .figma-window-ledge-shadow{
+    display:block!important;
+    pointer-events:none!important;
+  }
+  .figma-window-side-shadow-left{
+    left:13.6918%!important;
+    right:auto!important;
+    top:calc(var(--skills-window-phone-top) + 19.9519vw)!important;
+    width:11.3002%!important;
+    height:55.7624vw!important;
+  }
+  .figma-window-side-shadow-right{
+    left:72.7608%!important;
+    right:auto!important;
+    top:calc(var(--skills-window-phone-top) + 20.7544vw)!important;
+    width:11.1396%!important;
+    height:55.7624vw!important;
+  }
+  .figma-window-ledge-shadow{
+    left:25.3612%!important;
+    right:auto!important;
+    top:calc(var(--skills-window-phone-top) + 68.6768vw)!important;
+    width:47.5120%!important;
+    height:2.7453vw!important;
+    filter:blur(min(.6179vw,3.465px))!important;
+  }
+}
+
+@media (max-width:340px){
+  .figma-skills-stage{--skills-window-phone-top:1000px;}
+}
+
+/* ===== v87-skills-spacing.css ===== */
+/* ========================================================================== 
+   V87 — approved V86 Skills micro-tuning only.
+   1) Research order + hanging two-line Behavioral research.
+   2) Add a clean top inset on desktop so the Skills kicker cannot clip.
+   3) Reduce the blank Skills -> Experience breathing room by ~10%.
+   ========================================================================== */
+
+/* Keep the second line aligned with "Behavioral", not with the dash. */
+.figma-paper-copy-research .skill-behavioral-research{
+  display:grid!important;
+  grid-template-columns:max-content minmax(0,1fr);
+  column-gap:0;
+  white-space:normal!important;
+}
+.figma-paper-copy-research .skill-behavioral-research::before{
+  grid-column:1;
+  grid-row:1;
+}
+.figma-paper-copy-research .skill-behavioral-research > span{
+  grid-column:2;
+  grid-row:1;
+  display:block;
+  line-height:inherit;
+}
+
+/* Desktop source frame had the kicker at y=-6.3px after the locked 90% scale.
+   Move the complete stage down 24px rather than altering its internal geometry.
+   The former ~305.49px blank tail is then shortened by 30.55px (10%). */
+@media (min-width:1231px){
+  .figma-skills-section{
+    height:1027.551px!important;
+    min-height:1027.551px!important;
+  }
+  .figma-skills-stage{
+    top:24px!important;
+  }
+}
+
+/* Narrow desktop / tablet: trim only the existing empty tail after the last
+   Skills artwork. The artwork positions themselves remain V85/V86. */
+@media (min-width:1001px) and (max-width:1230px){
+  .figma-skills-stage{min-height:911px!important;}
+}
+
+@media (min-width:681px) and (max-width:1000px){
+  .figma-skills-stage{
+    min-height:min(1237px, calc(1188px + 5.623vw))!important;
+  }
+}
+
+@media (min-width:601px) and (max-width:680px){
+  .figma-skills-stage{min-height:1509px!important;}
+}
+
+/* On ordinary phones the previous tail is ~75–111px depending on width;
+   this formula removes about one tenth while preserving the compact zig-zag. */
+@media (min-width:391px) and (max-width:600px){
+  .figma-skills-stage{
+    min-height:min(1550px, calc(1503.5px + 9.069vw))!important;
+  }
+}
+@media (min-width:341px) and (max-width:390px){
+  .figma-skills-stage{
+    min-height:min(394.582vw, 1539px)!important;
+  }
+}
+@media (max-width:340px){
+  .figma-skills-stage{min-height:1380px!important;}
+}
+
+/* ===== v88-skills-gutters-spacing.css ===== */
+/* ========================================================================== 
+   V88 — Skills spacing + phone gutter containment on top of approved V87.
+   - Research columns tightened slightly.
+   - Skills content begins ~200px from the section top across breakpoints.
+   - Restores the pre-V87 Skills -> Experience breathing room.
+   - Phone artwork is constrained to the established equal phone gutters.
+   ========================================================================== */
+
+/* Research: keep the clearer grouping, but bring the two reading lanes closer. */
+.figma-paper-copy-research .figma-paper-columns{
+  gap:11px!important;
+}
+
+/* --------------------------------------------------------------------------
+   TOP BREATHING ROOM + RESTORED BOTTOM RHYTHM
+   V87 shortened the trailing space. Restore V86/V85 heights, then move the
+   complete stage (notes + exact shadows + window + headings) down so the
+   kicker starts at roughly y=200px without changing internal geometry.
+   -------------------------------------------------------------------------- */
+@media (min-width:1231px){
+  .figma-skills-section{
+    height:1240.4px!important;      /* 1034.1 original + 206.3 stage offset */
+    min-height:1240.4px!important;
+  }
+  .figma-skills-stage{
+    top:0!important;
+    margin-top:206.3px!important;   /* kicker is -6.3px => visible y ~= 200px */
+  }
+}
+
+@media (min-width:681px) and (max-width:1230px){
+  .figma-skills-stage{
+    margin-top:104px!important;     /* existing 96px top padding => ~200px */
+  }
+}
+@media (min-width:1001px) and (max-width:1230px){
+  .figma-skills-stage{min-height:930px!important;}
+}
+@media (min-width:681px) and (max-width:1000px){
+  .figma-skills-stage{min-height:1240px!important;}
+}
+
+@media (min-width:601px) and (max-width:680px){
+  .figma-skills-stage{
+    margin-top:118px!important;     /* existing 82px top padding => 200px */
+    min-height:1510px!important;
+  }
+}
+
+@media (max-width:600px){
+  .figma-skills-stage{
+    margin-top:min(30.2564103vw,118px)!important; /* 118px @ 390, fluid below */
+    padding-left:var(--phone-gutter)!important;
+    padding-right:var(--phone-gutter)!important;
+  }
+
+  /* Research: tighter than V86, still clearly separated. */
+  .figma-paper-copy-research .figma-paper-columns{
+    gap:8px!important;
+  }
+
+  /* ----------------------------------------------------------------------
+     PHONE GUTTER LOCK
+     Absolutely-positioned children do not naturally honor the stage padding.
+     Pin every Skills artwork group to the same 40/390 gutter used elsewhere.
+     ---------------------------------------------------------------------- */
+  .figma-sticky-product,
+  .figma-sticky-tools{
+    left:var(--phone-gutter)!important;
+    right:auto!important;
+  }
+  .figma-sticky-visual,
+  .figma-sticky-research{
+    left:auto!important;
+    right:var(--phone-gutter)!important;
+  }
+
+  /* The latest 522:2175 window itself stays entirely inside the gutter. */
+  .figma-skills-window{
+    left:var(--phone-gutter)!important;
+    right:auto!important;
+    width:calc(100% - var(--phone-gutter) - var(--phone-gutter))!important;
+    max-width:none!important;
+  }
+
+  /* Re-map the three exact Figma shadows to the gutter-constrained window.
+     Values are the same 522:2169 relationships, scaled from 100vw down to
+     the 79.4871794vw content lane. SVG-native color/opacity/blur is untouched. */
+  .figma-window-side-shadow-left{
+    left:21.139636vw!important;
+    right:auto!important;
+    top:calc(var(--skills-window-phone-top) + 15.859203vw)!important;
+    width:8.982210vw!important;
+    height:44.323959vw!important;
+  }
+  .figma-window-side-shadow-right{
+    left:68.091918vw!important;
+    right:auto!important;
+    top:calc(var(--skills-window-phone-top) + 16.497087vw)!important;
+    width:8.854554vw!important;
+    height:44.323959vw!important;
+  }
+  .figma-window-ledge-shadow{
+    left:30.415313vw!important;
+    right:auto!important;
+    top:calc(var(--skills-window-phone-top) + 54.589251vw)!important;
+    width:37.765949vw!important;
+    height:2.182162vw!important;
+    filter:blur(min(.491151vw,2.754px))!important;
+  }
+}
+
+/* The window is now narrower because it respects the gutters. Shorten the
+   stage by the same lost window height so the visible Skills -> Experience
+   breathing room stays like V86. At very wide phone widths, keep at least
+   24px of safety so the illustration can never be clipped. */
+@media (min-width:391px) and (max-width:600px){
+  .figma-skills-stage{
+    min-height:max(
+      calc(1550px - 18.6031vw),
+      calc(1085px + 72.0871vw + 24px)
+    )!important;
+  }
+}
+@media (min-width:341px) and (max-width:390px){
+  .figma-skills-stage{min-height:378.8329vw!important;}
+}
+
+/* Keep the widest paper/shadow silhouette inside the same gutter on narrower
+   phones instead of allowing fixed .96 scaling to spill into the margins. */
+@media (max-width:380px) and (min-width:361px){
+  :root{--paper-note-phone-scale:.92;}
+}
+@media (max-width:360px) and (min-width:341px){
+  :root{--paper-note-phone-scale:.87;}
+}
+@media (max-width:340px){
+  :root{--paper-note-phone-scale:.84;}
+  .figma-skills-stage{
+    min-height:calc(1390px - 18.6031vw)!important; /* preserve V86 visual tail after narrower window */
+  }
+}
+
+/* ===== v89-skills-research-window-gap.css ===== */
+/* ========================================================================== 
+   V89 — Skills micro-tuning on top of approved V88.
+   - Research column lane now matches Product & UX exactly.
+   - Phone: keep ~80px (390px reference) clear space between the final note
+     and the window illustration, scaled down fluidly on narrower phones.
+   ========================================================================== */
+
+/* Match Product & UX column geometry instead of merely using a similar gap. */
+.figma-paper-copy-research .figma-paper-columns{
+  gap:10.8px!important;
+}
+.figma-paper-copy-research .figma-paper-columns ul:first-child{
+  width:102.69px!important;
+}
+
+@media (max-width:600px){
+  /* Product & UX uses the shared 8px phone column gap and a 107px first lane. */
+  .figma-paper-copy-research .figma-paper-columns{
+    gap:8px!important;
+  }
+  .figma-paper-copy-research .figma-paper-columns ul:first-child{
+    width:107px!important;
+  }
+
+  /*
+     The last paper note is Research. Place the window from the rendered bottom
+     of that note instead of from an unrelated fixed top value.
+
+     Reference @390px:
+       Research top     = 875px
+       rendered height  = 265.743px × .96 = 255.113px
+       requested gap    = 80px
+       window top       ≈ 1210.1px
+
+     The gap is expressed as vw and capped at 80px, so it gently scales down
+     on smaller phones without becoming oversized on wider mobile screens.
+  */
+  .figma-skills-stage{
+    --skills-note-window-gap:min(20.5128205vw,80px);
+    --skills-research-phone-top:min(224.359vw,875px);
+    --skills-research-rendered-height:255.113px;
+    --skills-window-phone-old-top:min(278.205vw,1085px);
+    --skills-window-phone-top:calc(
+      var(--skills-research-phone-top) +
+      var(--skills-research-rendered-height) +
+      var(--skills-note-window-gap)
+    );
+    --skills-window-phone-shift:calc(
+      var(--skills-window-phone-top) - var(--skills-window-phone-old-top)
+    );
+  }
+
+  .figma-skills-window{
+    top:var(--skills-window-phone-top)!important;
+  }
+
+  /* V86/V88 shadow positioning already references this same top token, so all
+     three exact Figma shadows move with the illustration automatically. */
+}
+
+/* V88 scales the paper silhouette down slightly at these widths; keep the
+   window gap measured from the true transformed bottom of Research. */
+@media (max-width:380px) and (min-width:361px){
+  .figma-skills-stage{--skills-research-rendered-height:244.482px;}
+}
+@media (max-width:360px) and (min-width:341px){
+  .figma-skills-stage{--skills-research-rendered-height:231.197px;}
+}
+@media (max-width:340px){
+  .figma-skills-stage{
+    --skills-research-phone-top:785px;
+    --skills-research-rendered-height:223.224px;
+    --skills-window-phone-old-top:1000px;
+  }
+}
+
+/* Preserve V88's existing Skills -> Experience breathing room after moving the
+   illustration downward. Absolute artwork does not grow the stage by itself,
+   so add exactly the same shift to the stage's established minimum height. */
+@media (min-width:391px) and (max-width:600px){
+  .figma-skills-stage{
+    min-height:max(
+      calc(1550px - 18.6031vw + var(--skills-window-phone-shift)),
+      calc(1085px + 72.0871vw + 24px + var(--skills-window-phone-shift))
+    )!important;
+  }
+}
+@media (min-width:341px) and (max-width:390px){
+  .figma-skills-stage{
+    min-height:calc(378.8329vw + var(--skills-window-phone-shift))!important;
+  }
+}
+@media (max-width:340px){
+  .figma-skills-stage{
+    min-height:calc(1390px - 18.6031vw + var(--skills-window-phone-shift))!important;
+  }
+}
+
+/* ===== v90-research-column-gap.css ===== */
+/* V90 — micro-fix: tighten Research note columns only. */
+.figma-paper-copy-research .figma-paper-columns{
+  gap:5.4px!important;
+}
+@media (max-width:600px){
+  .figma-paper-copy-research .figma-paper-columns{
+    gap:4px!important;
+  }
+}
+
+/* ===== v91-research-inline-tight.css ===== */
+/* V91 — Research note: real inward gutters + visibly tighter columns.
+   Previous versions reduced flex gap, but the oversized first column lane kept
+   a large *visual* gap. This override shrinks that lane and gives the whole
+   content block balanced inline insets inside the paper. */
+.figma-paper-copy-research .figma-paper-columns{
+  left:39px!important;
+  right:34px!important;
+  width:auto!important;
+  gap:2px!important;
+}
+.figma-paper-copy-research .figma-paper-columns ul:first-child{
+  width:80px!important;
+}
+.figma-paper-copy-research .figma-paper-columns ul:last-child{
+  width:auto!important;
+}
+
+@media (max-width:600px){
+  .figma-paper-copy-research .figma-paper-columns{
+    left:35px!important;
+    right:31px!important;
+    width:auto!important;
+    gap:2px!important;
+  }
+  .figma-paper-copy-research .figma-paper-columns ul:first-child{
+    width:84px!important;
+  }
+}
+
+/* ===== v92-research-gap-plus3.css ===== */
+/* V92 — add 3px to the now-correct Research column gap only. */
+.figma-paper-copy-research .figma-paper-columns{
+  gap:5px!important;
+}
+@media (max-width:600px){
+  .figma-paper-copy-research .figma-paper-columns{
+    gap:5px!important;
+  }
+}
+
+/* ===== v93-balanced-note-columns.css ===== */
+/* ==========================================================================\n   V93 — balanced two-column rhythm across every Skills paper note.\n   ========================================================================== */\n\n.figma-paper-copy-product .figma-paper-columns,\n.figma-paper-copy-visual .figma-paper-columns,\n.figma-paper-copy-tools .figma-paper-columns,\n.figma-paper-copy-research .figma-paper-columns{\n  gap:9px!important;\n}\n\n.figma-paper-copy-product .figma-paper-columns > ul,\n.figma-paper-copy-visual .figma-paper-columns > ul,\n.figma-paper-copy-tools .figma-paper-columns > ul,\n.figma-paper-copy-research .figma-paper-columns > ul{\n  width:max-content!important;\n  min-width:0!important;\n  flex:0 0 auto!important;\n}\n\n.figma-paper-copy-product .figma-paper-columns{\n  left:51.6px!important;\n  right:auto!important;\n  width:auto!important;\n}\n.figma-paper-copy-visual .figma-paper-columns{\n  left:37.89px!important;\n  right:auto!important;\n  width:auto!important;\n}\n.figma-paper-copy-tools .figma-paper-columns{\n  left:54.495px!important;\n  right:auto!important;\n  width:auto!important;\n}\n.figma-paper-copy-research .figma-paper-columns{\n  left:39px!important;\n  right:auto!important;\n  width:auto!important;\n}\n\n.figma-paper-copy-visual .skill-social-creatives,\n.figma-paper-copy-research .skill-behavioral-research{\n  width:max-content!important;\n}\n\n@media (max-width:600px){\n  .figma-paper-copy-product .figma-paper-columns,\n  .figma-paper-copy-visual .figma-paper-columns,\n  .figma-paper-copy-tools .figma-paper-columns,\n  .figma-paper-copy-research .figma-paper-columns{\n    gap:8px!important;\n  }\n  .figma-paper-copy-research .figma-paper-columns{\n    left:35px!important;\n    right:auto!important;\n    width:auto!important;\n  }\n}\n
+
+/* ===== v94-skills-caveat-latest.css ===== */
+/* ========================================================================== 
+   V94 — Skills sync to latest Figma 522:2169 (2026-08-15)
+
+   Maintains the approved V85–V93 fixes:
+   - real 3x paper note PNGs + exact note shadow SVGs
+   - balanced content gutters / no text touching paper edges
+   - compact mobile zig-zag and phone gutter lock
+   - ~80px responsive Research -> window breathing room on mobile
+   - restored Skills -> Experience breathing room
+
+   Latest-design changes:
+   - Caveat for every note heading + list item
+   - new text grouping/order, including 3-column Tools n Tech
+   - latest Frame 92 window/designer illustration
+   - Frame 92 now embeds its own 3 exact Figma shadows, so the old separate
+     shadow DOM is intentionally hidden to avoid double shadows.
+   ========================================================================== */
+
+/* Local font support. Any ONE of these files may be added by the owner.
+   Google Fonts Caveat is also loaded in index.html as an immediate web fallback. */
+@font-face{
+  font-family:'CaveatLocal';
+  src:
+    local('Caveat'),
+    local('Caveat Regular'),
+    url('assets/fonts/Caveat-VariableFont_wght.ttf') format('truetype'),
+    url('assets/fonts/Caveat.ttf') format('truetype'),
+    url('assets/fonts/Caveat.otf') format('opentype');
+  font-style:normal;
+  font-weight:400 700;
+  font-display:swap;
+}
+
+/* --------------------------------------------------------------------------
+   The new Figma uses auto-layout copy frames. Recreate those frames directly
+   instead of independently nudging the heading and columns. This keeps the
+   20px Figma heading/body rhythm intact and makes the notes much harder to
+   overflow when typography scales responsively.
+   -------------------------------------------------------------------------- */
+.figma-paper-copy{
+  inset:auto!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  gap:18px!important; /* 20px Figma × portfolio's locked 90% scale */
+  overflow:visible!important;
+  color:#1e1e1e!important;
+  font-family:'CaveatLocal','Caveat',cursive!important;
+  font-weight:400!important;
+  transform-origin:top left!important;
+}
+
+.figma-paper-copy h3{
+  position:relative!important;
+  inset:auto!important;
+  width:100%!important;
+  height:auto!important;
+  margin:0!important;
+  font-family:'CaveatLocal','Caveat',cursive!important;
+  font-size:21.6px!important; /* 24px Figma × .9 */
+  font-weight:400!important;
+  line-height:1.18!important;
+  letter-spacing:0!important;
+  text-align:left!important;
+  text-decoration-thickness:.08em!important;
+  text-underline-offset:.16em!important;
+  transform:none!important;
+  white-space:nowrap!important;
+}
+
+.figma-paper-columns{
+  position:relative!important;
+  inset:auto!important;
+  width:100%!important;
+  margin:0!important;
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:flex-start!important;
+  gap:9px!important; /* approved V93 sweet spot */
+  color:#1e1e1e!important;
+  font-family:'CaveatLocal','Caveat',cursive!important;
+  font-size:13.5px!important; /* requested 15px Figma × .9 */
+  font-weight:400!important;
+  line-height:1.18!important;
+  letter-spacing:0!important;
+  transform:none!important;
+}
+.figma-paper-columns > ul{
+  position:relative!important;
+  inset:auto!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  gap:3.6px!important; /* 4px Figma × .9 */
+  width:max-content!important;
+  min-width:0!important;
+  flex:0 0 auto!important;
+  margin:0!important;
+  padding:0!important;
+  list-style:none!important;
+  transform:none!important;
+}
+.figma-paper-columns li{
+  margin:0!important;
+  padding:0!important;
+  white-space:nowrap!important;
+}
+
+/* Product & UX — latest auto-layout Frame 91 / 522:2430 */
+.figma-paper-copy-product{
+  left:37.8px!important;
+  top:80.832px!important;
+  width:213.644px!important;
+  height:127.8px!important;
+  transform:rotate(-6deg)!important;
+}
+
+/* Visual + Brand — latest Frame 93 / 533:33 */
+.figma-paper-copy-visual{
+  left:43.29px!important;
+  top:69.578px!important;
+  width:188.1px!important;
+  height:127.8px!important;
+  transform:none!important;
+}
+
+/* Tools n Tech — latest Frame 94 / 533:35. Three content-hugging columns. */
+.figma-paper-copy-tools{
+  left:33.732px!important;
+  top:49.207px!important;
+  width:224.93px!important;
+  height:173.03px!important;
+  transform:rotate(1.33372deg)!important;
+}
+.figma-paper-copy-tools .figma-paper-columns{
+  gap:9px!important;
+}
+
+/* Research — latest Frame 90 / 522:2446 */
+.figma-paper-copy-research{
+  left:39.56px!important;
+  top:65.7px!important;
+  width:200.141px!important;
+  height:127.8px!important;
+  transform:rotate(2deg)!important;
+}
+
+/* --------------------------------------------------------------------------
+   Latest illustration / desktop geometry.
+
+   Current Figma: x=794, y=297, 623×565. The existing web stage intentionally
+   offsets the Figma frame by 123px vertically so the approved ~200px section
+   breathing room remains. Therefore y = (297 - 123) × .9 = 156.6px.
+   -------------------------------------------------------------------------- */
+@media (min-width:1231px){
+  .figma-skills-window{
+    left:714.6px!important;
+    top:156.6px!important;
+    width:560.7px!important;
+    height:508.5px!important;
+  }
+
+  /* Frame 92 moved ~65.7px lower than the prior illustration. Add the same
+     amount to the section tail so the approved Skills -> Experience gap does
+     not get accidentally reduced. */
+  .figma-skills-section{
+    height:1306.1px!important;
+    min-height:1306.1px!important;
+  }
+}
+
+/* The new Frame 92 SVG already contains all three exact Figma shadows:
+   left side, right side and ledge. Hide the older separate copies everywhere. */
+.figma-window-side-shadow,
+.figma-window-ledge-shadow{
+  display:none!important;
+}
+
+/* --------------------------------------------------------------------------
+   Readability after responsive note scaling.
+   The note artwork still scales using the approved V85/V88 system; only the
+   live Caveat type is compensated so it never becomes microscopic.
+   -------------------------------------------------------------------------- */
+@media (min-width:681px) and (max-width:1230px){
+  .figma-paper-copy h3{font-size:24px!important;line-height:1.16!important;}
+  .figma-paper-columns{font-size:15px!important;line-height:1.17!important;gap:9px!important;}
+  .figma-paper-columns > ul{gap:4px!important;}
+}
+
+@media (min-width:601px) and (max-width:680px){
+  .figma-paper-copy h3{font-size:25px!important;line-height:1.15!important;}
+  .figma-paper-columns{font-size:16px!important;line-height:1.16!important;gap:8px!important;}
+  .figma-paper-copy-tools .figma-paper-columns{gap:7px!important;}
+  .figma-paper-columns > ul{gap:4px!important;}
+}
+
+@media (max-width:600px){
+  :root{
+    --paper-note-phone-body:clamp(14.5px,3.9vw,15.2px);
+    --paper-note-phone-heading:clamp(23px,6.15vw,24.5px);
+  }
+
+  .figma-paper-copy h3{
+    font-size:var(--paper-note-phone-heading)!important;
+    line-height:1.14!important;
+    letter-spacing:0!important;
+  }
+  .figma-paper-columns{
+    font-size:var(--paper-note-phone-body)!important;
+    line-height:1.16!important;
+    letter-spacing:0!important;
+    gap:8px!important;
+  }
+  .figma-paper-copy-tools .figma-paper-columns{gap:7px!important;}
+  .figma-paper-columns > ul{gap:3.5px!important;}
+
+  /* V93/V91 selectors no longer get to manufacture fixed column lanes. */
+  .figma-paper-copy-product .figma-paper-columns,
+  .figma-paper-copy-visual .figma-paper-columns,
+  .figma-paper-copy-tools .figma-paper-columns,
+  .figma-paper-copy-research .figma-paper-columns{
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    width:100%!important;
+  }
+}
+
+@media (max-width:340px){
+  :root{
+    --paper-note-phone-body:15.2px;
+    --paper-note-phone-heading:25px;
+  }
+  .figma-paper-copy-tools .figma-paper-columns{gap:6px!important;}
+}
+
+/* ===== v95-skills-legibility-layout.css ===== */
+/* ========================================================================== 
+   V95 — Skills legibility + inner text layout correction
+   Baseline: V94.
+   ========================================================================== */
+.figma-paper-copy h3{
+  font-size:23.4px!important;
+  line-height:1.14!important;
+}
+.figma-paper-columns{
+  font-size:14.7px!important;
+  line-height:1.16!important;
+  gap:10px!important;
+}
+.figma-paper-columns > ul{gap:3.6px!important;}
+
+.figma-paper-copy-product{left:35px!important;width:225px!important;}
+.figma-paper-copy-product .figma-paper-columns{width:225px!important;gap:10px!important;}
+
+.figma-paper-copy-visual{left:35px!important;width:210px!important;}
+.figma-paper-copy-visual .figma-paper-columns{width:210px!important;gap:10px!important;}
+
+.figma-paper-copy-tools{left:23px!important;top:49.2px!important;width:244px!important;}
+.figma-paper-copy-tools .figma-paper-columns{
+  display:grid!important;
+  grid-template-columns:67px 95px 66px!important;
+  column-gap:8px!important;
+  row-gap:0!important;
+  width:244px!important;
+  align-items:start!important;
+}
+.figma-paper-copy-tools .figma-paper-columns > ul{
+  width:100%!important;min-width:0!important;max-width:none!important;flex:none!important;
+}
+
+.figma-paper-copy-research{left:30px!important;top:65.7px!important;width:222px!important;}
+.figma-paper-copy-research .figma-paper-columns{
+  display:grid!important;
+  grid-template-columns:112px 100px!important;
+  column-gap:10px!important;
+  row-gap:0!important;
+  width:222px!important;
+  align-items:start!important;
+}
+.figma-paper-copy-research .figma-paper-columns > ul{
+  width:100%!important;min-width:0!important;max-width:none!important;flex:none!important;
+}
+.figma-paper-copy-tools .figma-paper-columns > ul:first-child,
+.figma-paper-copy-research .figma-paper-columns > ul:first-child{width:100%!important;}
+
+@media (min-width:681px) and (max-width:1230px){
+  .figma-paper-copy h3{font-size:25.5px!important;line-height:1.13!important;}
+  .figma-paper-columns{font-size:16.2px!important;line-height:1.15!important;}
+}
+
+@media (min-width:601px) and (max-width:680px){
+  .figma-paper-copy h3{font-size:27px!important;line-height:1.12!important;}
+  .figma-paper-columns{font-size:17.4px!important;line-height:1.14!important;}
+  .figma-paper-copy-tools{left:20px!important;width:250px!important;}
+  .figma-paper-copy-tools .figma-paper-columns{
+    grid-template-columns:69px 98px 67px!important;column-gap:8px!important;width:250px!important;
+  }
+  .figma-paper-copy-research{left:27px!important;width:226px!important;}
+  .figma-paper-copy-research .figma-paper-columns{
+    grid-template-columns:116px 102px!important;column-gap:8px!important;width:226px!important;
+  }
+}
+
+@media (max-width:600px){
+  :root{
+    --paper-note-phone-body:clamp(15.5px,4.15vw,16.2px);
+    --paper-note-phone-heading:clamp(24.5px,6.55vw,26px);
+  }
+  .figma-paper-copy h3{font-size:var(--paper-note-phone-heading)!important;line-height:1.12!important;}
+  .figma-paper-columns{font-size:var(--paper-note-phone-body)!important;line-height:1.14!important;}
+  .figma-paper-copy-tools{left:19px!important;width:250px!important;}
+  .figma-paper-copy-tools .figma-paper-columns{
+    grid-template-columns:69px 98px 67px!important;column-gap:8px!important;width:250px!important;
+  }
+  .figma-paper-copy-research{left:27px!important;width:226px!important;}
+  .figma-paper-copy-research .figma-paper-columns{
+    grid-template-columns:116px 102px!important;column-gap:8px!important;width:226px!important;
+  }
+  .figma-paper-copy-product{left:33px!important;width:228px!important;}
+  .figma-paper-copy-visual{left:33px!important;width:214px!important;}
+}
+
+@media (max-width:340px){
+  :root{--paper-note-phone-body:16.2px;--paper-note-phone-heading:26px;}
+  .figma-paper-copy-tools{left:17px!important;width:252px!important;}
+  .figma-paper-copy-tools .figma-paper-columns{
+    grid-template-columns:70px 99px 67px!important;column-gap:8px!important;width:252px!important;
+  }
+}
+
+/* ===== v96-skills-figma-fit.css ===== */
+/* ========================================================================== 
+   V96 — Skills: exact current Figma note geometry + readable Caveat
+   Source: Figma 522:2169, current 2026-08-15 revision.
+
+   Important: V95's hand-tuned fixed lanes are intentionally superseded here.
+   The current Figma frame already has a clean, non-overflowing layout, so the
+   notes below reproduce its real card sizes, copy frames, column widths/gaps,
+   rotations and 24/16 Caveat typography.
+   ========================================================================== */
+
+/* --- shared Caveat rhythm from the current Figma frame --- */
+.figma-paper-copy{
+  gap:20px!important;
+  font-family:'CaveatLocal','Caveat',cursive!important;
+  font-weight:400!important;
+}
+.figma-paper-copy h3{
+  font-family:'CaveatLocal','Caveat',cursive!important;
+  font-size:24px!important;
+  line-height:1.25!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+  white-space:nowrap!important;
+  margin:0!important;
+}
+.figma-paper-columns{
+  font-family:'CaveatLocal','Caveat',cursive!important;
+  font-size:16px!important;
+  line-height:1.25!important;
+  font-weight:400!important;
+  letter-spacing:-.48px!important;
+  align-items:start!important;
+  margin:0!important;
+}
+.figma-paper-columns > ul{
+  gap:4px!important;
+  margin:0!important;
+  padding:0!important;
+  min-width:0!important;
+}
+.figma-paper-columns li{
+  white-space:nowrap!important;
+}
+
+/* --------------------------------------------------------------------------
+   DESKTOP NOTE CONTAINERS
+   V85 used a 90% interpretation of these assets. The user asked for the notes
+   to match the Figma cards themselves and for the list text to be larger, so
+   the four paper cards now use the native Figma card dimensions. This is only
+   ~11.1% larger than the previous desktop paper render and gives Caveat the
+   same breathing room it has in Figma.
+   The stage keeps the established -123px internal Y normalization used by the
+   approved Skills section, so top breathing / section rhythm stays intact.
+   -------------------------------------------------------------------------- */
+@media (min-width:1231px){
+  /* Product & UX — note 1 / 522:2427 */
+  .figma-sticky-product{
+    left:102px!important;
+    top:221px!important; /* 344 Figma - 123 normalized stage offset */
+    width:327.408px!important;
+    height:310.804px!important;
+  }
+  .figma-sticky-product .figma-paper-note-bg{
+    left:0!important;top:0!important;
+    width:326.389px!important;height:303.245px!important;
+  }
+  .figma-sticky-product .figma-paper-shadow-vector{
+    left:1.624px!important;top:17.861px!important;
+    width:333.224px!important;height:301.201px!important;
+  }
+
+  /* Visual + Brand — note 2 / 522:2384 */
+  .figma-sticky-visual{
+    left:406.900px!important;
+    top:260.691px!important;
+    width:303.998px!important;
+    height:282.348px!important;
+  }
+  .figma-sticky-visual .figma-paper-note-bg{
+    left:0!important;top:0!important;
+    width:303.998px!important;height:282.348px!important;
+  }
+  .figma-sticky-visual .figma-paper-shadow-vector{
+    left:21.931px!important;top:25.816px!important;
+    width:276.574px!important;height:258.082px!important;
+  }
+
+  /* Tools n Tech — note 3 / 522:2402 */
+  .figma-sticky-tools{
+    left:106.450px!important;
+    top:510.609px!important;
+    width:332.100px!important;
+    height:298.960px!important;
+  }
+  .figma-sticky-tools .figma-paper-note-bg{
+    left:1.890px!important;top:2.050px!important;
+    width:317.168px!important;height:294.866px!important;
+  }
+  .figma-sticky-tools .figma-paper-shadow-vector{
+    left:16.269px!important;top:36.531px!important;
+    width:319.353px!important;height:264.092px!important;
+  }
+
+  /* Research — note 4 / 522:2443 */
+  .figma-sticky-research{
+    left:407px!important;
+    top:512px!important;
+    width:307.450px!important;
+    height:295.270px!important;
+  }
+  .figma-sticky-research .figma-paper-note-bg{
+    left:0!important;top:0!important;
+    width:307.450px!important;height:295.270px!important;
+  }
+  .figma-sticky-research .figma-paper-shadow-vector{
+    left:20.961px!important;top:23.669px!important;
+    width:285.146px!important;height:267.554px!important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   EXACT CURRENT FIGMA COPY FRAMES
+   -------------------------------------------------------------------------- */
+
+/* Product: Frame 91. Rotation and actual node origin reproduce the Figma
+   bounding box without pushing the columns toward the paper edge. */
+.figma-paper-copy-product{
+  left:42px!important;
+  top:89.813px!important;
+  width:237.382px!important;
+  height:142px!important;
+  transform:rotate(-6deg)!important;
+}
+.figma-paper-copy-product .figma-paper-columns{
+  display:grid!important;
+  grid-template-columns:114.101px 111.281px!important;
+  column-gap:12px!important;
+  row-gap:0!important;
+  width:237.382px!important;
+}
+.figma-paper-copy-product .figma-paper-columns > ul{
+  width:100%!important;
+}
+
+/* Visual: Frame 93. Current Figma gap is 12px — this deliberately adds the
+   breathing room the user requested versus V95's tighter 10px treatment. */
+.figma-paper-copy-visual{
+  left:48.100px!important;
+  top:77.309px!important;
+  width:209px!important;
+  height:142px!important;
+  transform:none!important;
+}
+.figma-paper-copy-visual .figma-paper-columns{
+  display:grid!important;
+  grid-template-columns:106px 91px!important;
+  column-gap:12px!important;
+  row-gap:0!important;
+  width:209px!important;
+}
+.figma-paper-copy-visual .figma-paper-columns > ul{
+  width:100%!important;
+}
+
+/* Tools: Frame 94. These three lane widths + 14px gaps total exactly
+   249.922px, which is why the Figma version stays clean at 16px Caveat. */
+.figma-paper-copy-tools{
+  left:37.480px!important;
+  top:54.675px!important;
+  width:249.922px!important;
+  height:192.256px!important;
+  transform:rotate(1.33372deg)!important;
+}
+.figma-paper-copy-tools .figma-paper-columns{
+  display:grid!important;
+  grid-template-columns:65.644px 91.635px 64.643px!important;
+  column-gap:14px!important;
+  row-gap:0!important;
+  width:249.922px!important;
+}
+.figma-paper-copy-tools .figma-paper-columns > ul{
+  width:100%!important;
+  max-width:none!important;
+  transform:rotate(-1.5deg)!important;
+  transform-origin:top left!important;
+}
+
+/* Research: Frame 90. Exact 222.379px composition:
+   106.379 + 14 gap + 102 = 222.379.
+   This replaces V95's 112 + 10 + 100 = 222 grid whose font metrics caused
+   the second lane to visually spill past the paper. */
+.figma-paper-copy-research{
+  left:43.956px!important;
+  top:73px!important;
+  width:222.379px!important;
+  height:142px!important;
+  transform:rotate(2deg)!important;
+}
+.figma-paper-copy-research .figma-paper-columns{
+  display:grid!important;
+  grid-template-columns:106.379px 102px!important;
+  column-gap:14px!important;
+  row-gap:0!important;
+  width:222.379px!important;
+}
+.figma-paper-copy-research .figma-paper-columns > ul{
+  width:100%!important;
+  max-width:none!important;
+}
+
+/* --------------------------------------------------------------------------
+   WINDOW / DESIGNER — 8% smaller than the V94/V95 illustration.
+   Keep the same visual center on desktop, rather than shrinking from a corner.
+   -------------------------------------------------------------------------- */
+@media (min-width:1231px){
+  .figma-skills-window{
+    left:737.028px!important;
+    top:176.940px!important;
+    width:515.844px!important;
+    height:467.820px!important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE FIT
+   Keep the established responsive zig-zag / gutter fixes, but size the live
+   typography so Caveat remains readable after the whole paper card scales.
+   -------------------------------------------------------------------------- */
+@media (min-width:681px) and (max-width:1230px){
+  .figma-paper-copy h3{font-size:25px!important;line-height:1.22!important;}
+  .figma-paper-columns{font-size:16.5px!important;line-height:1.24!important;}
+  .figma-paper-columns > ul{gap:4px!important;}
+  .figma-skills-window{transform:scale(.92)!important;transform-origin:center center!important;}
+}
+
+@media (min-width:601px) and (max-width:680px){
+  .figma-paper-copy h3{font-size:26px!important;line-height:1.2!important;}
+  .figma-paper-columns{font-size:17px!important;line-height:1.22!important;}
+
+  .figma-paper-copy-product .figma-paper-columns{
+    grid-template-columns:116.5px 110.882px!important;
+    column-gap:10px!important;
+  }
+  .figma-paper-copy-visual .figma-paper-columns{
+    grid-template-columns:110px 89px!important;
+    column-gap:10px!important;
+  }
+  .figma-paper-copy-tools .figma-paper-columns{
+    grid-template-columns:70px 97.922px 66px!important;
+    column-gap:8px!important;
+  }
+  .figma-paper-copy-research .figma-paper-columns{
+    grid-template-columns:112px 100.379px!important;
+    column-gap:10px!important;
+  }
+  .figma-skills-window{transform:translateX(-50%) scale(.92)!important;transform-origin:center center!important;}
+}
+
+@media (max-width:600px){
+  /* Native paper dimensions are now the Figma dimensions, so these scales
+     replace the older values that were tuned for 90%-sized source cards. */
+  :root{
+    --paper-note-phone-scale:.93;
+    --paper-note-phone-body:17px;
+    --paper-note-phone-heading:25px;
+  }
+
+  .figma-paper-copy h3{
+    font-size:var(--paper-note-phone-heading)!important;
+    line-height:1.18!important;
+  }
+  .figma-paper-columns{
+    font-size:var(--paper-note-phone-body)!important;
+    line-height:1.2!important;
+  }
+
+  /* Slightly tighter responsive lanes let the larger phone type breathe while
+     retaining the same overall Figma content-frame widths. */
+  .figma-paper-copy-product .figma-paper-columns{
+    grid-template-columns:116.5px 110.882px!important;
+    column-gap:10px!important;
+  }
+  .figma-paper-copy-visual .figma-paper-columns{
+    grid-template-columns:110px 89px!important;
+    column-gap:10px!important;
+  }
+  .figma-paper-copy-tools .figma-paper-columns{
+    grid-template-columns:70px 97.922px 66px!important;
+    column-gap:8px!important;
+  }
+  .figma-paper-copy-research .figma-paper-columns{
+    grid-template-columns:112px 100.379px!important;
+    column-gap:10px!important;
+  }
+
+  /* The previous ~80px Research -> illustration gap remains authoritative.
+     Update only the rendered Research height because the source card is now
+     native Figma size and uses a new phone scale. */
+  .figma-skills-stage{
+    --skills-research-rendered-height:274.601px;
+  }
+
+  /* Reduce the gutter-contained illustration by 8% and center it in the same
+     lane. Top remains tied to the approved 80px note-to-window gap token. */
+  .figma-skills-window{
+    left:calc(var(--phone-gutter) + (100% - var(--phone-gutter) - var(--phone-gutter)) * .04)!important;
+    right:auto!important;
+    width:calc((100% - var(--phone-gutter) - var(--phone-gutter)) * .92)!important;
+    max-width:none!important;
+    transform:none!important;
+  }
+}
+
+@media (max-width:390px){
+  :root{--paper-note-phone-scale:.90;}
+  .figma-skills-stage{--skills-research-rendered-height:265.743px;}
+}
+@media (max-width:380px){
+  :root{--paper-note-phone-scale:.88;}
+  .figma-skills-stage{--skills-research-rendered-height:259.838px;}
+}
+@media (max-width:360px){
+  :root{--paper-note-phone-scale:.84;}
+  .figma-skills-stage{--skills-research-rendered-height:248.027px;}
+}
+@media (max-width:340px){
+  :root{
+    --paper-note-phone-scale:.80;
+    --paper-note-phone-body:17.5px;
+    --paper-note-phone-heading:26px;
+  }
+  .figma-skills-stage{--skills-research-rendered-height:236.216px;}
+}
+
+/* Native Figma paper dimensions are the base at every breakpoint. Responsive
+   layouts scale these complete note groups, so paper + shadow + copy always
+   shrink together and the live-copy geometry never drifts outside its image. */
+.figma-sticky-product{width:327.408px!important;height:310.804px!important;}
+.figma-sticky-product .figma-paper-note-bg{left:0!important;top:0!important;width:326.389px!important;height:303.245px!important;}
+.figma-sticky-product .figma-paper-shadow-vector{left:1.624px!important;top:17.861px!important;width:333.224px!important;height:301.201px!important;}
+
+.figma-sticky-visual{width:303.998px!important;height:282.348px!important;}
+.figma-sticky-visual .figma-paper-note-bg{left:0!important;top:0!important;width:303.998px!important;height:282.348px!important;}
+.figma-sticky-visual .figma-paper-shadow-vector{left:21.931px!important;top:25.816px!important;width:276.574px!important;height:258.082px!important;}
+
+.figma-sticky-tools{width:332.100px!important;height:298.960px!important;}
+.figma-sticky-tools .figma-paper-note-bg{left:1.890px!important;top:2.050px!important;width:317.168px!important;height:294.866px!important;}
+.figma-sticky-tools .figma-paper-shadow-vector{left:16.269px!important;top:36.531px!important;width:319.353px!important;height:264.092px!important;}
+
+.figma-sticky-research{width:307.450px!important;height:295.270px!important;}
+.figma-sticky-research .figma-paper-note-bg{left:0!important;top:0!important;width:307.450px!important;height:295.270px!important;}
+.figma-sticky-research .figma-paper-shadow-vector{left:20.961px!important;top:23.669px!important;width:285.146px!important;height:267.554px!important;}
+
+@media (max-width:600px){
+  /* Use the proven gutter-width box, then shrink visually around its horizontal
+     center. This avoids unsupported calc() multiplication while preserving the
+     exact top edge used by the ~80px Research-to-window gap. */
+  .figma-skills-window{
+    left:var(--phone-gutter)!important;
+    right:auto!important;
+    width:calc(100% - var(--phone-gutter) - var(--phone-gutter))!important;
+    max-width:none!important;
+    transform:scale(.92)!important;
+    transform-origin:center top!important;
+  }
+}
+
+/* V96.1 — use the ACTUAL child-frame widths/positions read from Figma,
+   rather than render-bounds approximations. These values are what make the
+   current design fit cleanly at 16px Caveat. */
+.figma-paper-copy-product .figma-paper-columns{
+  display:grid!important;
+  grid-template-columns:114.101px 102px!important;
+  column-gap:12px!important;
+  width:237.382px!important;
+}
+
+.figma-paper-copy-visual .figma-paper-columns{
+  display:grid!important;
+  grid-template-columns:106px 91px!important;
+  column-gap:12px!important;
+  width:209px!important;
+}
+
+.figma-paper-copy-research .figma-paper-columns{
+  display:grid!important;
+  grid-template-columns:106px 102px!important;
+  column-gap:14px!important;
+  width:222.379px!important;
+}
+
+/* Tools n Tech uses three slightly rotated Figma child frames. Their true
+   layout nodes are 62 / 88 / 61px wide at x=0 / 79.644 / 185.278. Absolute
+   placement reproduces that exact clean separation and keeps the third lane
+   comfortably inside the paper. */
+.figma-paper-copy-tools .figma-paper-columns{
+  position:relative!important;
+  display:block!important;
+  width:249.922px!important;
+  height:142.256px!important;
+  column-gap:0!important;
+}
+.figma-paper-copy-tools .figma-paper-columns > ul{
+  position:absolute!important;
+  margin:0!important;
+}
+.figma-paper-copy-tools .figma-paper-columns > ul:nth-child(1){
+  left:0!important;top:1.623px!important;width:62px!important;
+}
+.figma-paper-copy-tools .figma-paper-columns > ul:nth-child(2){
+  left:79.644px!important;top:2.304px!important;width:88px!important;
+}
+.figma-paper-copy-tools .figma-paper-columns > ul:nth-child(3){
+  left:185.278px!important;top:1.597px!important;width:61px!important;
+}
+
+/* Responsive typography is allowed to grow, but the Figma child positions
+   stay fixed. The original 14px / 12px gaps leave enough reserve for the
+   small readability compensation without allowing lanes to collide. */
+@media (max-width:680px){
+  .figma-paper-copy-product .figma-paper-columns{
+    grid-template-columns:114.101px 102px!important;
+    column-gap:12px!important;
+  }
+  .figma-paper-copy-visual .figma-paper-columns{
+    grid-template-columns:106px 91px!important;
+    column-gap:12px!important;
+  }
+  .figma-paper-copy-research .figma-paper-columns{
+    grid-template-columns:106px 102px!important;
+    column-gap:14px!important;
+  }
+}
+
+/* Preserve the existing centered tablet placement while applying the requested
+   8% illustration reduction. */
+@media (min-width:681px) and (max-width:1000px){
+  .figma-skills-window{
+    transform:translateX(-50%) scale(.92)!important;
+    transform-origin:center center!important;
+  }
+}
+
+/* ===== v97-skills-research-window-align.css ===== */
+/* ========================================================================== 
+   V97 — Research list alignment + desktop illustration gutter alignment
+   Baseline: V96.
+   ========================================================================== */
+
+/* V93 left a historical left offset on the columns. V96 fixed their sizes/gap
+   but did not reset that offset, which is why the whole Research list appeared
+   indented relative to its heading. Reset only that offset: the proven 14px
+   inter-column gap and 106px / 102px lane widths remain exactly unchanged. */
+.figma-paper-copy-research .figma-paper-columns{
+  left:0!important;
+  right:auto!important;
+  margin-left:0!important;
+  grid-template-columns:106px 102px!important;
+  column-gap:14px!important;
+  width:222.379px!important;
+}
+
+/* Desktop only: align the reduced window/designer illustration to the site's
+   actual right gutter. The Skills stage is a fixed 1360.8px centered canvas,
+   so the expression converts the viewport gutter into stage-relative space.
+   This increases the visual separation from the note cluster without changing
+   the phone/tablet composition. */
+@media (min-width:1231px){
+  .figma-skills-window{
+    left:auto!important;
+    right:calc(var(--gutter) - ((100vw - 1360.8px) / 2))!important;
+  }
+}
+
+/* ===== v98-skills-window-final-align.css ===== */
+/* ========================================================================== 
+   V98 — final Skills illustration alignment
+   Baseline: V97.
+
+   Desktop: Skills stage = 1360.8px centered; final desktop navbar = 1044px
+   centered. The 158.4px stage inset is therefore the exact difference per
+   side: (1360.8 - 1044) / 2. This places the illustration's right edge on the
+   navbar's right edge.
+
+   Phone: enlarge only the rendered illustration from 92% to 97%. Scaling from
+   center top preserves the already-approved horizontal centering and top
+   position.
+   ========================================================================== */
+
+@media (min-width:1231px){
+  .figma-skills-window{
+    left:auto!important;
+    right:158.4px!important;
+  }
+}
+
+@media (max-width:600px){
+  .figma-skills-window{
+    transform:scale(.97)!important;
+    transform-origin:center top!important;
+  }
+}
+
+/* ===== v99-skills-window-tunable.css ===== */
+/* ========================================================================== 
+   V99 — tunable desktop Skills illustration position + larger phone artwork
+   Baseline: V98.
+
+   DESKTOP TUNING:
+   Edit only --skills-window-desktop-right in DevTools.
+   Lower vw = move illustration RIGHT.
+   Higher vw = move illustration LEFT.
+   ========================================================================== */
+
+@media (min-width:1231px){
+  .figma-skills-stage{
+    /* USER-TUNABLE RESPONSIVE POSITION TOKEN */
+    --skills-window-desktop-right:1vw;
+  }
+
+  .figma-skills-window{
+    left:auto!important;
+    right:var(--skills-window-desktop-right)!important;
+  }
+}
+
+@media (max-width:600px){
+  .figma-skills-window{
+    /* Final phone artwork scale = 1.2 while preserving the approved center/top anchor. */
+    transform:scale(1.2)!important;
+    transform-origin:center top!important;
+  }
+}
+
+
+/* ===== SOURCE: v111-skills-window-soft-rig.css ===== */
+/* ==========================================================================
+   V111 — Skills illustration / soft-rig interaction
+   Source: user's final SVG, Figma frame 574:1184.
+
+   Visual layout: restores the approved static v100 footprint/position.
+   Motion: soft spline leg deformation + attached feet, continuous head vibe,
+   proximity cursor follow, eye tracking/blinking, and a randomized continuous music-note stream.
+   ========================================================================== */
+
+.figma-skills-window-custom{
+  overflow:visible!important;
+  pointer-events:auto;
+  touch-action:auto;
+}
+.figma-window-side-shadow,.figma-window-ledge-shadow{display:none!important;}
+.skills-window-svg{display:block;width:100%!important;height:100%!important;overflow:visible;}
+.skills-leg-line,.skills-leg-foot,.skills-head-group,.skills-eyes-group,.skills-music-note{will-change:transform;}
+.skills-music-note{opacity:0;}
+
+/* Exact final static desktop footprint from v100. */
+@media (min-width:1231px){
+  .figma-skills-window.figma-skills-window-custom{
+    left:auto!important;right:1vw!important;top:176.940px!important;
+    width:515.844px!important;height:467.820px!important;
+    transform:none!important;transform-origin:center center!important;
+  }
+}
+
+/* Reproduce the old static responsive size without transform scaling. */
+@media (min-width:1001px) and (max-width:1230px){
+  .figma-skills-window.figma-skills-window-custom{
+    left:auto!important;right:28px!important;top:250px!important;
+    width:clamp(349.6px,37.72vw,460px)!important;height:auto!important;
+    aspect-ratio:623/565!important;transform:none!important;
+  }
+}
+@media (min-width:681px) and (max-width:1000px){
+  .figma-skills-window.figma-skills-window-custom{
+    top:720px!important;left:50%!important;right:auto!important;
+    width:min(57.04vw,496.8px)!important;height:auto!important;
+    aspect-ratio:623/565!important;transform:translateX(-50%)!important;
+  }
+}
+@media (min-width:601px) and (max-width:680px){
+  .figma-skills-window.figma-skills-window-custom{
+    top:1040px!important;left:50%!important;right:auto!important;
+    width:min(86.48vw,469.2px)!important;height:auto!important;
+    aspect-ratio:623/565!important;transform:translateX(-50%)!important;
+  }
+}
+
+/* v100 phone rendered width was the gutter-contained art × 1.2. Recreate that
+   actual visible footprint directly through width, leaving transform free for
+   centering only. The existing v89 Research→window top token is retained. */
+@media (max-width:600px){
+  .figma-skills-window.figma-skills-window-custom{
+    left:50%!important;right:auto!important;
+    top:var(--skills-window-phone-top)!important;
+    width:95.3846153vw!important;max-width:none!important;height:auto!important;
+    aspect-ratio:623/565!important;
+    transform:translateX(-50%)!important;transform-origin:center top!important;
+    display:block!important;visibility:visible!important;opacity:1!important;
+  }
+}
+@media (max-width:340px){
+  .figma-skills-window.figma-skills-window-custom{
+    top:var(--skills-window-phone-top)!important;
+    width:95.3846153vw!important;
+  }
+}
+
+@media (hover:none),(pointer:coarse){.figma-skills-window-custom{pointer-events:none;}}
+@media (prefers-reduced-motion:reduce){
+  .skills-music-note{opacity:1!important;}
+}
+
+
+/* ===== SOURCE: v116-skills-parallax.css ===== */
+/* ==========================================================================
+   V116 — Skills unified-depth parallax
+   Everything is present together. The section moves as one composition,
+   while heading, sticky notes and illustration travel at slightly different
+   depth speeds. Uses CSS translate so existing note rotations/scales and the
+   illustration interaction transforms remain untouched.
+   ========================================================================== */
+
+.figma-skills-stage,
+.figma-skills-kicker,
+.figma-skills-title,
+.figma-skills-window,
+.figma-sticky-wrap{
+  will-change: translate;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .figma-skills-stage,
+  .figma-skills-kicker,
+  .figma-skills-title,
+  .figma-skills-window,
+  .figma-sticky-wrap{
+    translate:none!important;
+  }
+}
+
+
+/* ===== SOURCE: v118-skills-illustration-hover-note.css ===== */
+/* ==========================================================================
+   V118 — Skills illustration hover annotation
+   Right edge aligns with the fixed navbar. The annotation automatically
+   chooses above/below placement so it remains visible in the viewport.
+   ========================================================================== */
+
+.figma-skills-window-custom{
+  position:absolute!important;
+}
+
+.skills-illustration-hover-note{
+  position:absolute;
+  z-index:20;
+  left:var(--skills-hover-note-left, 0px);
+  top:var(--skills-hover-note-top, -54px);
+  right:auto;
+  width:220px;
+  margin:0;
+  color:var(--fh-orange, #e86f43);
+  font-family:'Poppins',sans-serif;
+  font-size:10px;
+  font-weight:300;
+  line-height:1.42;
+  letter-spacing:-.08px;
+  text-align:right;
+  opacity:0;
+  translate:0 7px;
+  pointer-events:none;
+  transition:
+    opacity .24s ease,
+    translate .32s cubic-bezier(.2,.85,.2,1);
+}
+
+.skills-illustration-hover-note strong,
+.skills-illustration-hover-note span{
+  display:block;
+}
+
+.skills-illustration-hover-note strong{
+  font-weight:500;
+  margin-bottom:1px;
+}
+
+.figma-skills-window-custom:hover .skills-illustration-hover-note,
+.figma-skills-window-custom:focus-visible .skills-illustration-hover-note{
+  opacity:1;
+  translate:0 0;
+}
+
+/* When the viewport-placement logic puts the note below the artwork, let it
+   rise slightly into place instead of visually dropping downward. */
+.figma-skills-window-custom.is-hover-note-below .skills-illustration-hover-note{
+  translate:0 -7px;
+}
+.figma-skills-window-custom.is-hover-note-below:hover .skills-illustration-hover-note,
+.figma-skills-window-custom.is-hover-note-below:focus-visible .skills-illustration-hover-note{
+  translate:0 0;
+}
+
+@media (min-width:601px) and (max-width:1000px){
+  .skills-illustration-hover-note{
+    width:205px;
+    font-size:9.5px;
+  }
+}
+
+/* Hover-only interaction: keep touch layouts unchanged. */
+@media (hover:none),(pointer:coarse),(max-width:600px){
+  .skills-illustration-hover-note{
+    display:none!important;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .skills-illustration-hover-note{
+    transition:none!important;
+  }
+}
+

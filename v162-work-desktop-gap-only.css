@@ -1,0 +1,7 @@
+/* V162 — keep the approved Work-only desktop refinement.
+   Process is intentionally restored to the deployed V141 implementation. */
+@media (min-width:1101px){
+  .figma-work-heading{
+    margin-bottom:48px!important;
+  }
+}

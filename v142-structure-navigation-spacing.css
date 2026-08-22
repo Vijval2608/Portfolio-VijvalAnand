@@ -1,0 +1,37 @@
+/* V142 — approved structure/navigation pass
+   - Process becomes the second nav item.
+   - Process/Skills headings updated only.
+   - Skills paper artwork stays in its existing wrappers/positions; only copy moves.
+   - Major section breathing room is normalized without touching motion geometry.
+*/
+
+/* Navigation */
+.figma-nav-links{
+  gap:2.1164021cqw;
+}
+
+/* Skills: bring the desktop section opening in line with the new unified rhythm.
+   Smaller breakpoints already use their own responsive stage padding. */
+@media (min-width:1231px){
+  .figma-skills-kicker{top:96px!important;}
+  .figma-skills-title{top:129.3px!important;}
+}
+
+/* Major section top breathing room — same rhythm within each breakpoint. */
+@media (min-width:981px){
+  .experience-section{padding-top:96px!important;}
+  .about-section-v2{padding-top:96px!important;}
+  .contact-section{padding-top:96px!important;}
+}
+
+@media (min-width:761px) and (max-width:980px){
+  .experience-section{padding-top:84px!important;}
+  .about-section-v2{padding-top:84px!important;}
+  .contact-section{padding-top:84px!important;}
+}
+
+@media (max-width:760px){
+  .experience-section{padding-top:72px!important;}
+  .about-section-v2{padding-top:72px!important;}
+  .contact-section{padding-top:72px!important;}
+}

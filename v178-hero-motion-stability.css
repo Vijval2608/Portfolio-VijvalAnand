@@ -1,0 +1,15 @@
+/* ==========================================================================
+   V178 — Hero motion stability
+   ========================================================================== */
+
+/*
+ * The site-wide section spring uses `scale:.958` as its off-screen baseline.
+ * The hero music card now has its own entrance spring, so it must have a single
+ * scale owner. Once the intro is complete its resting scale is always 1.
+ *
+ * During the intro, figma-hero.js writes an inline scale (.84 -> 1), which
+ * naturally overrides this rule.
+ */
+.figma-hero-section .figma-music-card{
+  scale:1;
+}
