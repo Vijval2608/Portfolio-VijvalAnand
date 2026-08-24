@@ -161,6 +161,17 @@
     }, 280);
   };
 
+  const replay = () => {
+    if (reduced) return;
+    started = false;
+    start();
+  };
+
+  window.VijvalHeroComputer = {
+    replay,
+    isReady: () => artboard.dataset.copyReady === 'true'
+  };
+
   const begin = () => {
     if (document.fonts?.ready) {
       Promise.race([

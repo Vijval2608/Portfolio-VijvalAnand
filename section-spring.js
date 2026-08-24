@@ -12,21 +12,6 @@
   // horizontal-scroll motion and receives no viewport spring animation.
   const groups = [
     {
-      root: '.figma-hero-section',
-      // The music card is intentionally excluded here. Its first-load entrance
-      // owns `scale` directly; letting this observer also own scale caused a
-      // visible post-intro snap back to the generic .958 state.
-      selectors: [
-        '.figma-role-label',
-        '.figma-name-first',
-        '.figma-name-last',
-        '.figma-years',
-        '.figma-intro',
-        '.figma-actions',
-        '.figma-computer'
-      ]
-    },
-    {
       root: '.figma-work-section',
       selectors: [
         '.figma-work-heading',

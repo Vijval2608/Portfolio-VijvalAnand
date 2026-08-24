@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="grain-boot" lang="en">
+<html class="grain-boot v230-hero-prepaint" lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -9,7 +9,22 @@
 <title>Vijval Anand | Product Designer</title>
 <style id="critical-noise-v135">
 html,body{margin:0;background:#f4ead8;}
+:root{--v230-mac-first-scale:1;--v230-mac-first-opacity:1;}
 html.grain-boot body{overflow:hidden!important;}
+
+/* V229 — literal first-frame desktop Hero guard.
+   The stage cannot paint until the motion controller has installed the exact
+   scale-0 / collapsed intro state. This prevents any cached/full-size Mac
+   frame from becoming visible during startup. */
+@media (min-width:769px){
+  html.v230-hero-prepaint{
+    --v230-mac-first-scale:0;
+    --v230-mac-first-opacity:0;
+  }
+  html.v230-hero-prepaint .figma-hero-stage{
+    visibility:hidden!important;
+  }
+}
 
 /* ==========================================================================
    V189 — DIRECT FULL-SCREEN GRAIN SIBLINGS
@@ -126,7 +141,7 @@ html.grain-boot body{overflow:hidden!important;}
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Caveat:wght@400;500;600;700&family=Hachi+Maru+Pop&family=IBM+Plex+Mono:wght@400;500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<link href="portfolio-core-v119.css" rel="stylesheet">
+<link href="portfolio-v252-deploy.css" rel="stylesheet">
 
 <script id="grain-bootstrap-v135">
 (() => {
@@ -136,6 +151,9 @@ html.grain-boot body{overflow:hidden!important;}
   try {
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       root.classList.add('hero-intro-pending');
+      if (window.matchMedia('(min-width:769px)').matches) {
+        root.classList.add('v221-nav-pending');
+      }
     }
   } catch (_) {}
 
@@ -146,13 +164,14 @@ html.grain-boot body{overflow:hidden!important;}
    */
 })();
 </script>
+
 <link as="image" href="assets/figma-hero/computer-image-594-186-v131.png" rel="preload" type="image/png" fetchpriority="high"/>
-<link href="v77-experience-timeline-grid.css" rel="stylesheet">
-<link href="v79-experience-phone-node-anchor.css" rel="stylesheet">
-<link href="portfolio-skills-v119.css" rel="stylesheet">
-<link href="v135-hero-computer-screen.css" rel="stylesheet">
-<link href="v142-structure-navigation-spacing.css" rel="stylesheet">
-<link href="v143-layout-refinements.css" rel="stylesheet">
+
+
+
+
+
+
 
 <style id="v145-section-heading-rhythm">
 /* V145: one explicit heading/description -> content rhythm.
@@ -208,25 +227,23 @@ html.grain-boot body{overflow:hidden!important;}
   }
 }
 </style>
-<link href="v146-section-vertical-spacing.css" rel="stylesheet">
-<link href="v147-skills-restructure.css" rel="stylesheet">
-<link href="v150-horizontal-spacing-phone-illustration.css" rel="stylesheet">
-<link href="v158-uniform-header-structure.css" rel="stylesheet">
-<link href="v162-work-desktop-gap-only.css" rel="stylesheet">
-<link href="v166-process-overlap-controls.css" rel="stylesheet">
-<link href="v169-experience-dotmatrix-records.css" rel="stylesheet">
-<link href="v174-experience-clean-tags-hover.css" rel="stylesheet">
-<link href="v178-hero-motion-stability.css" rel="stylesheet">
-<link href="v182-cta-hover-clean-pass.css" rel="stylesheet">
-<link href="v189-direct-grain-siblings.css" rel="stylesheet">
-<link href="v190-grain-opacity-tune.css" rel="stylesheet">
-<link href="v191-grain-opacity-75.css" rel="stylesheet">
-<link href="v192-viewer-cursor-resume-chevron.css" rel="stylesheet">
-<link href="v193-viewer-above-grain.css" rel="stylesheet">
-<link href="v194-typography-standardization.css" rel="stylesheet">
-<link href="v195-semantic-typography.css" rel="stylesheet">
-<link href="v196-skills-readability.css" rel="stylesheet">
-<link href="v197-skills-process-type-tune.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- v198: device-independent custom font runtime; self-hosted hooks remain first choice -->
 <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
 <link rel="preconnect" href="https://st.1001fonts.net" crossorigin>
@@ -234,8 +251,26 @@ html.grain-boot body{overflow:hidden!important;}
 <link href="https://fonts.cdnfonts.com/css/edit-undo-brk" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/pixel-forge" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/impact" rel="stylesheet">
-<link href="font-runtime.css" rel="stylesheet">
-<link href="v199-section-copy-label-size.css" rel="stylesheet"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </head>
 <body>
@@ -289,7 +324,7 @@ html.grain-boot body{overflow:hidden!important;}
 </a>
 </div>
 <div aria-hidden="true" class="figma-computer" data-figma-node="594:183">
-<div class="figma-computer-artboard">
+<div class="figma-computer-artboard" style="opacity:var(--v230-mac-first-opacity,1)!important;transform:scale(var(--v230-mac-first-scale,1))!important;transform-origin:50% 50%!important;">
 <div aria-hidden="true" class="figma-frame-shadow figma-frame-shadow-computer">
 <svg class="figma-shadow-svg" viewBox="0 0 346 65" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#v133-shadow-computer-blur)"><path d="M24.8209 10.1L335.1 24.129L325.251 54.1L10.0996 19.7593L24.8209 10.1Z" fill="black" fill-opacity="0.7"/></g>
@@ -302,7 +337,7 @@ html.grain-boot body{overflow:hidden!important;}
 <defs><filter id="v133-shadow-cassette-blur" x="-0.000391006" y="0.00000572205" width="181.2" height="47.2" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="5.05" result="effect1_foregroundBlur"/></filter></defs>
 </svg>
 </div>
-<img alt="" class="figma-computer-base" src="assets/figma-hero/computer-image-594-186-v131.png" width="918" height="918" decoding="async"/>
+<img alt="" class="figma-computer-base" src="assets/figma-hero/computer-image-594-186-v131.png" width="918" height="918" decoding="async"/ fetchpriority="high" loading="eager">
 <p class="figma-computer-line line-1" data-computer-line="DESIGNING">DESIGNING</p>
 <p class="figma-computer-line line-2" data-computer-line="PRODUCTS THAT">PRODUCTS THAT</p>
 <p class="figma-computer-line line-3" data-computer-line="HIT DIFFERENT.">HIT DIFFERENT.</p>
@@ -860,6 +895,7 @@ like it’s a product launch.
 <a href="https://www.linkedin.com/in/vijval-anand" rel="noopener" target="_blank">LinkedIn ↗</a>
 <a href="https://www.behance.net/vijvalanand" rel="noopener" target="_blank">Behance ↗</a>
 <a href="assets/Vijval_Resume.pdf" rel="noopener" target="_blank">Resume ↗</a>
+<a class="footer-play-pong" href="#top">Play Pong ↗</a>
 <a href="#top">Back to top ↑</a>
 </div>
 </div>
@@ -894,7 +930,7 @@ like it’s a product launch.
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="script.js"></script>
 <script src="figma-work.js"></script>
-<script src="figma-process-v113.js"></script>
+<script src="figma-process-v252.js"></script>
 <script src="section-spring.js"></script>
 <script src="about-interaction.js"></script>
 <script src="assets/audio/sweet-dreams-waveform.js"></script>
@@ -902,7 +938,7 @@ like it’s a product launch.
 (() => {
   const loadHero = () => {
     const s = document.createElement('script');
-    s.src = 'figma-hero.js';
+    s.src = 'v218-figma-hero.js';
     s.async = false;
     document.body.appendChild(s);
   };
@@ -914,10 +950,19 @@ like it’s a product launch.
   }
 })();
 </script>
-<script src="mobile-nav-v62.js"></script>
+<script src="mobile-nav-v252.js"></script>
 <script src="waveform-pixel-snap-v64.js"></script>
 <script src="v114-skills-window-soft-rig.js"></script>
 <script src="v118-skills-illustration-hover-note.js"></script>
 <script src="v135-hero-computer-screen.js"></script>
+<script src="v203-depth-play.js"></script>
+<script src="v244-pong-safe-vector.js"></script>
+<script src="v205-true-depth.js"></script>
+<script src="v244-hero-depth-refinement.js"></script>
+<script src="v214-music-rig-fix.js"></script>
+<script src="v245-hero-threshold-motion.js"></script>
+<script src="v227-navbar-sync.js"></script>
+<script src="v250-selection-cursor.js"></script>
+<script src="v251-footer-pong-link.js"></script>
 </body>
 </html>
