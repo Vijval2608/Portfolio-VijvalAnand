@@ -11,6 +11,7 @@
      Content is intentionally concise so the original 53.1px row never moves.
      ---------------------------------------------------------------------- */
   const workMeta = {
+    workflow:   { role:'PRODUCT DESIGN', year:'2026', impact:'SCALABLE DESIGN SYSTEM' },
     fittribe:   { role:'PRODUCT', year:'2026', impact:'END-TO-END CASE STUDY' },
     serene:     { role:'UX + BRAND', year:'2024', impact:'10 → 25+ WEEKLY CLIENTS' },
     rupantaran: { role:'UX + DEV', year:'2024', impact:'SHIPPED END-TO-END' },

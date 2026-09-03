@@ -5,10 +5,34 @@
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const ARROW = 'assets/icons/arrow-right-figma.svg';
+  const WORKFLOW_SUITE_THUMB = 'assets/figma-work/workflow-suite-thumbnail.webp';
   const FIGMA_FITTRIBE = 'assets/figma-work/fittribe-thumbnail.webp';
   const WORK_STAR = `<svg width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 0C10 0 10.5518 7.58026 12.7009 9.73804C14.8501 11.8958 20 12.4498 20 12.4498C20 12.4498 14.8501 13.0038 12.7009 15.1616C10.5518 17.3193 10 25 10 25C10 25 9.44825 17.3193 7.29909 15.1616C5.14994 13.0038 0 12.4498 0 12.4498C0 12.4498 5.14994 11.8958 7.29909 9.73804C9.44825 7.58026 10 0 10 0Z" fill="#FC5134"/></svg>`;
 
   const projects = [
+    {
+      id:'workflow',
+      listTitle:'Workflow Suite',
+      listSubtitle:'Enterprise workflow management platform',
+      title:'Workflow Suite',
+      summary:'An enterprise workspace for managing tasks, teams and schedules across table, board and calendar views, backed by a production-ready design system.',
+      tags:['Enterprise','Product Design','UX/UI','Design System','Workflow'],
+      visual:{type:'image',src:WORKFLOW_SUITE_THUMB,position:'center center'},
+      actions:[
+        {
+          kind:'view',
+          type:'external',
+          href:'https://www.figma.com/design/2PCFiq2ri8ANaWeustFK2w/Main-Design-System?node-id=1-152&t=6t9dM3BC8L82kh90-1',
+          label:'System'
+        },
+        {
+          kind:'figma',
+          type:'external',
+          href:'https://www.figma.com/design/ZcQYNoTpXJVGtLL52ta0Wn/Workflow-Suite?node-id=0-1&t=73JlEKPRCBUbDh2C-1',
+          label:'Figma'
+        }
+      ]
+    },
     {
       id:'fittribe',
       listTitle:'Fittribe App',
@@ -124,9 +148,9 @@
     }
   ];
 
-  /* Fittribe is the first selected project after removing the Enterprise item. */
-  let previewId = 'fittribe';
-  let highlightId = 'fittribe';
+  /* Workflow Suite is the lead selected project. */
+  let previewId = 'workflow';
+  let highlightId = 'workflow';
   let hoverTimer = null;
 
   const generatedArt = (art) => {
@@ -142,7 +166,7 @@
 
   function visualMarkup(p){
     if (p.visual.type === 'image') {
-      const priority = p.id === 'fittribe' ? 'fetchpriority="high" loading="eager"' : 'loading="lazy"';
+      const priority = p.id === 'workflow' ? 'fetchpriority="high" loading="eager"' : 'loading="lazy"';
       return `<img src="${p.visual.src}" alt="${p.title} preview" ${priority} decoding="async" style="object-position:${p.visual.position || 'center'}">`;
     }
 
@@ -167,7 +191,7 @@
   const previewWrap = preview.closest('.figma-work-preview-wrap');
 
   /* Exact V43 stack slots, already baked to the portfolio's 90% scale.
-     Slot 0 is the front card; slot 4 is the furthest/back card. */
+     Slot 0 is the front card; slots 4–5 share the approved back-card footprint. */
   const STACK_BASE = { width:666.9, height:555.3 };
   /* Figma phone node 506:2178 keeps the same 666.9px source width/slots,
      but uses a taller source stage so readable mobile card typography survives
@@ -179,7 +203,9 @@
     { x:18, y:43.2, z:40 },
     { x:36, y:28.8, z:30 },
     { x:54, y:14.4, z:20 },
-    { x:72, y:0,    z:10 }
+    { x:72, y:0,    z:10 },
+    /* Sixth project shares the approved back-card footprint so the V211 stack geometry stays unchanged. */
+    { x:72, y:0,    z:0 }
   ];
 
   let stackOrder = projects.map(p => p.id);
