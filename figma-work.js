@@ -5,19 +5,20 @@
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const ARROW = 'assets/icons/arrow-right-figma.svg';
-  const WORKFLOW_SUITE_THUMB = 'assets/figma-work/workflow-suite-thumbnail.webp';
+  const WORKLY_VIDEO = 'assets/figma-work/workly-video/workly-thumbnail.mp4';
+  const WORKLY_POSTER = 'assets/figma-work/workly-video/workly-poster.webp';
   const FIGMA_FITTRIBE = 'assets/figma-work/fittribe-thumbnail.webp';
   const WORK_STAR = `<svg width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 0C10 0 10.5518 7.58026 12.7009 9.73804C14.8501 11.8958 20 12.4498 20 12.4498C20 12.4498 14.8501 13.0038 12.7009 15.1616C10.5518 17.3193 10 25 10 25C10 25 9.44825 17.3193 7.29909 15.1616C5.14994 13.0038 0 12.4498 0 12.4498C0 12.4498 5.14994 11.8958 7.29909 9.73804C9.44825 7.58026 10 0 10 0Z" fill="#FC5134"/></svg>`;
 
   const projects = [
     {
-      id:'workflow',
-      listTitle:'Workflow Suite',
-      listSubtitle:'Enterprise workflow management platform',
-      title:'Workflow Suite',
-      summary:'An enterprise workspace for managing tasks, teams and schedules across table, board and calendar views, backed by a production-ready design system.',
-      tags:['Enterprise','Product Design','UX/UI','Design System','Workflow'],
-      visual:{type:'image',src:WORKFLOW_SUITE_THUMB,position:'center center'},
+      id:'workly',
+      listTitle:'Workly Enterprise Suite',
+      listSubtitle:'AI-native enterprise management suite',
+      title:'Workly Enterprise Suite',
+      summary:'An AI-native B2B SaaS suite that brings everyday operations and complex enterprise workflows into one connected workspace.',
+      tags:['AI','SaaS','Workflow','Product','UX/UI','Design System'],
+      visual:{type:'video',src:WORKLY_VIDEO,poster:WORKLY_POSTER,position:'center top'},
       actions:[
         {
           kind:'view',
@@ -28,7 +29,7 @@
         {
           kind:'figma',
           type:'external',
-          href:'https://www.figma.com/design/ZcQYNoTpXJVGtLL52ta0Wn/Workflow-Suite?node-id=0-1&t=73JlEKPRCBUbDh2C-1',
+          href:'https://www.figma.com/design/ZcQYNoTpXJVGtLL52ta0Wn/Workflow-Suite?node-id=723-216981&t=ITPzFE7fzJoDftwR-11',
           label:'Figma'
         }
       ]
@@ -76,23 +77,6 @@
           type:'external',
           href:'https://serenehomes.co.in/',
           label:'View'
-        }
-      ]
-    },
-    {
-      id:'rupantaran',
-      listTitle:'Rupantaran Website Design',
-      listSubtitle:'NGO website & social impact',
-      title:'Rupantaran Website Design',
-      summary:'An accessible NGO website designed and built end-to-end to make the organisation easier to understand, trust and support.',
-      tags:['Website','UX/UI','React','Social Impact'],
-      visual:{type:'image',src:'assets/figma-work/rupantaran-thumbnail.webp',position:'center top'},
-      actions:[
-        {
-          kind:'figma',
-          type:'external',
-          href:'https://www.figma.com/design/Vnzu98wlvWUYIGTVtAVl5n/Rupantaran-NGO-Web-Design?node-id=0-1&t=yOeDwOZAHVVC2xJj-1',
-          label:'Figma'
         }
       ]
     },
@@ -148,9 +132,9 @@
     }
   ];
 
-  /* Workflow Suite is the lead selected project. */
-  let previewId = 'workflow';
-  let highlightId = 'workflow';
+  /* Workly Enterprise Suite is the lead selected project. */
+  let previewId = 'workly';
+  let highlightId = 'workly';
   let hoverTimer = null;
 
   const generatedArt = (art) => {
@@ -166,7 +150,7 @@
 
   function visualMarkup(p){
     if (p.visual.type === 'image') {
-      const priority = p.id === 'workflow' ? 'fetchpriority="high" loading="eager"' : 'loading="lazy"';
+      const priority = p.id === 'workly' ? 'fetchpriority="high" loading="eager"' : 'loading="lazy"';
       return `<img src="${p.visual.src}" alt="${p.title} preview" ${priority} decoding="async" style="object-position:${p.visual.position || 'center'}">`;
     }
 
@@ -179,7 +163,7 @@
           muted
           loop
           playsinline
-          preload="none"
+          preload="${p.id === 'workly' ? 'metadata' : 'none'}"
           aria-label="${p.title} preview"
           style="object-position:${p.visual.position || 'center'}"
         ></video>`;
@@ -190,8 +174,8 @@
 
   const previewWrap = preview.closest('.figma-work-preview-wrap');
 
-  /* Exact V43 stack slots, already baked to the portfolio's 90% scale.
-     Slot 0 is the front card; slots 4–5 share the approved back-card footprint. */
+  /* Exact approved stack slots, already baked to the portfolio's 90% scale.
+     Slot 0 is the front card; slot 4 is the deepest back card. */
   const STACK_BASE = { width:666.9, height:555.3 };
   /* Figma phone node 506:2178 keeps the same 666.9px source width/slots,
      but uses a taller source stage so readable mobile card typography survives
@@ -203,9 +187,7 @@
     { x:18, y:43.2, z:40 },
     { x:36, y:28.8, z:30 },
     { x:54, y:14.4, z:20 },
-    { x:72, y:0,    z:10 },
-    /* Sixth project shares the approved back-card footprint so the V211 stack geometry stays unchanged. */
-    { x:72, y:0,    z:0 }
+    { x:72, y:0,    z:10 }
   ];
 
   let stackOrder = projects.map(p => p.id);
@@ -364,12 +346,14 @@
       });
 
       card.querySelectorAll('video.figma-work-video-preview').forEach(video=>{
-        if (front && workInView && document.visibilityState === 'visible') {
+        const worklyReducedMotion = reducedMotion && card.dataset.stackProject === 'workly';
+        if (front && workInView && document.visibilityState === 'visible' && !worklyReducedMotion) {
           video.play().catch(()=>{});
         } else {
           video.pause();
         }
       });
+
     });
   }
 

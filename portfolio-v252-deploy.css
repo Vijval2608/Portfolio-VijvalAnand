@@ -2120,7 +2120,7 @@ body{
   background:linear-gradient(145deg,#efe3d0,#ddcbb1);
   box-shadow:0 23.4px 48.6px rgba(72,47,31,.13),inset 0 0.9px rgba(255,255,255,.84),inset 0 -3.6px 0 rgba(100,72,52,.055);
   transition:transform .5s var(--ease-spring),box-shadow .35s var(--ease-soft);
-  will-change:transform;
+  will-change:translate;
 }
 .portrait-card:hover{box-shadow:0 30.6px 61.2px rgba(72,47,31,.16),inset 0 0.9px rgba(255,255,255,.84)}
 .portrait-frame{border-width:7.2px;border-radius:27.9px;background:#383a33}
@@ -6811,7 +6811,7 @@ body.viewer-open .figma-nav{
 
 .experience-section .career-card h3{
   margin:0;
-  max-width:350px;
+  max-width:310px;
   color:var(--exp-ink);
   font-family:'EditUndoLocal','Edit Undo Line BRK','Poppins',sans-serif;
   font-size:30px;
@@ -7772,8 +7772,8 @@ body:not(.viewer-open):not(.menu-open){
 }
 
 .about-device-live i{
-  width:5px;
-  height:5px;
+  width:4px;
+  height:4px;
   border-radius:50%;
   background:var(--about-orange);
   box-shadow:0 0 0 3px rgba(252,81,52,.12);
@@ -20364,4 +20364,112 @@ html.v204-type-ready section.v204-type-in [data-v204-type="heading"]{
   .figma-nav.is-mobile-open{
     transition:none!important;
   }
+}
+
+/* ==========================================================================
+   V255 — V253 MERGE + WORKLY SELECTED WORK
+   Source base remains V254/V252. This block restores the small V253
+   responsive/Pong-era refinements and adds only the requested Workly changes.
+   ========================================================================== */
+
+/* All desktop/tablet Work CTAs now use the exact external geometry of the
+   approved Hero "See my work" CTA: 113.4 × 37.8 with the 16.2px icon puck. */
+@media (min-width:601px){
+  .figma-work-card .figma-work-action,
+  .figma-work-card .figma-work-figma,
+  .figma-work-card .figma-work-view{
+    width:113.4px!important;
+    min-width:113.4px!important;
+    height:37.8px!important;
+    flex:0 0 113.4px!important;
+    padding:0 10.8px 0 16.2px!important;
+    gap:10.8px!important;
+    border-radius:63px!important;
+    justify-content:flex-end!important;
+    font-family:'Poppins',sans-serif!important;
+    font-size:var(--type-ui,10.8px)!important;
+    font-weight:400!important;
+    line-height:1!important;
+  }
+
+  .figma-work-card .figma-work-figma-icon,
+  .figma-work-card .figma-work-view-icon{
+    width:16.2px!important;
+    height:16.2px!important;
+    flex:0 0 16.2px!important;
+    padding:3.6px!important;
+    border-radius:9px!important;
+  }
+
+  .figma-work-card .figma-work-figma-icon img,
+  .figma-work-card .figma-work-view-icon img{
+    width:9px!important;
+    height:9px!important;
+  }
+}
+
+/* V253 phone rhythm: restore the roomier cross-section spacing from the
+   omitted candidate while keeping each section's internal layout untouched. */
+@media (max-width:600px){
+  :root{
+    --v249-mobile-section-gap:clamp(78px,23.5897436vw,92px)!important;
+  }
+}
+
+/* V253 tablet safety: v251 desktop composition wins on true landscape tablets;
+   portrait-only overrides remain confined to portrait mode. */
+@media (min-width:769px) and (max-width:1199px) and (orientation:landscape){
+  .figma-work-layout{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;}
+  .figma-work-preview-wrap{margin-top:0!important;}
+}
+
+/* ==========================================================================
+   V256 — WORKLY VIDEO THUMBNAIL + SELECTED WORKS SPACING
+   ========================================================================== */
+
+/* The Workly thumbnail now uses the supplied MP4 directly. Keep it filling the
+   existing media viewport without changing the approved card geometry. */
+.figma-work-card[data-stack-project="workly"] .figma-work-video-preview{
+  object-fit:cover!important;
+  object-position:center top!important;
+}
+
+/* Desktop/tablet buttons should hug their own label + icon rather than sharing
+   a fixed CTA width. Height, icon geometry and interaction treatment stay the
+   same as the approved orange CTA language. */
+@media (min-width:601px){
+  .figma-work-card .figma-work-action,
+  .figma-work-card .figma-work-figma,
+  .figma-work-card .figma-work-view{
+    width:auto!important;
+    min-width:0!important;
+    flex:0 0 auto!important;
+  }
+
+  /* Add a small, deliberate vertical rhythm without changing the overall card
+     height: the reclaimed bottom inset becomes title/summary/footer spacing. */
+  .figma-work-card .figma-work-info{
+    padding-bottom:13.5px!important;
+    gap:4.5px!important;
+  }
+
+  .figma-work-card .figma-work-copy{
+    height:63.9px!important;
+    flex:0 0 63.9px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    gap:3.6px!important;
+  }
+}
+
+
+/* ==========================================================================
+   V257 — WORKLY THUMBNAIL ALIGNMENT + TAG COPY
+   ========================================================================== */
+
+/* Anchor the supplied 4:3 Workly video to the top of the existing wider media
+   viewport. The viewport keeps its approved size; overflow is cropped from the
+   bottom instead of splitting the crop above and below the source video. */
+.figma-work-card[data-stack-project="workly"] .figma-work-video-preview{
+  object-position:center top!important;
 }

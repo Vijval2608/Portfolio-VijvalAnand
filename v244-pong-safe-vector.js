@@ -11,10 +11,9 @@
      Content is intentionally concise so the original 53.1px row never moves.
      ---------------------------------------------------------------------- */
   const workMeta = {
-    workflow:   { role:'PRODUCT DESIGN', year:'2026', impact:'SCALABLE DESIGN SYSTEM' },
+    workly:     { role:'PRODUCT DESIGN', year:'2026', impact:'AI-NATIVE ENTERPRISE SUITE' },
     fittribe:   { role:'PRODUCT', year:'2026', impact:'END-TO-END CASE STUDY' },
     serene:     { role:'UX + BRAND', year:'2024', impact:'10 → 25+ WEEKLY CLIENTS' },
-    rupantaran: { role:'UX + DEV', year:'2024', impact:'SHIPPED END-TO-END' },
     nippon:     { role:'ART DIRECTION', year:'2026', impact:'POSTER SYSTEM' },
     dior:       { role:'AI ART DIR.', year:'2026', impact:'CONCEPT FILM' }
   };
@@ -226,7 +225,7 @@
       playerY = clampPaddle(playerY,leftX);
 
       const aiTarget = clampPaddle(ball.y-paddleH/2,rightX);
-      const aiEase = Math.min(1,dt*(5.6 + Math.min(1.8,(playerScore+aiScore)*.18)));
+      const aiEase = Math.min(1,dt*(4.15 + Math.min(1.2,(playerScore+aiScore)*.12)));
       aiY += (aiTarget-aiY)*aiEase;
       aiY = clampPaddle(aiY,rightX);
 
