@@ -21247,3 +21247,20 @@ html.v204-type-ready section.v204-type-in [data-v204-type="heading"]{
 .figma-actions .hero-pong-hint{
   font-size:17px!important;
 }
+
+/* ========================================================================== 
+   V284 — cold-cache 3D fallback handoff
+   --------------------------------------------------------------------------
+   Use the new 3D-matching placeholder image for first paint so incognito /
+   cold-cache loads no longer flash the older pre-3D computer artwork.
+   Keep the fallback available for load/error states, but let the image itself
+   crossfade out when the 3D canvas becomes ready.
+   ========================================================================== */
+.figma-computer-artboard > img.figma-computer-base{
+  transition:opacity .18s ease!important;
+}
+.figma-computer-artboard.v258-model-ready > img.figma-computer-base{
+  opacity:0!important;
+  visibility:visible!important;
+  pointer-events:none!important;
+}

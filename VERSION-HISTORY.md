@@ -376,3 +376,10 @@ Earlier project-specific notes remain in the included versioned Markdown files.
 - Removed the previous CRT-bound JS positioning logic for the Pong hint; its position is now intentionally simple and CSS-controlled.
 - Kept the “tiny side quest” copy exactly unchanged, but moved it to the left/contact-copy column as a quiet dashed footnote so it reads as an easter egg instead of competing with contact actions.
 - Preserved all v277 Work state behavior, startup sequence, project interactions, footer Pong link, Skills CTA behavior, and Pong gameplay.
+
+## v284 — matched 3D fallback placeholder for first-load / incognito handoff
+- Replaced the old Hero computer fallback asset with a new cache-busted PNG that visually matches the current 3D computer + cassette front view.
+- Updated `index.html` to use `assets/figma-hero/computer-image-3d-placeholder-v284.png` so returning visitors do not keep seeing the older cached fallback file.
+- Kept the fallback system itself intact for slow networks / WebGL failure, but the fallback image now aligns with the live 3D model instead of looking like a different computer.
+- Added a small opacity transition on the fallback image so the handoff into the ready 3D canvas is gentler on cold-cache loads.
+- Left the v283 deployment behavior, interactions, security hardening, and Pong verification untouched.

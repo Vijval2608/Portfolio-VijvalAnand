@@ -1,6 +1,6 @@
 b94a463af8ab2d60027833dda87d27460972082e01b9b4c89290dc019bbcd273  ./LICENSE-PROPRIETARY.txt
 a02f1a0ac88a80f807e3fd0a00f878c15ffe580bb3e0de8e2569245ad948b2aa  ./SECURITY-DEPLOYMENT.md
-3efeb57101fa6e5ac9323ddca1b61ded84a92d8dea09e297717cf990b8c17404  ./VERSION-HISTORY.md
+99cbdeaeb8aaaee1de8e5526dc3b2e2eabe8e9dc7ad376efb9888a0cb4d60eb8  ./VERSION-HISTORY.md
 ab5156308efb5e90b765bc33086ed483414b6a21590a679cb38d0af8e42a1eea  ./_headers
 5b6f99edf7d66cfb6e4d384818c9d02bbdbd421e55069b389af0d8d007d8cbe6  ./_redirects
 543248b0b17d6db5d328be60467b536c5a33ab4846493f33afbc4a279291d5b3  ./about-interaction.js
@@ -9,6 +9,7 @@ ab5156308efb5e90b765bc33086ed483414b6a21590a679cb38d0af8e42a1eea  ./_headers
 7b6abec2980e0152f1dabb703af0d1e00f0b26abe7fb5531e46bb0306d2d7b6a  ./assets/audio/sweet-dreams-waveform.js
 42ee66657fa201768f1dc3c01277c2df83cf6f69539e33faf985f4991d277356  ./assets/audio/sweet-dreams.mp3
 a14b6e24dd8071002295b14ab4ab0e3a717a24b6b1d2dec352922a5b2701ae98  ./assets/case-studies/fittribe-case-study.pdf
+8c9007edc1da34396a360757e018d03a486fc83067599491aa60dfa306599341  ./assets/figma-hero/computer-image-3d-placeholder-v284.png
 68a4f2d222cf9ca51e93e6e2d5c213bfc068c051d4075d103253ef99f9d0b582  ./assets/figma-hero/computer-image-594-186-v131.png
 ff9cb3cdfe51cd803c7243abb5f4f77b3080e8032301532ec79b9531ca2c1b24  ./assets/figma-hero/sweet-dreams-v81.webp
 aa37432df40017aff93c557db66683ceda6538d8f3da8aaa2c26b19a809660e9  ./assets/figma-work/dior-sauvage-ad-concept.mp4
@@ -43,12 +44,12 @@ a59b0c1f7b85234dd4cf994bcaf416ccced15311a2b5e275818949c69ea11c1e  ./figma-work.j
 ec76b1d06d0bff1d527a9cd6f7555e6fd6f4c5f61382f5919c457e5a40fa3853  ./hero-3d-loader-v271.js
 b482bbdf4ce9be407fa76db40788b16ced36a9cbe548fc5a26c4139e1fe7cd98  ./hero-3d-v268.css
 6952bf6e2e28bd2e9514a70510968d36f00f62846407a5117f253e284e3db8a5  ./hero-3d-v271.js
-ce4b3d31fb2438a1f7b1b3acd0cca11edfae6e0012de1e1539b3e9c82e7dba74  ./index.html
+e2844aaf58f089f11ad0957dd5e98bdbdbadc8c75a0201462e5db1ca3ae7f019  ./index.html
 0820861065a85e490ae19cf23fd7b2e8ad78069bc0820939b47ec095c91da865  ./mobile-nav-v252.js
-e49a086f454083d427ebc709c8babc22f4ead636c4142f51ed2ba0499be5ae80  ./netlify.toml
 5f2080016bee3d178eb9ec04a4758476e23abfd5febb8ad9940ed4b849c49b6e  ./netlify/functions/pong-verify.js
+e49a086f454083d427ebc709c8babc22f4ead636c4142f51ed2ba0499be5ae80  ./netlify.toml
 72e4046fa7e17825896fafb715feb83c17add3fa938d8ead489717a62d5b0e10  ./performance-v268.css
-62ecb3a15e26c18127452c8e2d9947cac2c76383dea78002dede740d7b75328a  ./portfolio-v252-deploy.css
+14ba7718397420efe24dd1b69ced217d80c509de63924d46ad5c18252a185836  ./portfolio-v252-deploy.css
 09fe39a548ab873cf36321348c9c5c432d288c5ce729a6121bcf529644f8277b  ./robots.txt
 481ed81476cc58cb99b2053b6a4bb843a7c2981fe9795e0d7ff3eaf125d3126e  ./script-v268.js
 3d2704462dafca2d3de02fa085def5fdec4647f3e6ab1a3cbb76f6d27473bdd8  ./section-spring.js
