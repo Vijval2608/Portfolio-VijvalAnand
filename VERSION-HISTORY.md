@@ -1,6 +1,18 @@
 # Portfolio Version History
 
-Current version: **v283**
+Current version: **v286**
+
+
+## v286 — 3D-first cold-load startup
+- Removed the desktop fallback-image handoff from the visible startup path. On desktop, the Hero stage remains hidden until the actual Three.js/WebGL computer has mounted and rendered its first frame.
+- The approved boot/load sequence now starts only when both `hero:desktop-base-ready` and `hero:3d-runtime-ready` have fired; the old base-only 1200ms startup timeout is gone.
+- Preserved the proven v271/v272 animation choreography itself: centered computer pop-in, blank CRT, CRT power-on, BOOTING, relocation/yaw, early Hero component reveal, and final typing all run from their original frame-zero state after 3D is ready.
+- Removed the CRT controller's pre-intro emergency timers so a slow cold-cache 3D load cannot advance POWERING/BOOTING before the visible intro starts.
+- Added a desktop loading scroll lock that hands directly to the existing intro scroll lock, preventing visitors from moving the page while the hidden 3D runtime is preparing.
+- Removed the desktop image preload and de-prioritized the static computer asset; it is retained only for the non-3D/mobile layout and is explicitly `display:none` on desktop.
+- Added an explicit 3D runtime-ready event after the first rendered model frame plus two paint frames, so the Hero is never revealed halfway through WebGL initialization.
+- Genuine 3D failure does not substitute an image: after an error (or a 30s wedged-load safety ceiling), the page is released in a usable static state without a computer rather than trapping the visitor.
+- Preserved v283/v285 security hardening, verified Pong, Skills opacity, Selected Works state, Contact layout, and all non-startup interactions unchanged.
 
 
 ## v283 — Skills code modal opacity

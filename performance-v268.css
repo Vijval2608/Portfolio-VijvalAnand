@@ -17,3 +17,14 @@ html.hero-intro-pending .figma-computer-artboard{
   backface-visibility:hidden;
   transform-style:preserve-3d;
 }
+
+
+/* V286 — hold the first desktop viewport while the real 3D model is loading.
+   The existing v266 intro lock takes over on the exact frame the animation starts. */
+@media (min-width:769px){
+  html.v286-3d-loading,
+  html.v286-3d-loading body{
+    overflow:hidden!important;
+    overscroll-behavior:none!important;
+  }
+}

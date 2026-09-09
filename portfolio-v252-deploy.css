@@ -21262,3 +21262,13 @@ html.v204-type-ready section.v204-type-in [data-v204-type="heading"]{
   visibility:visible!important;
   pointer-events:none!important;
 }
+
+
+/* ==========================================================================
+   V286 — desktop is 3D-only from first visible Hero frame
+   ========================================================================== */
+@media (min-width:769px){
+  .figma-computer-artboard > img.figma-computer-base{
+    display:none!important;
+  }
+}
