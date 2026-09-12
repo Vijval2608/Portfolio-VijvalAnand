@@ -1,6 +1,19 @@
 # Portfolio Version History
 
-Current version: **v286**
+Current version: **v291**
+
+
+## v288 — 60fps interaction / graphics-acceleration performance pass
+- Preserved the v286 3D-first startup choreography and all approved portfolio layout/content while targeting frame pacing rather than changing visuals.
+- Rebuilt the custom cursor runtime so the orange marker tracks the newest pointer sample 1:1, the outer selection frame follows with a much shorter spring, and expensive DOM `closest()` hit-testing runs on pointer boundary changes instead of every pointer sample.
+- Merged the soft cursor glow into the same cursor RAF loop (updated at half-rate) instead of running a second independent animation loop; software-renderer mode disables the glow entirely.
+- Removed the obsolete V203 Hero pointer-parallax RAF/style-write loop because the later V207/V288 system already owns the visible Hero plane coordinates; retained the required `v203-depth-ready` compatibility class plus Work/Process interactions.
+- Cached Hero/stage geometry reads for pointer parallax so `getBoundingClientRect()` is not forced on every mouse sample.
+- Removed the old CSS translate transition from JS-driven Hero planes after startup, avoiding double interpolation / transition restarts on every pointer frame.
+- Reduced the live CRT working canvas to the native 864×688 logical resolution and updates it at ~60Hz on GPU renderers; software WebGL is adaptively capped to ~31Hz for the expensive 3D redraw while game physics/input remain untouched.
+- Detects common software WebGL renderers (SwiftShader / llvmpipe / Basic Render Driver). In that mode the 3D pointer-yaw is frozen, dynamic glass/backdrop blur and the second screen-blend grain pass are simplified, and WebGL resolution is reduced so UI/cursor responsiveness gets priority.
+- Added an IntersectionObserver performance governor that pauses invisible decorative CSS animations and releases `will-change` compositor layers when sections are well off-screen.
+- Kept Pong scoring/verification, Selected Works behavior, Skills modal, Contact layout, project viewers, security headers, and v286 startup state machine unchanged.
 
 
 ## v286 — 3D-first cold-load startup
@@ -395,3 +408,22 @@ Earlier project-specific notes remain in the included versioned Markdown files.
 - Physically removed the legacy `computer-image-594-186-v131.png` asset from the production package.
 - Kept a short opacity handoff so the matching placeholder fades gently when the WebGL/Three.js canvas becomes ready.
 - Rebuilt from the deployed v283 checkpoint so all protected production behavior, Pong verification, startup choreography, interactions, and layout remain unchanged.
+
+## v287 — memory + frame-performance optimization
+- Kept v286's 3D-first startup choreography and all approved interactions unchanged.
+- Reduced the internal dynamic CRT working texture from 1728×1376 to 1296×1032 while preserving the same logical 864×688 drawing coordinates, keeping the CRT substantially above its on-screen resolution.
+- Disabled mipmap generation only for the continuously changing CRT `CanvasTexture`; mipmaps were unnecessary here and caused extra GPU memory + texture-generation work on every screen update.
+- Capped the Three.js scene redraw during Pong to ~33 fps, matching the CRT's existing visible update cadence; Pong physics/input timing itself is unchanged.
+- Shrinks the WebGL drawing buffer to 2×2 once the Hero is more than 180px off-screen, then restores the exact renderer size before the Hero re-enters the viewport. The model, state, textures, and Pong logic remain mounted.
+- Added a separate Work-media memory controller that unloads video decoder sources after cards leave the front / Work leaves view, restores the active source before use, and keeps poster images intact.
+- No changes to Selected Works stack ordering, Skills, Contact, project viewer, cursor, Hero timing, security headers, or Pong verification logic.
+## v291 — reliable 3D startup without portfolio hard-gating
+- Reverted the actual 3D renderer/model runtime to the exact proven v288 implementation; no computer geometry, materials, camera, CRT, Pong, Hero choreography, or visual interaction code was changed.
+- Added an early, cache-busted `hero-3d-loader-v291.js` directly after the Hero computer DOM so the 3D bundle begins downloading while the rest of the document is still parsing.
+- Added HTML + Netlify response preload hints for the proven `hero-3d-v288.js` runtime.
+- Added up to three transient startup attempts around the proven mount call, with fresh script requests after a network failure.
+- Added a lightweight WebGL2 capability check that still permits software WebGL; unsupported sessions fail open instead of blocking the portfolio.
+- Replaced the v289/v290 hard failure screen behavior: a failed 3D startup now releases the portfolio in a usable state. Image fallback is intentionally deferred to a later version.
+- Added a 12-second 3D startup budget plus a 15-second controller safety release so no visitor can be trapped indefinitely on the opening viewport.
+- Preserved the approved v286/v288 3D-first flow whenever the model succeeds: real model ready -> two compositor frames -> existing boot/power/translation/reveal sequence.
+
