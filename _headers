@@ -1,9 +1,13 @@
 /
   Link: </hero-3d-v288.js>; rel=preload; as=script
+  X-Frame-Options: DENY
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' https://cdnjs.cloudflare.com 'sha256-eCNtGuV75ZMhKfyqx+hfq+uneXWBxdLRgbEImTiO2Ys=' 'sha256-C/NRyRjCXmR0Dd6784Nzs6n8qrVDmwxuaAwqQl4ypms=' 'sha256-M8jmY3K/fjoSQpujqUOfZt4zHqZlIyE4+APDMqY3fo0='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.cdnfonts.com; font-src 'self' data: https://fonts.gstatic.com https://fonts.cdnfonts.com https://st.1001fonts.net; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; manifest-src 'self'; form-action 'self'; upgrade-insecure-requests
 
 /index.html
   Cache-Control: no-cache, max-age=0, must-revalidate
   Link: </hero-3d-v288.js>; rel=preload; as=script
+  X-Frame-Options: DENY
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' https://cdnjs.cloudflare.com 'sha256-eCNtGuV75ZMhKfyqx+hfq+uneXWBxdLRgbEImTiO2Ys=' 'sha256-C/NRyRjCXmR0Dd6784Nzs6n8qrVDmwxuaAwqQl4ypms=' 'sha256-M8jmY3K/fjoSQpujqUOfZt4zHqZlIyE4+APDMqY3fo0='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.cdnfonts.com; font-src 'self' data: https://fonts.gstatic.com https://fonts.cdnfonts.com https://st.1001fonts.net; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; manifest-src 'self'; form-action 'self'; upgrade-insecure-requests
 
 /*.css
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
@@ -14,13 +18,15 @@
 /assets/*
   Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
 
+/assets/case-studies/*.pdf
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+  Content-Disposition: inline
+
 /*
   X-Content-Type-Options: nosniff
-  X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), serial=(), bluetooth=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Cross-Origin-Opener-Policy: same-origin-allow-popups
   Cross-Origin-Resource-Policy: same-origin
   X-Robots-Tag: noarchive
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' https://cdnjs.cloudflare.com 'sha256-eCNtGuV75ZMhKfyqx+hfq+uneXWBxdLRgbEImTiO2Ys=' 'sha256-C/NRyRjCXmR0Dd6784Nzs6n8qrVDmwxuaAwqQl4ypms=' 'sha256-M8jmY3K/fjoSQpujqUOfZt4zHqZlIyE4+APDMqY3fo0='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.cdnfonts.com; font-src 'self' data: https://fonts.gstatic.com https://fonts.cdnfonts.com https://st.1001fonts.net; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; manifest-src 'self'; form-action 'self'; upgrade-insecure-requests

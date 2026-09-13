@@ -21272,3 +21272,40 @@ html.v204-type-ready section.v204-type-in [data-v204-type="heading"]{
     display:none!important;
   }
 }
+
+
+/* ========================================================================== 
+   V296 — dark contextual Pong cursor tooltip
+   --------------------------------------------------------------------------
+   Keep the Pong hint contextual to the 3D computer, but present it as a
+   compact dark tooltip anchored from the pointer's upper-right edge rather
+   than a centered dialogue bubble.
+   ========================================================================== */
+@media (hover:hover) and (pointer:fine){
+  .v296-pong-cursor-tooltip{
+    position:fixed;
+    left:0;
+    top:0;
+    z-index:2147483645;
+    pointer-events:none;
+    opacity:0;
+    padding:7px 10px 7.5px;
+    border:1px solid rgba(255,255,255,.11);
+    border-radius:6px;
+    background:rgba(24,24,22,.94);
+    color:rgba(247,239,226,.96);
+    box-shadow:0 8px 22px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.045);
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+    font:500 11px/1.15 'IBM Plex Mono',monospace;
+    letter-spacing:-.01em;
+    white-space:nowrap;
+    transform-origin:0 100%;
+    will-change:transform,opacity;
+    transition:opacity .12s ease;
+  }
+  .v296-pong-cursor-tooltip.is-visible{opacity:1;}
+}
+@media (hover:none), (pointer:coarse), (max-width:768px){
+  .v296-pong-cursor-tooltip{display:none!important;}
+}

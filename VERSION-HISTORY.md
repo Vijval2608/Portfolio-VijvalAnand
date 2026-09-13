@@ -1,6 +1,30 @@
 # Portfolio Version History
 
-Current version: **v291**
+Current version: **v296**
+
+
+## v296 — Dark upper-right Pong hover tooltip
+- Restyled the computer-hover Pong helper from a light speech/dialogue bubble into a compact dark tooltip card.
+- Removed the speech-tail treatment and reduced the corner radius so the hint reads as interface feedback rather than dialogue.
+- Re-anchored the tooltip so its bottom-left begins just beyond the cursor's upper-right edge instead of being horizontally centered above the cursor; viewport-edge clamping prevents clipping.
+- Increased the helper font size by exactly 1px (10px → 11px).
+- Preserved the v295 hover/Pong behavior, v294 Hero / Selected Works smoothing, Fittribe PDF fix, v291 reliable 3D startup, and all unrelated interactions unchanged.
+
+## v295 — Pong hint moves to computer-hover cursor bubble
+- Removed the permanent `psst... wanna play pong?` supporting CTA from beneath the Hero actions.
+- Added a lightweight cursor-follow speech bubble with the same message that appears only while a fine pointer is hovering the 3D computer.
+- The bubble stays just above the live cursor, ignores pointer events, and hides as soon as Pong becomes active so it never obstructs gameplay.
+- Preserved the computer itself as the existing Pong click target; keyboard/Pong controls and the footer/contact Pong affordances remain unchanged.
+- Preserved the v294 scroll-smoothed Hero / Selected Works handoff, Fittribe PDF fix, v291 reliable 3D startup, and all other approved interactions unchanged.
+
+
+## v294 — Smooth scroll-anchored Hero / Works handoff
+- Kept the v293 scroll-position ownership but replaced instant scroll scrubbing with a short reversible visual catch-up, so large wheel/trackpad jumps remain readable without creating a delayed autonomous animation.
+- Hero computer and Hero planes now ease toward the newest scroll target with an approximately 300 ms full-range 95% settle at 60 Hz; incremental scrolling remains close to direct.
+- Extended the Hero handoff spatial range slightly so exit and re-entry read more naturally to the eye while staying tied to the current document position.
+- Applied the same smoothing model to Selected Works heading/list/preview entry and lengthened its spatial runway slightly, keeping both sides of the section handoff visually coherent.
+- Scroll reversal takes effect immediately from the current visual state; there is no queued transition that must finish first.
+- Preserved the Fittribe PDF fix, V291 3D renderer/loader, startup/boot choreography, Pong, Work state, Skills, Contact, and all other approved interactions.
 
 
 ## v288 — 60fps interaction / graphics-acceleration performance pass
@@ -427,3 +451,11 @@ Earlier project-specific notes remain in the included versioned Markdown files.
 - Added a 12-second 3D startup budget plus a 15-second controller safety release so no visitor can be trapped indefinitely on the opening viewport.
 - Preserved the approved v286/v288 3D-first flow whenever the model succeeds: real model ready -> two compositor frames -> existing boot/power/translation/reveal sequence.
 
+
+## v293 — scroll-synced Hero ↔ Selected Works handoff
+- Built from the currently deployed v291 baseline; v291 3D startup/retry pipeline remains unchanged.
+- Replaced the autonomous timed Hero exit/re-entry with a reversible scroll-scrubbed handoff. Computer and Hero planes now resolve directly from current document position on every scroll frame, so fast reverse scrolling cannot leave the computer missing and later pop it back into place.
+- Selected Works desktop entry is now driven by the same principle: heading, list, and preview use a subtle scroll-position-linked translate/scale instead of an independent IntersectionObserver-timed spring. Mobile retains the existing section spring behavior.
+- Preview video playback is paused only while the Hero/Works handoff or Works entry is actively moving, avoiding a first-frame video decode hitch during the transition.
+- Carried forward the v292 Fittribe PDF fix by scoping anti-framing headers to the HTML document while allowing case-study PDFs to render inline in the same-site viewer.
+- Preserved the v291 computer model, 3D loader, boot flow, CRT timing, camera/resting angle, Pong, Selected Works active-project persistence, Skills, Contact, and remaining section behavior.
