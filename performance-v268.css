@@ -1,0 +1,30 @@
+/* V268 — performance + fixed 100% site scale. */
+
+/* Keep the site's own layout scale at 100%. Browser/user zoom remains a browser
+   preference; the portfolio itself does not apply a page-level zoom transform. */
+html,body{zoom:1!important;}
+
+/* The radial gradient is already naturally feathered. Avoid an extra full-size
+   blur layer that would remain expensive while the pointer is moving. */
+@media (hover:hover) and (pointer:fine){
+  .cursor-glow{filter:none!important;opacity:.26!important;}
+}
+
+/* Keep the WebGL surface and the short first-load motion on compositor layers. */
+.v258-model-canvas{backface-visibility:hidden;transform:translateZ(0);}
+html.hero-intro-pending .figma-computer,
+html.hero-intro-pending .figma-computer-artboard{
+  backface-visibility:hidden;
+  transform-style:preserve-3d;
+}
+
+
+/* V286 — hold the first desktop viewport while the real 3D model is loading.
+   The existing v266 intro lock takes over on the exact frame the animation starts. */
+@media (min-width:769px){
+  html.v286-3d-loading,
+  html.v286-3d-loading body{
+    overflow:hidden!important;
+    overscroll-behavior:none!important;
+  }
+}

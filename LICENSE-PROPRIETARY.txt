@@ -1,0 +1,25 @@
+Copyright © 2026 Vijval Anand. All rights reserved.
+
+This portfolio website, including its original source code, layout, visual design,
+interaction design, motion, copy, illustrations, custom game implementation,
+and other original creative material, is proprietary work owned by Vijval Anand,
+except for third-party materials that remain subject to their respective licenses.
+
+Permission is granted only to access and render the publicly deployed portfolio
+for normal personal viewing and evaluation.
+
+No permission is granted to copy, clone, reproduce, redistribute, publish,
+repurpose, sublicense, sell, commercially exploit, adapt, reverse-engineer into
+a reusable template, create derivative templates from, or otherwise reuse the
+original source code, design system, visual composition, motion system, or
+creative assets without prior written permission from Vijval Anand.
+
+Automated extraction, bulk scraping, dataset creation, or use of the original
+portfolio source/material as training data is not authorized except where such
+restriction is prohibited by applicable law.
+
+Third-party libraries, fonts, and other third-party materials included or loaded
+by the site are not relicensed by this notice and remain governed by their own
+license terms.
+
+For permission requests, use the contact details published on the portfolio.

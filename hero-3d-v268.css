@@ -1,0 +1,185 @@
+/* Scoped replacement only. All V257 hero sizing and choreography stay intact. */
+.figma-computer-artboard .v258-model-canvas {
+  position:absolute;inset:0;width:100%;height:100%;display:block;
+  z-index:4;pointer-events:auto;opacity:0;transition:opacity .24s ease;
+  touch-action:pan-y;outline:none;
+}
+.figma-computer-artboard.v258-model-ready .v258-model-canvas{opacity:1}
+.v258-model-status{position:absolute;left:6%;right:6%;bottom:0;z-index:6;padding:7px 10px;border-radius:5px;background:#f4ead8;color:#5b4635;font:11px/1.4 "IBM Plex Mono",monospace;text-align:center;pointer-events:none}
+.v258-model-status[hidden]{display:none!important}
+.figma-computer-artboard.v258-model-ready > img.figma-computer-base,
+.figma-computer-artboard.v258-model-ready > .figma-frame-shadow,
+.figma-computer-artboard.v258-model-ready > .figma-computer-line,
+.figma-computer-artboard.v258-model-ready > .figma-computer-cursor,
+.figma-computer-artboard.v258-model-ready > .figma-computer-screen-wrap {
+  opacity:0!important;visibility:hidden!important;pointer-events:none!important;
+}
+@media(prefers-reduced-motion:reduce){.figma-computer-artboard .v258-model-canvas{transition:none}}
+
+/* The 3D ground supplies all computer/cassette shadows. */
+.figma-hero-section .figma-computer{filter:none!important}
+/* Replace this layer's pointer translation with its own 3D yaw. Existing
+   scroll/intro transforms and every other hero layer keep their behavior. */
+.figma-hero-section .figma-computer:has(.v258-model-ready){
+  --v203-depth-x:0px!important;--v203-depth-y:0px!important;
+  --v207-plane-x:0px!important;--v207-plane-y:0px!important;
+}
+
+/* ========================================================================== 
+   V264 base — overridden below by V265 camera flow + Pixel Forge CRT
+   ========================================================================== */
+/* Normal CRT copy no longer uses Pixel Forge. Pong keeps its own Pixel Forge
+   canvas typography in v244-pong-safe-vector.js. */
+.figma-computer-line,
+.figma-computer-cursor{
+  font-family:'IBM Plex Mono',monospace!important;
+  font-weight:500!important;
+}
+.figma-computer-line{letter-spacing:-.035em!important;}
+
+@media (min-width:769px){
+  /* V264: keep generous paint room around the WebGL object, but the actual
+     shadows are tightened in 3D. The extra canvas is only safety margin so a
+     feather never terminates at the artboard edge. */
+  .figma-computer-artboard .v258-model-canvas{
+    inset:auto!important;
+    left:-21%!important;
+    top:-21%!important;
+    width:142%!important;
+    height:142%!important;
+    max-width:none!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+
+  /* The fallback DOM screen tracks the larger live CRT typography so there is
+     no size jump while WebGL is becoming ready. */
+  .figma-computer-line{
+    font-family:'IBM Plex Mono',monospace!important;
+    font-weight:500!important;
+    letter-spacing:-.035em!important;
+    font-size:4.259635cqw!important; /* ≈21px on the 493px source artboard */
+  }
+  .figma-computer-cursor{
+    font-family:'IBM Plex Mono',monospace!important;
+    font-weight:500!important;
+    font-size:4.259635cqw!important;
+  }
+  .figma-computer-artboard[data-cursor-mode="final"] .figma-computer-cursor{
+    font-size:5.476674cqw!important; /* ≈27px */
+  }
+  .figma-computer-line.v262-boot-line,
+  .figma-computer-line.v264-boot-line{
+    color:#d99b60!important;
+  }
+}
+@media (min-width:769px){
+  /* Interaction remains on the original artboard bounds. The enlarged WebGL
+     paint margin is visual-only so it cannot cover the Resume / CTA hit areas. */
+  .figma-computer-artboard .v258-model-canvas{pointer-events:none!important;}
+}
+
+
+/* V264 fallback CRT: arrive dark, then perform the old-tube power expansion
+   while the screen is still textless. BOOTING is shown only after this ends. */
+.figma-computer-screen-wrap[data-screen-state="powering"] .figma-computer-screen-vector{
+  animation:v264ScreenPowerShape .52s cubic-bezier(.24,.78,.18,1) both;
+}
+.figma-computer-screen-wrap[data-screen-state="powering"] .figma-computer-screen-path{
+  animation:v264ScreenPowerOpacity .52s cubic-bezier(.24,.78,.18,1) both;
+}
+.figma-computer-screen-wrap[data-screen-state="powering"] .figma-computer-screen-bloom{
+  animation:v264ScreenPowerBloom .52s ease-out both;
+}
+.figma-computer-screen-wrap[data-screen-state="blank"] .figma-computer-screen-bloom{opacity:0!important;}
+
+@keyframes v264ScreenPowerShape{
+  0%{clip-path:inset(49.65% 48% 49.65% 48%);filter:brightness(1.9) blur(.25px)}
+  18%{clip-path:inset(49.2% 8% 49.2% 8%);filter:brightness(1.65) blur(.35px)}
+  47%{clip-path:inset(37% 1% 37% 1%);filter:brightness(1.28) blur(.2px)}
+  78%{clip-path:inset(5% 0 5% 0);filter:brightness(1.08)}
+  100%{clip-path:inset(0);filter:none}
+}
+@keyframes v264ScreenPowerOpacity{
+  0%{fill-opacity:0}
+  16%{fill-opacity:.72}
+  48%{fill-opacity:.34}
+  100%{fill-opacity:.24}
+}
+@keyframes v264ScreenPowerBloom{
+  0%{opacity:0;transform:scale(.25,.03);filter:blur(1px)}
+  18%{opacity:.74;transform:scale(.92,.06);filter:blur(2px)}
+  55%{opacity:.30;transform:scale(1,.58);filter:blur(5px)}
+  100%{opacity:.12;transform:scale(1);filter:blur(7px)}
+}
+
+/* Prevent the older BOOTING state from replaying the CRT power animation.
+   In V264, only the textless POWERING state owns the turn-on effect. */
+.figma-computer-screen-wrap[data-screen-state="booting"] .figma-computer-screen-vector,
+.figma-computer-screen-wrap[data-screen-state="booting"] .figma-computer-screen-path,
+.figma-computer-screen-wrap[data-screen-state="booting"] .figma-computer-screen-bloom{
+  animation:none!important;
+}
+.figma-computer-screen-wrap[data-screen-state="booting"] .figma-computer-screen-vector{
+  clip-path:inset(0)!important;
+  filter:none!important;
+}
+.figma-computer-screen-wrap[data-screen-state="booting"] .figma-computer-screen-path{
+  fill-opacity:.24!important;
+}
+
+/* ========================================================================== 
+   V266 — fixed-viewport intro + clearer Pixel Forge CRT
+   ========================================================================== */
+.figma-computer-line,
+.figma-computer-cursor{
+  font-family:'Pixel Forge','IBM Plex Mono',monospace!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+}
+
+@media (min-width:769px){
+  .figma-computer-line,
+  .figma-computer-cursor{
+    font-family:'Pixel Forge','IBM Plex Mono',monospace!important;
+    font-weight:400!important;
+    letter-spacing:0!important;
+  }
+
+}
+
+
+/* ==========================================================================
+   V266 — startup stays inside the first viewport; no scene/camera scrolling.
+   ========================================================================== */
+@media (min-width:769px){
+  html.v266-intro-lock,
+  html.v266-intro-lock body{
+    overflow:hidden!important;
+    overscroll-behavior:none!important;
+  }
+  html.v266-intro-lock .figma-hero-section,
+  html.v266-intro-lock .figma-hero-stage{
+    overflow:hidden!important;
+    overscroll-behavior:contain!important;
+  }
+
+  /* Pixel Forge stays the typeface, but the fallback path gets more vertical
+     breathing room and stronger contrast so its top pixels never look shaved. */
+  .figma-computer-line,
+  .figma-computer-cursor{
+    color:#efb879!important;
+    font-family:'Pixel Forge','IBM Plex Mono',monospace!important;
+    font-weight:400!important;
+    font-size:4.462475cqw!important;
+    line-height:1.18!important;
+    text-rendering:geometricPrecision!important;
+    -webkit-font-smoothing:none;
+    filter:none!important;
+    text-shadow:none!important;
+  }
+  .figma-computer-line{overflow:visible!important;}
+  .figma-computer-artboard[data-cursor-mode="final"] .figma-computer-cursor{
+    font-size:5.476674cqw!important;
+  }
+}
