@@ -1,8 +1,0 @@
-[functions]
-  directory = "netlify/functions"
-
-[[redirects]]
-  from = "/api/pong-verify"
-  to = "/.netlify/functions/pong-verify"
-  status = 200
-  force = true
